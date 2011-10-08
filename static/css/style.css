@@ -1,0 +1,68 @@
+.result_image{
+    width: 600px;
+    height: 800px;
+    background-color: #eee; 
+    float: left;
+    margin-right: 20px;
+    position: relative;
+}
+
+.items_block{
+    width: 600px;
+    height: 800px;
+    background-color: #eee;
+    float: left
+
+}
+
+.items{}
+.items .item{
+    float: left;
+    margin-left: 15px;
+    margin-top: 10px;
+    width: 150;
+    height: 180;
+    background-color: #fff;
+    border: 1px solid #000;
+}
+
+.navigation{}
+.navigation li {
+    float: left;
+    margin: 5px;
+    list-style: none;
+}
+
+
+
+
+.item_info{
+    width: 220px;
+    padding: 4px;
+    border: 1px solid;
+    /*background-color: #eee;*/
+    background-image: url("../images/alpha0.5.png");
+    position: absolute;
+    z-index: 101;
+}
+.item_info .title{
+    float: left;
+    border: 1px solid;
+}
+
+.item_info .close{
+    float: right;
+    border: 1px solid;
+}
+
+.item_info .variants img{
+    margin-top: 5px;
+    margin-right: 8px;
+    padding: 2px;
+    border: 1px solid;
+}
+
+#item_info{
+    display: none;
+}
+

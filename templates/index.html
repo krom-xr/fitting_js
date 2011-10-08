@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load custom_tags %}
+
+{% block "content" %}
+
+
+
+<div id="main">
+    <div id="item_info" class="item_info" data-bind="style: {left: info_left, top: info_top,
+        display: show_info() == true ? 'block': 'none'}">
+
+        <div class="title" data-bind="text: title"></div>
+        <div class="close" data-bind="click: itemInfo">X</div> 
+        <div style="clear:both"></div>
+        <div class="variants" data-bind="template:{name: 'variants', foreach: variants}">
+            {% jqtpl "variants" %}
+                <img data-bind="attr:{src: mini_thumb}, click: sendInfo "/>
+            {% endjqtpl %}
+        </div>
+    </div> 
+
+    <div id='result_image' class="result_image" data-bind="event: {mouseover: toggleItemList, mouseout: toggleItemList}" >
+
+        <ul data-bind="visible: show_item_list, template: {name: 'item_list', foreach: maps}, event: {mouseover: freezeDarkey, mouseout: unfreezeDarkey}" style="position: absolute; z-index: 200" > 
+            {% jqtpl "item_list" %}
+            <li data-bind="event: {mouseover: toggleCircuit, mouseout: toggleCircuit }">
+            <span data-bind="text: title"></span><b data-bind="click: sendInfo">X</b> 
+            
+            </li> 
+            {% endjqtpl %}
+        </ul> 
+
+        <img src="images/transparent.png" width="600" height="800" usemap="#map"
+            style="position: absolute; z-index: 100"
+        />
+
+        <map name="map" data-bind="template:{name:'map_list', foreach:maps}">
+            <span>
+            {% jqtpl 'map_list' %}
+                {{each $item.data.image_maps }}
+                    <area shape="poly" coords="${$value}" 
+                    data-bind="click: itemInfo, event: {mouseover: toggleCircuit, mouseout: toggleCircuit}" />
+                {{/each}}
+            {% endjqtpl %}
+            </span> 
+        </map>
+
+        <div data-bind="template:{name:'circuit_list', foreach:maps}">
+            {% jqtpl "circuit_list" %}
+                <img data-bind="attr:{src: transparent_url},
+                visible: show_circuit ,
+                style:{left: transparent_url_left, top: transparent_url_top}"
+                style="position: absolute; z-index:99">
+             {% endjqtpl %}
+        </div>
+        <div style="background-color: black;
+            position: absolute; width: 100%; height: 100%;
+            z-index: 98; opcity: 0.5;"
+            data-bind="style:{opacity: darkey() ? '0.5' : '0'}"
+            ></div> 
+        <img   data-bind="attr: {src: front_image }" />
+    </div>
+
+    <div class="items_block">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="faces">Лица</a>
+                </li>
+                <li>
+                    <a href="things">Одежда</a>
+                </li>
+                <li>
+                    <a href="backgrounds">Фоны</a>
+                </li>
+                <li>
+                    <a href="effects">Эффекты</a>
+                </li>
+            </ul>
+        </div>
+        <div style="clear:both"></div>
+
+        <div id="_items" class="items" data-bind="template: {name: 'item', foreach:items}">
+            {% jqtpl "item" %}
+                <div class="item" >
+                    <img data-bind="attr:{ src: image, title: title},
+                        click: clickHandler" />
+                </div> 
+            {% endjqtpl %}
+        </div>
+
+    </div>
+</div>
+    
+<div style="clear: both"></div>
+
+<div id="items"></div>
+<div id="filters"></div>
+<div id="sort_menu"></div>
+<div class="product_list"></div>
+{% endblock %}
+
+
+
+

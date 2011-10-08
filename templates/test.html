@@ -1,0 +1,56 @@
+{% load custom_tags %}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Do Not Forget Edit It</title>
+
+    {% load static %}
+    <script type="text/javascript" src="../{% get_static_prefix %}js/jquery.js"></script>
+    <script type="text/javascript" src="../{% get_static_prefix %}js/knockout.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function(){
+            var json = {
+                    objects:[
+                        {
+                            id: 112,
+                            type: "face",
+                            photo_id: 111,
+                        },
+                        {
+                            id: 222,
+                            type: "item",
+                            photo_id: 222,
+                        },
+                        {
+                            id:5,
+                            type: "body"
+                        },
+                    ],
+                    new_object:{
+                        id: 112,
+                        type: "face",
+                        photo_id: 112
+                    },
+                    view: "front", //или back,
+            };
+            $.get(
+                '/proxy/fitting_room/looks/imposition',
+                {
+                    action: 'get_data',
+                    json: ko.toJSON(json) ,
+                    
+                },
+                function(data){
+                    console.log(data)
+                    s("div#request").html(data);
+                }
+            );
+                
+        });
+    </script>  
+</head>
+<body>
+    <div id="request">Сюда должне прийти ответ</div> 
+</body>
+</html>
