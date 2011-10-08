@@ -26,7 +26,7 @@
 
         <ul data-bind="visible: show_item_list, template: {name: 'item_list', foreach: maps}, event: {mouseover: freezeDarkey, mouseout: unfreezeDarkey}" style="position: absolute; z-index: 200" > 
             {% jqtpl "item_list" %}
-            <li data-bind="event: {mouseover: toggleCircuit, mouseout: toggleCircuit }">
+            <li data-bind="event: {mouseover: togglePhoto , mouseout: togglePhoto }">
                 <span data-bind="text: title"></span> <b data-bind="click: removeMap">X</b> 
             </li> 
             {% endjqtpl %}
@@ -41,17 +41,17 @@
             {% jqtpl 'map_list' %}
                 {{each $item.data.image_maps }}
                     <area shape="poly" coords="${$value}" 
-                    data-bind="click: itemInfo, event: {mouseover: toggleCircuit, mouseout: toggleCircuit}" />
+                    data-bind="click: itemInfo, event: {mouseover: togglePhoto , mouseout: togglePhoto }" />
                 {{/each}}
             {% endjqtpl %}
             </span> 
         </map>
 
-        <div data-bind="template:{name:'circuit_list', foreach:maps}">
-            {% jqtpl "circuit_list" %}
-                <img data-bind="attr:{src: transparent_url},
-                visible: show_circuit ,
-                style:{left: transparent_url_left, top: transparent_url_top}"
+        <div data-bind="template:{name:'photo_list', foreach:maps}">
+            {% jqtpl "photo_list" %}
+                <img data-bind="attr:{src: photo},
+                visible: show_photo,
+                style:{left: photo_left, top: photo_top}"
                 style="position: absolute; z-index:99">
              {% endjqtpl %}
         </div>

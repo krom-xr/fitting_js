@@ -119,14 +119,14 @@ var Variant = function(data){
     this.id          = data.id;
     this.type        = data.type;
     this.parent_id   = data.parent_id;
-    this.current_transparent_id = data.transparent_id;
+    this.current_photo_id = data.photo_id;
     
     this.mini_thumb  = BASE_PATH +  data.mini_thumb;
 
     this.sendInfo = function(){
-        if (this.current_transparent_id == this.id) { return false }
+        if (this.current_photo_id == this.id) { return false }
         $(window).trigger('closeInfo');
-        $(window).trigger('sendToServer', {action: 'new_transparent', object: this});
+        $(window).trigger('sendToServer', {action: 'new_photo', object: this});
     };
 }
 
@@ -142,24 +142,18 @@ var Map = function(data){
     this.image_maps         = data.image_map;
 
     if (typeof data.photo != 'undefined') {
-        this.transparent_url    = BASE_PATH  + data.photo; // основная картинка
+        this.photo = BASE_PATH  + data.photo; // основная картинка
     } else {
-    
-        this.transparent_url = '';
+        this.photo = '';
     }
 
-
-    this.transparent_id     = data.photo_id;
+    this.photo_id = data.photo_id;
     this.variants           = ko.observableArray();
 
-    this.denied             = data.denied;
-    this.position           = data.position;
-    this.href               = data.href;
-
     //показать картинку (при наведении)
-    this.show_circuit = ko.observable(false); 
-    this.transparent_url_left = '0px';//data.top_left[0] + 'px';
-    this.transparent_url_top  = '0px';// data.top_left[1] + 'px';
+    this.show_photo = ko.observable(false); 
+    this.photo_left = '0px';//data.top_left[0] + 'px';
+    this.photo_top  = '0px';// data.top_left[1] + 'px';
 
     //показать информацию о данном объекте
     this.show_info = ko.observable(false);
@@ -171,16 +165,16 @@ var Map = function(data){
         if (typeof variants == "undefined") {return false };
         $.each(variants, function(i, variant){
             variant['parent_id'] = it.id;
-            variant['transparent_id'] = it.transparent_id;
+            variant['photo_id'] = it.photo_id;
             variant['type'] = it.type;
             it.variants.push(new Variant(variant));
         })
     }(data.thumb_photos);
 
     // показать контур, убрать контур
-    this.toggleCircuit = function(){
-        this.show_circuit(!this.show_circuit());
-        $(window).trigger('darkey', this.show_circuit());
+    this.togglePhoto = function(){
+        this.show_photo(!this.show_photo());
+        $(window).trigger('darkey', this.show_photo());
     }
 
     // показавает всплывающее информационное окно под курсором
@@ -276,9 +270,9 @@ var ResultImage = function(){
     $(window).bind('sendToServer', function(e, data){
 
         // если выбрали новый рисунок у вещи
-        if (data.action == 'new_transparent'){
+        if (data.action == 'new_photo'){
             var map = it.getMap(data.object.parent_id, data.object.type);
-            map['transparent_id'] = data.object.id;
+            map['photo_id'] = data.object.id;
         }
 
         // здесь будет храниться весь json
@@ -297,7 +291,7 @@ var ResultImage = function(){
             json['objects'].push({
                 id: map.id,
                 type: map.type,
-                photo_id: map.transparent_id,
+                photo_id: map.photo_id,
             })
         })
 
@@ -420,10 +414,16 @@ $(window).ready(function(){
     
 
     $('.product').click(function(){
+        var id = $(this).attr('id').split('_')[0];
+        //Upper = id[0].toUpperCase();
+        //rest = id.substring(1);
+
+        //console.log(test.substring(1));
+
         $(window).trigger('sendToServer', {
             action: 'new_item',
             object: {
-                type: $(this).attr('id').split('_')[0],
+                type: id[0].toUpperCase() + id.substring(1),
                 id:   $(this).attr('id').split('_')[1],
             }
         })
