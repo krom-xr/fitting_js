@@ -13,31 +13,48 @@
             var json = {
                     objects:[
                         {
-                            id: 112,
-                            type: "face",
-                            photo_id: 111,
+                            id: 2,
+                            type: "Face",
+                            photo_id: 2,
                         },
                         {
-                            id: 222,
-                            type: "item",
-                            photo_id: 222,
+                            id: 60455,
+                            type: "Item"
                         },
                         {
-                            id:5,
-                            type: "body"
+                            id: 60302,
+                            type: "Item",
+                            photo_id: 739,
                         },
+                        {
+                          id:60321,
+                          type:"Item",
+                          photo_id:820
+                        },
+                        {
+                          id:2,
+                          type:"Background",
+                          photo_id:2
+                        },
+                        {
+                            id:6,
+                            type: "Body"
+                        },
+                        
                     ],
                     new_object:{
-                        id: 112,
-                        type: "face",
-                        photo_id: 112
+                        id: 60321,
+                        type: "Item",
+                        photo_id: 820
                     },
                     view: "front", //или back,
             };
             $.get(
-                '/proxy/fitting_room/looks/imposition',
+                '/fitting_room/looks/imposition',
                 {
-                    action: 'get_data',
+                    method: 'get_data',
+                    format: 'json',
+                    v : '2',
                     json: ko.toJSON(json) ,
                     
                 },
