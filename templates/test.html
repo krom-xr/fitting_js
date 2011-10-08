@@ -52,7 +52,7 @@
                     view: "front", //или back,
             };
             $.get(
-                'http://176.9.30.143/fitting_room/looks/imposition',
+                '/proxy/fitting_room/looks/imposition',
                 {
                     method: 'get_data',
                     format: 'json',
@@ -62,7 +62,7 @@
                 },
                 function(data){
                     console.log(data)
-                    s("div#request").html(data);
+                    $("div#request").html(data);
                 }
             );
                 
