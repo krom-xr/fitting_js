@@ -4,18 +4,23 @@ var HashManager = function(){
     var it = this;
 
     $(window).bind('newDataAdded', function(e, data){
-        //it.jsonToHash(data) //TODO вернуть это потом
+        it.jsonToHash(data);
     });
 
     // когда мы получаем json, мы кодируем его в hash
     this.jsonToHash = function(data) {
         var getObjectHash = function(object) {
             if (object) {
-                return object.id + "," + object.transparent_id;
+                if (typeof object.photo_id != 'undefined') { 
+                    return object.id + "," + object.photo_id;
+                } else {
+                    return object.id;
+                };
             } else {
-                return "00,00"
+                return "00"
             }
         }
+
         var getArrayHash = function(array) {
             var result = Array();
             $.each(array, function(i, object){
@@ -103,10 +108,8 @@ var HashManager = function(){
                     break;
             }
         });
-
-        console.log(json);
         return json;
-    }();
+    };
 
 
 }
@@ -122,6 +125,7 @@ var Variant = function(data){
 
     this.sendInfo = function(){
         if (this.current_transparent_id == this.id) { return false }
+        $(window).trigger('closeInfo');
         $(window).trigger('sendToServer', {action: 'new_transparent', object: this});
     };
 }
@@ -131,13 +135,21 @@ var Map = function(data){
     var it                  = this;
     this.id                 = data.id;
     this.type               = data.type;
-    this.title              = data.title;
+    this.title              = data.title || data.type;
     this.description        = data.description;
     this.price              = data.price;
 
     this.image_maps         = data.image_map;
-    this.transparent_url    = BASE_PATH  + data.transparent_url; // основная картинка
-    this.transparent_id     = data.transparent_id;
+
+    if (typeof data.photo != 'undefined') {
+        this.transparent_url    = BASE_PATH  + data.photo; // основная картинка
+    } else {
+    
+        this.transparent_url = '';
+    }
+
+
+    this.transparent_id     = data.photo_id;
     this.variants           = ko.observableArray();
 
     this.denied             = data.denied;
@@ -156,13 +168,14 @@ var Map = function(data){
     
     // добавляем варианты изображений для данного объекта
     this.addVariants = function(variants){
+        if (typeof variants == "undefined") {return false };
         $.each(variants, function(i, variant){
             variant['parent_id'] = it.id;
             variant['transparent_id'] = it.transparent_id;
             variant['type'] = it.type;
             it.variants.push(new Variant(variant));
         })
-    }(data.front.thumb_photos);
+    }(data.thumb_photos);
 
     // показать контур, убрать контур
     this.toggleCircuit = function(){
@@ -182,12 +195,17 @@ var Map = function(data){
         $(window).trigger('darkey', {state: this.show_info(), hold: this.show_info()});
     }
 
+    // закрывает высплываютщее информационно окно
+    $(window).bind('closeInfo', function(e, data) {
+        it.closeInfo();
+    });
     this.closeInfo = function() {
         this.show_info(false);
         $(window).trigger('darkey', {state: this.show_info(), hold: this.show_info()});
     }
 
     this.removeMap= function(){
+        this.closeInfo();
         $(window).trigger('removeMap', this)
     }
 }
@@ -241,7 +259,7 @@ var ResultImage = function(){
     }
 
     this.addMaps = function(maps){
-        $.each(maps.reverse(), function(i, map){
+        $.each(maps.reverse(), function(i, map) {
             it.addMap(map);
         })
     }
@@ -249,6 +267,7 @@ var ResultImage = function(){
     // отрисовываем полученные данные
     $(window).bind('newDataAdded', function(e, data){
         //TODO здесь будет еще обнуление всего массива maps
+        it.maps([]);
         it.setData(data);
     });
 
@@ -283,7 +302,20 @@ var ResultImage = function(){
         })
 
         console.log(ko.toJSON(json));
-        
+
+        $.get(
+            '/proxy/fitting_room/looks/imposition',
+            {
+                method: 'get_data',
+                format: 'json',
+                v : '2',
+                json: ko.toJSON(json) ,
+                
+            },
+            function(data){
+                $(window).trigger('newDataAdded', data);
+            }, 'json'
+        );
     });
 
     this.setData = function(data){
@@ -325,10 +357,62 @@ var ResultImage = function(){
 $(window).ready(function(){
 
     new ResultImage();
-    new HashManager();
+    hash_manager = new HashManager();
 
-    $.get('/proxy/fitting_room/looks/imposition?ids%5B%5D=60270&ids%5B%5D=60321&format=json&new_item=60321&v=2',
-        {},
+
+    var json = {
+            objects:[
+                {
+                    id: 2,
+                    type: "Face",
+                    photo_id: 2,
+                },
+                {
+                    id: 60271,
+                    type: "Item",
+                    photo_id: 157
+                    
+                },
+                {
+                    id: 60302,
+                    type: "Item",
+                    photo_id: 92,
+                },
+                {
+                  id: 60563,
+                  type:"Item",
+                  photo_id : 207
+                },
+                {
+                  id:2,
+                  type:"Background",
+                  photo_id:2
+                },
+                {
+                    id:6,
+                    type: "Body"
+                },
+                
+            ],
+            new_object:{
+                id: 60271,
+                type: "Item",
+                photo_id: 157
+            },
+            view: "front", //или back,
+    };
+    if (typeof window.location.hash != 'undefined') {
+        json = hash_manager.hashToJson();
+    }
+    $.get(
+        '/proxy/fitting_room/looks/imposition',
+        {
+            method: 'get_data',
+            format: 'json',
+            v : '2',
+            json: ko.toJSON(json) ,
+            
+        },
         function(data){
             $(window).trigger('newDataAdded', data);
         }, 'json'
