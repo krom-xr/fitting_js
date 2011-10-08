@@ -18,18 +18,20 @@
                             photo_id: 2,
                         },
                         {
-                            id: 60455,
-                            type: "Item"
+                            id: 60271,
+                            type: "Item",
+                            photo_id: 157
+                            
                         },
                         {
                             id: 60302,
                             type: "Item",
-                            photo_id: 739,
+                            photo_id: 92,
                         },
                         {
-                          id:60321,
+                          id: 60563,
                           type:"Item",
-                          photo_id:820
+                          photo_id : 207
                         },
                         {
                           id:2,
@@ -43,14 +45,14 @@
                         
                     ],
                     new_object:{
-                        id: 60321,
+                        id: 60271,
                         type: "Item",
-                        photo_id: 820
+                        photo_id: 157
                     },
                     view: "front", //или back,
             };
             $.get(
-                '/fitting_room/looks/imposition',
+                'http://176.9.30.143/fitting_room/looks/imposition',
                 {
                     method: 'get_data',
                     format: 'json',
