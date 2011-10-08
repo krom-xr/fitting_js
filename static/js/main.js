@@ -1,127 +1,117 @@
 var BASE_PATH = "http://176.9.30.143/"
-var HashManager = function(hash) {
+
+var HashManager = function(){
     var it = this;
-    this.hash = hash;
 
-    this.nav_hash = new NavHash(hash.split('?')[0]);
-    this.data_hash = new DataHash(hash.split('?')[1]);
-    this.view_hash = new ViewHash(hash.split('?')[2]);
-
-    var t = new Transmitter();
-    t.loadData([
-        {type:'face'},
-            
-    ]);
-
-
-    this.setHash = function(hash, type, params){
-        switch(type) {
-            case 'navigation':
-                this.nav_hash.setHash(hash, params);
-                break;
-            default:
-                // code
-        }
-
-        window.location.hash = '#' + this.nav_hash + '?' + this.data_hash + "?" + this.view_hash;
-    }
-
-    this.getHash = function(hash){
-        return window.location.hash;
-    }
-
-
-    this.setNavigationHash = function(hash, params){
-        if(params['section'] == '1'){
-            nav_hash = hash;
-        };
-
-    };
-}
- 
-var BaseHash = function(hash){
-    this.hash = hash;
-
-    this.setHash = function(hash, params){
-        this.hash = hash;
-        $(window).trigger('hashchange', this);
-    }
-
-    this.toString = function(){
-        return this.hash;
-    }
-}
-
-var NavHash = function(hash){
-    NavHash.superClass.apply(this, arguments); 
-}
-NavHash.inheritsFrom(BaseHash);
-
-var DataHash = function(hash){
-    DataHash.superClass.apply(this, arguments); 
-}
-DataHash.inheritsFrom(BaseHash);
-
-var ViewHash = function(hash){
-    ViewHash.superClass.apply(this, arguments); 
-}
-ViewHash.inheritsFrom(BaseHash);
-
-var Transmitter = function(){
-    var it = this;
-    this.items = ko.observableArray();
-
-    $(window).bind('hashchange', function(e, hash){
-        if ( hash instanceof NavHash ) {
-            it.sendData(hash, 'navigation');
-        };
+    $(window).bind('newDataAdded', function(e, data){
+        //it.jsonToHash(data) //TODO вернуть это потом
     });
 
-    this.sendData = function(hash, action){
-        console.log('action');
-    }
-    
-    this.loadData = function(data){
-        $.each(data, function(i, item){
-            it.items.push(new Item(item));
+    // когда мы получаем json, мы кодируем его в hash
+    this.jsonToHash = function(data) {
+        var getObjectHash = function(object) {
+            if (object) {
+                return object.id + "," + object.transparent_id;
+            } else {
+                return "00,00"
+            }
+        }
+        var getArrayHash = function(array) {
+            var result = Array();
+            $.each(array, function(i, object){
+                result.push(getObjectHash(object));
+            })
+            return result.join('&');
+        }
+
+        var viewhash    = data.view || 'front';
+        var face        = false;
+        var body        = false;
+        var items       = Array();
+        var background  = false;
+        var effect      = false;
+
+        $.each(data.objects, function(i, object){
+            switch(object.type) {
+                case 'Face':
+                    face = object;
+                    break;
+                case 'Body':
+                    body = object;
+                    break;
+                case 'Item':
+                    items.push(object);
+                    break;
+                case 'Background':
+                    background = object;
+                    break;
+                case 'Effect':
+                    effect = object;
+                    break;
+            }
         })
+        var facehash    = getObjectHash(face);
+        var bodyhash    = getObjectHash(body);
+        var itemshash   = getArrayHash(items);
+        var backhash    = getObjectHash(background);
+        var effecthash  = getObjectHash(effect);
+
+        window.location.hash = viewhash + '|' + facehash + '|' + bodyhash + '|' + itemshash + '|' + backhash + '|' + effecthash;
     }
+
+
+    this.hashToJson = function(){
+        var getObjectFromHash = function(hash, type) {
+            var result      = {}
+            var splitted    = hash.split(',')
+            result['id']    = splitted[0];
+            result['type']  = type; 
+            if (1 < splitted.length) {
+                result['photo_id'] = splitted[1];
+            }
+            return result;
+        }
+
+        var TYPES = [];
+        TYPES[1] = "Face";
+        TYPES[2] = "Body";
+        TYPES[3] = "Item";
+        TYPES[4] = "Background";
+        TYPES[5] = "Effect";
+
+        // 0 - view, 1 - face, 2 - body, 3 - items, 4 - background, 5 - effect
+        var hash = window.location.hash.split('|');
+        json = {};
+        json['objects'] = Array();
+
+        $.each(hash, function(i, _hash){
+            switch(i) {
+                case 0:
+                    json['view'] = _hash.split('#')[1];
+                    break;
+                case 1:
+                case 2:
+                case 4:
+                case 5:
+                    json['objects'].push(getObjectFromHash(_hash, TYPES[i]));
+                    break;
+                case 3:
+                    $.each(_hash.split('&'), function(j, item){
+                        console.log('werwer');
+                        json['objects'].push(getObjectFromHash(item, TYPES[i]));
+                    })
+                    break;
+            }
+        });
+
+        console.log(json);
+        return json;
+    }();
+
+
 }
 
-var Item = function(data){
-    var it = this;
-
-    this.id      = data.id;
-    this.type    = data.type;
-    this.title   = data.title;
-    this.preview = data.preview;
-    this.image   = data.image;
-
-    this.clickHandler = function(){
-        console.log('clickHandler ');
-    }
-}
-
-var ItemsCollection = function(){
-    var it = this;
-    this.items = ko.observableArray();
-
-    this.addItem = function(item){
-        this.items.push(new Item(item));
-    }
-
-    this.addItems = function(items){
-        $.each(items, function(i, item){
-            it.addItem(item);
-        })
-    }
-
-    ko.applyBindings(this, $('#items').get(0));
-}
-
-
-
-
+//вариант избражения для объекта
 var Variant = function(data){
     this.id          = data.id;
     this.type        = data.type;
@@ -132,15 +122,16 @@ var Variant = function(data){
 
     this.sendInfo = function(){
         if (this.current_transparent_id == this.id) { return false }
-        $(document).trigger('sendToServer', {action: 'new_transparent', object: this});
+        $(window).trigger('sendToServer', {action: 'new_transparent', object: this});
     };
 }
 
+//собственно сам объект, назват так потому что в том числе строит из себя image map (но не всегда)
 var Map = function(data){
     var it                  = this;
     this.id                 = data.id;
     this.type               = data.type;
-    this.title              = data.title || 'одеждочка';
+    this.title              = data.title;
     this.description        = data.description;
     this.price              = data.price;
 
@@ -153,7 +144,7 @@ var Map = function(data){
     this.position           = data.position;
     this.href               = data.href;
 
-    //показать контур (при наведении)
+    //показать картинку (при наведении)
     this.show_circuit = ko.observable(false); 
     this.transparent_url_left = '0px';//data.top_left[0] + 'px';
     this.transparent_url_top  = '0px';// data.top_left[1] + 'px';
@@ -163,6 +154,7 @@ var Map = function(data){
     this.info_left = ko.observable(0); 
     this.info_top  = ko.observable(0);
     
+    // добавляем варианты изображений для данного объекта
     this.addVariants = function(variants){
         $.each(variants, function(i, variant){
             variant['parent_id'] = it.id;
@@ -172,13 +164,14 @@ var Map = function(data){
         })
     }(data.front.thumb_photos);
 
-
+    // показать контур, убрать контур
     this.toggleCircuit = function(){
         this.show_circuit(!this.show_circuit());
         $(window).trigger('darkey', this.show_circuit());
     }
 
-    this.itemInfo= function(e) {
+    // показавает всплывающее информационное окно под курсором
+    this.itemInfo = function(e) {
         ko.cleanNode($('#item_info').get(0));
         $('#item_info').find('.variants img').remove();
         ko.applyBindings(this, $('#item_info').get(0));
@@ -186,28 +179,29 @@ var Map = function(data){
         this.info_left(e.pageX + 1 + "px");
         this.info_top(e.pageY + 1 + "px");
         this.show_info(!this.show_info());
-        $(window).trigger('darkey', {state:this.show_info(), hold:this.show_info()});
+        $(window).trigger('darkey', {state: this.show_info(), hold: this.show_info()});
     }
 
-    this.testing = function() {
-        console.log('test');
+    this.closeInfo = function() {
+        this.show_info(false);
+        $(window).trigger('darkey', {state: this.show_info(), hold: this.show_info()});
     }
 
-    this.sendInfo = function(){
-        console.log('there we are send info');
-    
+    this.removeMap= function(){
+        $(window).trigger('removeMap', this)
     }
-
-
-
 }
 
+// главный объект. отвечает за общение с сервером и отрисовку себя и своих дочерних элементов
 var ResultImage = function(){
     var it              = this;
+
+    //TODO возможно стоит переделать на main-image, или imposition_url,
+    //back_image - возможно выпилить
     this.front_image    = ko.observable();
     this.back_image     = ko.observable();
 
-    this.state          = ko.observable();// front, back or other
+    this.view = ko.observable();// front, back or other
 
     // затемнить фон
     this.darkey = ko.observable(false);
@@ -227,6 +221,15 @@ var ResultImage = function(){
         };
     });
 
+    $(window).bind('removeMap', function(e, map){
+        var map = sm.detect(it.maps(), function(_map){
+            return map == _map;
+        })
+        it.maps.remove(map);
+        $(window).trigger('sendToServer', {action: "removeItem"})
+        
+    });
+
     this.getMap = function(id, type){
         return sm.detect(this.maps(),function(map){
             return map.id == id && map.type == type;
@@ -244,36 +247,43 @@ var ResultImage = function(){
     }
 
     // отрисовываем полученные данные
-    $(document).bind('newDataAdded', function(e, data){
+    $(window).bind('newDataAdded', function(e, data){
+        //TODO здесь будет еще обнуление всего массива maps
         it.setData(data);
     });
 
+
     // посылаем данные на сервер
-    $(document).bind('sendToServer', function(e, data){
+    $(window).bind('sendToServer', function(e, data){
+
+        // если выбрали новый рисунок у вещи
         if (data.action == 'new_transparent'){
             var map = it.getMap(data.object.parent_id, data.object.type);
             map['transparent_id'] = data.object.id;
         }
 
+        // здесь будет храниться весь json
+        var json = {}
+
         if (data.action == "new_item") {
-            var new_object = {
+            json['new_object'] = {
                 id: data.object.id,
                 type: data.object.type,
             };
         }
 
-
-        var objects = Array();
+        // список объектов который мы будем отдавать серверу
+        json['objects'] = Array();
         $.each(it.maps(), function(i, map) {
-            objects.push({
+            json['objects'].push({
                 id: map.id,
                 type: map.type,
-                transparent_id: map.transparent_id,
+                photo_id: map.transparent_id,
             })
-        
         })
-        console.log(ko.toJSON(objects));
-        console.log(new_object);
+
+        console.log(ko.toJSON(json));
+        
     });
 
     this.setData = function(data){
@@ -281,12 +291,16 @@ var ResultImage = function(){
         this.addMaps(data.objects);
     }
 
-    this.show_item_list = ko.observable(false);
+    //TODO это возможно выпилить
+    this.show_item_list = ko.observable(true);
+
+    //TODO возможно это надо выпилить будет
     this.toggleItemList = function(){
+        return false;
         this.show_item_list(!this.show_item_list());
     }
 
-    this.freezeDarkey= function(){
+    this.freezeDarkey = function(){
         $(window).trigger('darkey', {state: true, hold: true});
     }
 
@@ -294,25 +308,35 @@ var ResultImage = function(){
         $(window).trigger('darkey', {state: false, hold: false});
     }
 
-
+    this.getFullPrice = function(){
+        var price = 0;
+        $.each(this.maps(), function(i, map){
+            if (typeof(map.price) != 'undefined') {
+                price = price + map.price;
+            }
+        })
+        return price
+    }
      
     ko.applyBindings(this, $('#result_image').get(0))
 }
 
 
 $(window).ready(function(){
-    //176.9.30.143/fitting_room/looks/imposition?ids[]=60463&ids[]=60551&format=json&new_item=60463&v=2
+
+    new ResultImage();
+    new HashManager();
+
     $.get('/proxy/fitting_room/looks/imposition?ids%5B%5D=60270&ids%5B%5D=60321&format=json&new_item=60321&v=2',
         {},
         function(data){
-            $(document).trigger('newDataAdded', data);
+            $(window).trigger('newDataAdded', data);
         }, 'json'
     );
     
-    new ResultImage();
 
     $('.product').click(function(){
-        $(document).trigger('sendToServer', {
+        $(window).trigger('sendToServer', {
             action: 'new_item',
             object: {
                 type: $(this).attr('id').split('_')[0],
@@ -324,32 +348,4 @@ $(window).ready(function(){
 
 
 
-
-    itemColl = new ItemsCollection();
-    itemColl.addItems([
-        {
-            id:111,
-            type: 'face',
-            title: 'лицо1',
-            preview: "path_to_preview",
-            image: "path_to_full_image"
-        },
-        {
-            id:222,
-            type: 'face',
-            title: 'лицо2',
-            preview: "path_to_preview",
-            image: "path_to_full_image"
-        },
-        {
-            id:333,
-            type: 'face',
-            title: 'лицо3',
-            preview: "path_to_preview",
-            image: "path_to_full_image"
-        },
-    ]);
-
 });
-                //<area shape="poly" data-bind="attr: {href: href, alt: title, title: title, coords: image_maps[0]},
-                //event: {mouseover: toggleCircuit, mouseout: toggleCircuit}, click: itemInfo" >

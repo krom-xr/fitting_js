@@ -6,17 +6,20 @@
 
 
 <div id="main">
+
+    <!--информация об объекте, а так же варианты объектов-->
     <div id="item_info" class="item_info" data-bind="style: {left: info_left, top: info_top,
         display: show_info() == true ? 'block': 'none'}">
 
         <div class="title" data-bind="text: title"></div>
-        <div class="close" data-bind="click: itemInfo">X</div> 
+        <div class="close" data-bind="click: closeInfo">X</div> 
         <div style="clear:both"></div>
         <div class="variants" data-bind="template:{name: 'variants', foreach: variants}">
             {% jqtpl "variants" %}
                 <img data-bind="attr:{src: mini_thumb}, click: sendInfo "/>
             {% endjqtpl %}
         </div>
+        <div data-bind="click: removeMap">Удалить</div>
     </div> 
 
     <div id='result_image' class="result_image" data-bind="event: {mouseover: toggleItemList, mouseout: toggleItemList}" >
@@ -24,8 +27,7 @@
         <ul data-bind="visible: show_item_list, template: {name: 'item_list', foreach: maps}, event: {mouseover: freezeDarkey, mouseout: unfreezeDarkey}" style="position: absolute; z-index: 200" > 
             {% jqtpl "item_list" %}
             <li data-bind="event: {mouseover: toggleCircuit, mouseout: toggleCircuit }">
-            <span data-bind="text: title"></span><b data-bind="click: sendInfo">X</b> 
-            
+                <span data-bind="text: title"></span> <b data-bind="click: removeMap">X</b> 
             </li> 
             {% endjqtpl %}
         </ul> 
@@ -59,6 +61,9 @@
             data-bind="style:{opacity: darkey() ? '0.5' : '0'}"
             ></div> 
         <img   data-bind="attr: {src: front_image }" />
+
+        <!--здесь цена-->
+        <br/>Цена: <span data-bind="text: getFullPrice()"></span> 
     </div>
 
     <div class="items_block">
