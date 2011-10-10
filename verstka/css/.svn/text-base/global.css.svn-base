@@ -1,0 +1,45 @@
+/*GLOBAL*/
+html, body	{height:100%; margin:0; padding:0;} 
+html		{background:#fff;}
+body		{margin:0 auto; color:#000; position:relative; color:#000;}
+* 			{margin: 0;padding: 0;}
+
+#content				{margin:0 auto; min-height:100%; margin-bottom:-127px; height:auto; position:relative;}
+* html #content			{height:100%;}
+html>body #minHeight	{float:left;width:0px;height:100%;}
+
+#footer 				{ margin:0 auto; clear:both; height:127px; position:relative;}
+#clearfooter			{clear:both;height:127px;}
+
+.content	{ width:998px; margin:0 auto; position:relative; z-index:1; padding:14px 0 20px 0;}
+.main	{ margin:0 0 0 220px;}
+.catalog_block	{ margin:0 0 0 220px;}
+.left	{ margin:0 0 0 -100%; float:left; width:220px;}
+.fix		{ width: 998px; overflow:visible; text-align:left; margin:0 auto; position: relative;}
+.width		{width:100%;}
+.clear { clear:both; }
+.all { float: left; width: 100%; }
+
+/*TAGS*/
+DIV, TD, INPUT, SELECT, TEXTAREA	{font:normal 12px Calibri;}
+IMG 	{border: 0px;}
+LI, UL, OL, form, H1, H2	{margin:0; padding:0;}
+
+h1		{margin:0px 0px 0px 0px; padding:0px 0 0 0; font: normal 28px Candara, Calibri; color:#161719; text-transform:uppercase; overflow:hidden; position: relative;}
+
+p{ 	font:normal 12px Calibri; color:#000;
+	text-align: left;
+	line-height:120%;
+	margin: 0px;
+	padding: 0px 0px 13px 0px;}
+
+blockquote	{ color:#f86f00; font-style:italic; padding:0 0 10px 20px;}
+img {border:0px}
+	
+a		{ text-decoration: underline; color:#00733A;}
+a:hover	{ text-decoration:none;}
+
+input, textarea { outline:none; }
+input[type=checkbox], input[type=radio] {  width: auto !important;  height: auto !important;}
+input[type=radio] 						{  padding: 1px !important;  margin:0px 0px 0 0 !important;  border: 0px !important;}
+input[type=checkbox]				 	{  padding: 0px 0px 0px 0px !important;  margin:0px 8px 0 0 !important;  border: 1px !important;}

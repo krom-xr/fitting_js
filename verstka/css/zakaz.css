@@ -1,0 +1,57 @@
+.proces_line { float:left; width:750px; padding:18px 0px 0px 0px; }
+	.proces_line .dotted{width:415px;height:1px;margin:0px 0px 0px 82px; padding:0px;float:left;background:url(../images/of_line_dotted.gif) repeat-x left top;}
+	.proces_line ul{list-style:none; margin:-17px 0px 0px 0px; padding:0px;float:left;}
+	.proces_line ul li{list-style:none; margin:0px 49px 0px 0px; padding:40px 0px 0px 0px;float:left;}
+	.proces_line ul li.it1 {background:url(../images/of_tchka_gr.gif) no-repeat center 7px;}
+	.proces_line ul li.it2 {background:url(../images/dost.gif) no-repeat center top;}
+	.proces_line ul li.it3 {background:url(../images/of_tchka.gif) no-repeat center 7px;}
+	.proces_line ul li.it4 {background:url(../images/of_tchka.gif) no-repeat center 7px;}
+	.proces_line  a {float:left; text-transform:uppercase; font-size:12px;color:#191211; text-decoration:none;}
+	.proces_line  a:hover { text-decoration:underline;}
+	
+.without_auth { float:left; width:700px; }
+	.without_auth p {font-size:12px;color:#191211; padding:0px 0px 0px 13px;}
+	.without_auth p a {font-size:12px;color:#191211; padding:0px 0px 0px 0px; margin:0px 0px 0px 10px; text-decoration:none; color:#009933; border-bottom:1px dashed #009933;}
+	.without_auth p a:hover { border-bottom:none;}
+	.without_auth  td{ vertical-align:middle; padding:34px 27px 0px 13px;}
+	.without_auth a.orders_but{ background:url(../images/str.gif) no-repeat 275px 11px #009933; text-transform:uppercase;font-size:12px; height:30px; padding:0px 60px; line-height:30px; color:#ffffff; text-decoration:none;display: inline-block; margin:5px 0px 0px 0px; }
+	.without_auth .orders_but:hover {text-decoration:underline;}
+	.without_auth span {font-size:12px;color:#191211; float:left; clear:both; padding:0px 0px 7px 0px;}
+	.without_auth input {margin:0px 0px 12px 0px;font-size:12px;color:#191211; float:left; clear:both;width:254px; padding:0px 10px; height:21px; border:1px solid #bababa;}
+	
+.mit_auth {float:left; width:700px; background-color:#f4f6f7; margin:16px 0px 30px 0px; padding:0px 0px 20px 0px; }
+	.mit_auth p {font-size:14px;color:#191211; padding:0px 0px 0px 13px; text-transform:uppercase	;}
+	.mit_auth p a{ display:inline-block; margin:0px 0px -5px 20px; width:21px; height:21px; background:url(../images/social_auth.gif) no-repeat left top; }
+	.mit_auth p a.vk{ background-position: -41px 0px; }
+	.mit_auth p a.fb{ background-position: 0px 0px ; }
+	.mit_auth p a.tv{ background-position: -82px 0px; }
+	
+	.mit_auth h3{font-size:18px;color:#191211; font-weight:bold; text-transform:uppercase; padding:15px 0px 0px 13px;}
+	.mit_auth  td{ vertical-align:middle; padding:15px 27px 0px 13px;}
+	.mit_auth a.orders_but{ background:url(../images/str.gif) no-repeat 162px 11px #009933; text-transform:uppercase;font-size:12px; height:30px; padding:0px 60px; line-height:30px; color:#ffffff; text-decoration:none;display: inline-block; margin:30px 0px 0px 0px; }
+	.mit_auth .orders_but:hover {text-decoration:underline;}
+	.mit_auth span {font-size:12px;color:#191211; float:left; clear:both; padding:0px 0px 7px 0px;}
+	.mit_auth span.dop {font-size:12px;color:#009933; text-transform:uppercase; float:left; clear:both; padding:7px 0px 7px 0px;}
+	.mit_auth input {margin:0px 0px 12px 0px;font-size:12px;color:#191211; float:left; clear:both;width:254px; padding:0px 10px; height:21px; border:1px solid #bababa;}	
+
+/*ZAKAZ DOSTAVKA benetton_oformlenie_zakaza_dostavka*/	
+.sposob {float:left; width:330px; padding:35px 0px 0px 0px;}
+	.sposob label {float:left; clear:both; padding:7px 0px 7px 0px;}
+	.sposob p {float:left; clear:both; padding:7px 30px 7px 0px;}
+	.sposob span { padding:0px 0px 0px 8px; top:-1px;position:relative;display:inline-block;}
+.adress {float:left; width:350px;padding:35px 0px 20px 0px;}
+	.vopros {background-color:#f7f8f9; padding:15px 22px; width:262px;}
+	.vopros p.pho { font-family:Arial; font-size:20px; padding:7px 0px; color:#191211;display:inline-block;}
+	.vopros p.pho span {color:#009933;float:none; display: inline;}
+	.adress span{float:left;clear:both;min-width: 50px;display:block; padding:10px 0px 5px 0px;}
+	.mdl input {height:21px; border:1px solid #bababa; width:144px; padding:0px;}
+	.mdl textarea {height:68px; border:1px solid #bababa; width:305px; padding:0px;}
+	.mdls input {height:21px; border:1px solid #bababa; width:34px; padding:0px;}
+	.mdl {float:left; width:162px;}
+	.mdls {float:left; width:55px;}
+	.adress a.orders_but{ background:url(../images/str.gif) no-repeat 265px 11px #009933; text-transform:uppercase;font-size:12px; height:30px; padding:0px 56px; line-height:30px; color:#ffffff; text-decoration:none;display: inline-block; margin:30px 0px 0px 0px; }
+	.adress .orders_but:hover {text-decoration:underline;}
+	
+.from_cart h3 {color: #161719;font-family: Candara;font-size: 18px;font-weight: bold;margin:0px; padding:0px 0px 4px 0px;text-transform: uppercase;}
+.from_cart .vopros h3 {padding:0px 0px 10px 0px;}
+.from_cart h3.gr {color: #009933;}

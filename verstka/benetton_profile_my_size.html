@@ -1,0 +1,542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="ru" />
+<title></title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/jCarousel.css" />
+<link href="css/igal.css" rel="stylesheet" type="text/css" />
+  	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.jcarousel.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            jQuery('#mycarousel').jcarousel({
+                //wrap: 'circular',
+				scroll: 6
+            });
+            jQuery('#mycarousel2').jcarousel({
+                //wrap: 'circular',
+				scroll: 6
+            });
+			jQuery('#mycarousel3').jcarousel({
+                //wrap: 'circular',
+				scroll: 6
+            });
+			jQuery('#mycarousel4').jcarousel({
+                //wrap: 'circular',
+				scroll: 6
+            });
+			$('.vkladki .t ul li').each(function(j){
+				if ($(this).attr('class')=='active'){
+				var num = $(this).children('a').attr('id').replace(/num/,"");
+				var massDivCont = $(this).parent('ul').parent('div.t').parent('div.vkladki').children('div.vk_content');
+					for(var i=0; i<massDivCont.length; i++){
+						if (i==num){
+							$(massDivCont[i]).show();
+						}else $(massDivCont[i]).hide();
+					}
+				}
+			});
+        });
+    </script>
+
+<!--[if IE]>
+	<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
+<![endif]-->
+<!--[if lte IE 6]>
+    <meta http-equiv="refresh" content="0; url=ie6/ie6.html" />
+<![endif]-->
+</head>
+
+<body>
+
+<div id="content">
+	<!--HEAD-->
+   	<div class="head">
+    	<div class="top">
+        	<div class="fix">
+            	<div class="logo"><a href="#"><img src="images/logo.gif" alt="" /></a></div>
+                <ul class="menu_top">
+                	<li><a href="#">каталог</a></li>
+                    <li><a href="#">примерочная</a></li>
+                    <li><a href="#">3d магазин</a></li>
+                    <li><a href="#">игры</a></li>
+                    <li><a href="#">новости</a></li>
+                    <li><a href="#">личный кабинет</a></li>
+                </ul>
+                <div class="lang">
+                	<div><img src="images/ru.gif" alt="" /></div>
+                </div>
+                <div class="bag"><div>В корзине <a href="#">3 товара</a><br />на 26 500 руб. </div></div>
+            </div>
+        </div>
+        <div class="fix">
+        	<div class="head_bot">
+            	<div class="phone">
+                	<div>Наш телефон<br /><big><img src="images/phone.gif" alt="" /></big><br /><a href="#">Написать письмо</a></div>
+                </div>
+                <div class="brends_top">
+                	<div class="all_brends">все бренды</div>
+                    <div class="brends_link"><a href="#"><img src="images/b3.gif" alt="" /></a><a href="#"><img src="images/b2.gif" alt="" /></a><a href="#"><img src="images/b1.gif" alt="" /></a></div>
+                </div>
+                <ul class="menu_main">
+                    <li class="m1"><a class="m1" href="#">мужская одежда</a>
+                    	<ul>
+                        	<li>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="m1"><a class="m1" href="#">женская одежда</a>
+                    	<ul>
+                        	<li>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="m1"><a class="m1" href="#">детская одежда</a>
+                    	<ul>
+                        	<li>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--/HEAD-->
+    <div class="content">
+    	<div class="profile_button">
+        	<a href="#">доставка</a>
+            <a href="#">преимущества</a>
+        </div>
+    	<h1>личный кабинет</h1>
+        <div class="crumb"><a href="#">Личный кабинет</a><span>/</span><a href="#">Кошелек клиента</a></div>
+        <div class="width">
+        	<div class="all">
+				<div class="historie">
+                    <div class="size_gerl">
+                    	 <div class="size_gerl_img"><img src="images/size_gerl.jpg" alt="" /></div>
+                         <div class="size_gerl_info">
+                         	<h3>ваши данные в сантиметрах</h3>
+                            <table cellpadding="0" cellspacing="0" class="size_gerl_info_list">
+                            	<tr>
+                                    <th><span>1</span></th>
+                                    <td>Рост</td>
+                                    <td class="size_gerl_namber">185</td>
+                                </tr>
+                                <tr>
+                                    <th><span>2</span></th>
+                                    <td>Обхват груди</td>
+                                    <td class="size_gerl_namber">80</td>
+                                </tr>
+                                <tr>
+                                    <th><span>3</span></th>
+                                    <td>ОБхват под грудью</td>
+                                    <td class="size_gerl_namber">185</td>
+                                </tr>
+                                <tr>
+                                    <th><span>4</span></th>
+                                    <td>Обхват талии</td>
+                                    <td class="size_gerl_namber">80</td>
+                                </tr>
+                                <tr>
+                                    <th><span>5</span></th>
+                                    <td>Обхват бедер</td>
+                                    <td class="size_gerl_namber">90</td>
+                                </tr>
+                                <tr>
+                                    <th><span>6</span></th>
+                                    <td>Длина руки</td>
+                                    <td class="size_gerl_namber">20</td>
+                                </tr>
+                                <tr>
+                                    <th><span>7</span></th>
+                                    <td>Длина ноги</td>
+                                    <td class="size_gerl_namber">110</td>
+                                </tr>
+                                <tr>
+                                    <th><span>8</span></th>
+                                    <td>Длина ступни (лев.)</td>
+                                    <td class="size_gerl_namber">43</td>
+                                </tr>
+                                <tr>
+                                    <th><span>9</span></th>
+                                    <td>Длина ступни (пр.)</td>
+                                    <td class="size_gerl_namber">41</td>
+                                </tr>
+                            </table>
+                         </div>
+                         <div class="your_size">
+                         	<h3>ваши размеры</h3>
+                            <table cellpadding="0" cellspacing="0" class="your_size_info">
+                            	<tr>
+                                	<th>Верх</th>
+                                    <td>s</td>
+                                </tr>
+                                <tr>
+                                	<th>Низ</th>
+                                    <td>44</td>
+                                </tr>
+                                <tr>
+                                	<th>Бельё</th>
+                                    <td>42</td>
+                                </tr>
+                                <tr>
+                                	<th>Бюстгалтер</th>
+                                    <td>85</td>
+                                </tr>
+                                <tr>
+                                	<th>Обувь</th>
+                                    <td>38</td>
+                                </tr>
+                            </table>
+                            <div class="your_size_change">
+                            	<a href="#">изменить данные</a>
+                            </div>
+                         </div>
+                    </div>
+				</div>
+            </div>
+            <div class="left">
+            	<div class="lk_menu lk_menu2">
+                	<div class="lk_img"><img src="images/img9.jpg" /><div><a href="#">Евгений Плюшкин</a></div></div>
+                    <ul>
+                    	<li><span>вещи</span></li>
+                        <li><a href="#">Отложенные</a></li>
+                        <li><a href="#">Понравившиеся</a></li>
+                        <li><a href="#">Рекомендуемые</a></li>
+                        <li><a href="#">Корзина</a></li>
+                        <li><a href="#">История заказов</a></li>
+                    </ul>
+                    <ul>
+                    	<li><span>образы</span></li>
+                        <li><a href="#">Мои</a></li>
+                        <li><a href="#">Понравившиеся</a></li>
+                        <li><a href="#">Черновики</a></li>
+                    </ul>
+                    <ul>
+                    	<li><span>разное</span></li>
+                        <li><a href="#">Мои размеры</a>
+							<ul>
+								<li><a href="#">верх</a></li>
+								<li><a href="#">низ</a></li>
+								<li><a href="#">обувь</a></li>
+								<li><a href="#">лифчик</a></li>
+								<li><a href="#">подсказать</a></li>
+							</ul>
+						</li>
+                        <li><a href="#">Бонусы и скидки</a></li>
+                        <li><a href="#">Настройки</a></li>
+                        <li><a href="#">Справка/помощь</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div id="clearfooter"></div>
+</div>
+<!--Footer-->
+<div id="footer">
+    <div class="foot">
+        <div class="copy"><div><a href="#"><img src="images/logof.gif" alt="" /></a></div><p>Copyright 2011 All rights reserved. Все права защищены</p></div>
+        <ul class="menuf">
+        	<li><div>магазин</div><a href="#">Оплата</a><br /><a href="#">Возврат товара</a><br /><a href="#">Преимущества</a><br /><a href="#">Поддержка</a></li>
+        	<li><div>Информация</div><a href="#">Поддержка</a><br /><a href="#">FAQ</a><br /><a href="#">Адреса магазинов</a><br /><a href="#">Список размеров</a><br /><a href="#">Обратная связь</a></li>
+        	<li><div>о компании</div><a href="#">Справка</a><br /><a href="#">Раздел для СМИ</a><br /><a href="#">Информация о компании</a><br /><a href="#">Правила использования сайта</a></li>
+        </ul>
+    </div>
+</div>
+<!--/Footer-->
+<div id="popup"></div>
+</body>
+</html>

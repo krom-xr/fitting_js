@@ -1,0 +1,68 @@
+.main_img {float:left; width:352px;}
+	.main_img ul{ margin:20px 0px 32px 0px;border-top:1px solid #e3e5e7; border-left:1px solid #ffffff; border-right:1px solid #ffffff; border-bottom:1px solid #009933; float:left; width:355	px; list-style:none; padding:0px;}
+	.main_img ul li {margin:0px; padding:0px; list-style:none;background: url(../images/kart_vesh_btn.gif) repeat-x left top;float:left; height:33px; border-right:1px solid #cfd2d4;}
+	.main_img ul li a { padding:0px 8px;text-transform:uppercase; font-size:12px; text-decoration:none; height:33px; line-height:33px; font-family:Calibri; font-weight:normal; color:#1f1816;}
+	.main_img ul li.last {border:none;}
+	.main_img .main_img_rotation {width:350px; height:622px; overflow:hidden;position:relative;}
+	.main_img .main_img_rotation ul{margin:0px;padding:0px;}
+	.main_img .main_img_rotation li{width:350px; height:622px; overflow:hidden;display:block;}
+	.nav_left {position:absolute; width:33px; height:53px;display:block; top:11px; left:11px;background: url(../images/str.png) no-repeat left top;}
+	.nav_right {position:absolute; width:33px; height:53px;display:block; top:11px; right:11px;background: url(../images/str.png) no-repeat left bottom;}
+	.vert_rotation {float:left; margin:0px; padding:0px 0px 0px 18px;}
+	.vert_rotation ul{list-style:none; margin:0px; padding:0px;}
+	.vert_rotation ul li{list-style:none; margin:0px; padding:5px 0px;}
+	.vert_rotation ul li a{display:block; margin:0px; padding:	0px;}
+	.vert_rotation ul li.nav_top {padding:0px 0px 10px 0px;}
+	.vert_rotation ul li.nav_bot {padding:9px 0px 0px 0px;}
+	.vert_rotation ul li.nav_top a {background: url(../images/romb.gif) no-repeat center top; width:112px; height:9px;display:block; float:left;}
+	.vert_rotation ul li.nav_bot a {background: url(../images/romb.gif) no-repeat center bottom; width:112px; height:9px;display:block; float:left;}
+	
+.description { float:left; width:495px; padding:0px 0px 0px 20px;margin-top:-34px;}
+
+.lbl {width:300px; float:left;}
+	.lbl p {font-size:12px; font-family:Calibri; color:#191211; float:left; clear:both; padding: 0px 0px 15px 0px;}
+	.lbl a.incart{ margin:-10px 0px 0px 10px; float:left; padding:8px 7px 6px 30px; font-size:14px;background: url(../images/cart_green.gif) no-repeat left top;text-decoration:none;}
+	.lbl a.incart span{ border-radius: 2px 2px 2px 2px; background:#009933; padding:2px 7px; font-size:14px; color:#ffffff; text-transform:uppercase;text-decoration:none;}
+	.lbl p.sizz a {padding:0px 0px 0px 23px;}
+	.lbl p.color_s span {display:block; float:left;padding:0px 23px 0px 0px;}
+	.lbl p.color_s a {padding:0px; margin:0px 3px 0px 0px; width:18px; height:10px; border:2px solid #ffffff; background:#00ff33;display:block; float:left;}
+	.lbl p.color_s a.red {background:red;}
+	.lbl p.color_s a.blue {background:blue;}
+	.lbl p.color_s a.yelow{background:green;}
+	.lbl p.color_s a:hover {border:2px solid #d1d0cf;}
+	.lbl p.color_s a.selected {border:2px solid #d1d0cf;}
+	.lbl p.old_price {padding:0px;}
+	.lbl p.old_price  em {font-size:14px; text-transform:uppercase; font-style:normal;color:#94908f;text-decoration:line-through;}
+	.lbl p.old_price  span {font-size:14px; text-transform:uppercase; font-style:normal;color:#f63100;text-decoration:none;}
+	.lbl p.new_price   {font-size:14px; text-transform:uppercase; font-style:normal;color:#191211;text-decoration:none;}
+	.lbl p.new_price  span.prc {font-size:14px; text-transform:uppercase; font-style:normal;color:#009933;text-decoration:none;}
+	.lbl select {font-size:12px; font-family:Calibri; color:#191211;}
+.rbl {width:175px;float:right;}
+	.rbl .send { background:#b8b8b8; color:#ffffff; text-transform:uppercase; text-decoration:none;padding:2px 7px; font-size:12px;}
+	.rbl .send:hover {text-decoration:underline;}
+	
+.vklad_descr {width:494px; float:left; padding:10px 0px 0px 0px;	}
+	.vklad_descr ul { list-style:none; float:left; margin:0px;padding:0px; width:494px;}
+	.vklad_descr ul li{ list-style:none; float:left; margin:0px;padding:0px 2px 0px 0px;}
+	.vklad_descr ul li a {font-size:14px;float:left; background:#cccccc; text-transform:uppercase;text-decoration:none; color:#ffffff; padding:4px 6px 6px 6px; border-left:3px solid #cccccc; border-top:3px solid #cccccc; border-right:3px solid #cccccc;}
+	.vklad_descr ul li a.selected { background:#ffffff; color:#191211; border-left:3px solid #e7e7e7; z-index:100;border-top:3px solid #e7e7e7; border-right:3px solid #e7e7e7;position:relative;}
+	.vklad_descr ul li a:hover { background:#ffffff; color:#191211; border-left:3px solid #e7e7e7; z-index:100;border-top:3px solid #e7e7e7; border-right:3px solid #e7e7e7;position:relative;}
+	.vklad_descr .txt { border:3px solid #e7e7e7; float:left; padding:10px 0px; margin: -3px 0px 0px 0px;z-index:90; position:relative; height:418px;}
+	.vklad_descr .txt p{ padding:5px 15px; font-size:12px;}
+	
+		
+.tov_navig { float:right; position:relative;text-align:right;top: -80px;}
+	.tov_navig a {border:none;color: #009933;height: 19px;padding:0px;text-decoration: underline;width: auto;display: inline-block;font-size: 12px;line-height: 20px;margin: 0 3px;}
+	.tov_navig a.prev {background: url("../images/pager_prev.png") no-repeat left 7px; margin-right: 20px;padding-left: 18px;}
+	.tov_navig a.next {background: url("../images/pager_next.png") no-repeat right 7px; margin-right: 0px;padding-right: 18px;}
+	.tov_navig  a.print{background: url("../images/print.gif") no-repeat left 6px; padding:3px 0px 8px 24px;}
+	.tov_navig a:hover {text-decoration:none;}
+	
+.button1 {cursor: pointer;display: inline-block;height: 20px;overflow: hidden;text-decoration: none;}
+	.new_price .button1 {position:relative; top:11px; left:10px;background: url(../images/cart_green.gif) no-repeat left top;cursor: pointer;display: inline-block;height: 20px;overflow: hidden;text-decoration: none; padding:8px 7px 6px 30px;}
+	.button1 span.l {background: url("../images/bl.png") no-repeat scroll 0 0 transparent;}
+	.button1 span.r {background: url("../images/br.png") no-repeat scroll 0 0 transparent;}
+	.button1 span.l, .button1 span.r {height: 20px;overflow: hidden;width: 2px;}
+	.button1 span.c {text-transform:uppercase; border:none;color:#FFFFFF;cursor:pointer;font-size:14px;line-height:20px;padding:0px 5px;width:auto;background:#009933;height:20px;overflow:hidden;display: inline-block;}
+	.button1:hover span.c {text-decoration:underline;}
+		

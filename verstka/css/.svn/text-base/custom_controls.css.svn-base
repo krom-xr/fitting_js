@@ -1,0 +1,23 @@
+/*INPUT CHECHBOX*/
+.checkbox input[type="checkbox"] {position:absolute;left:-9999px;}
+.checkbox input[type="checkbox"]:checked + span {background:transparent url( '../images/ch2.gif' ) no-repeat scroll left 2px;}
+.checkbox input[type="checkbox"] + span {background:transparent url( '../images/ch2.gif' ) no-repeat scroll left -16px; display:inline-block;height:18px;margin:0px 5px 2px 0;position: absolute;vertical-align:super;width:13px;}
+.checkbox 	{ display:block; margin:0 0 0 0; padding:0px 0 0px 0px; overflow:hidden; position:relative;}
+.checkbox input[type="checkbox"]	{ visibility:visible;}
+.checkbox label	{ display: block; margin:0px 0 0 0px; position:relative; cursor:pointer;}
+.checkbox big	{ display: inline-block; margin:1px 0 0 15px; font-size:12px; color:#656e74; position:relative;}	
+.checkbox big.active { color:#161719;}
+
+.left_menu li.active ul li .checkbox input[type="checkbox"]:checked + span 	{background:transparent url( '../images/ch1.gif' ) no-repeat scroll left 2px;}
+.left_menu li.active ul li .checkbox input[type="checkbox"] + span 			{background:transparent url( '../images/ch1.gif' ) no-repeat scroll left -16px;}
+
+.button1	{ overflow:hidden; height:20px; display:inline-block; cursor:pointer; text-decoration: none;}
+.button1 span	{display:inline-block; overflow:hidden; float:left;}
+.button1 span.l,
+.button1 span.r	{ width:2px; height:20px; overflow:hidden;}
+.button1 span.l	{ background:url( '../images/bl.png' ) no-repeat 0 0;}
+.button1 span.r	{ background:url( '../images/br.png' ) no-repeat 0 0;}
+.button1 span.c	{ height:20px; background:#009933; padding:0 0px; overflow:hidden;}
+.button1 span.c	{ padding:0px 5px; width: auto; font-size:14px; line-height:22px; color:#fff; border:0; cursor:pointer;}
+.button1:hover span.c	{ text-decoration:underline;}
+

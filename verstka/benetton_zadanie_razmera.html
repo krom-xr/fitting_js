@@ -1,0 +1,1061 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="ru" />
+<title></title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/jCarousel.css" />
+<link href="css/igal.css" rel="stylesheet" type="text/css" />
+  	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.jcarousel.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            jQuery('#mycarousel').jcarousel({
+                //wrap: 'circular',
+				scroll: 6
+            });
+            jQuery('#mycarousel2').jcarousel({
+                //wrap: 'circular',
+				scroll: 6
+            });
+			$('.vkladki .t ul li').each(function(j){
+				if ($(this).attr('class')=='active'){
+				var num = $(this).children('a').attr('id').replace(/num/,"");
+				var massDivCont = $(this).parent('ul').parent('div.t').parent('div.vkladki').children('div.vk_content');
+					for(var i=0; i<massDivCont.length; i++){
+						if (i==num){
+							$(massDivCont[i]).show();
+						}else $(massDivCont[i]).hide();
+					}
+				}
+			});
+        });
+    </script>
+
+<!--[if IE]>
+	<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
+<![endif]-->
+<!--[if lte IE 6]>
+    <meta http-equiv="refresh" content="0; url=ie6/ie6.html" />
+<![endif]-->
+</head>
+
+<body>
+
+<div id="content">
+	<!--HEAD-->
+   	<div class="head">
+    	<div class="top">
+        	<div class="fix">
+            	<div class="logo"><a href="#"><img src="images/logo.gif" alt="" /></a></div>
+                <ul class="menu_top">
+                	<li><a href="#">каталог</a></li>
+                    <li><a href="#">примерочная</a></li>
+                    <li><a href="#">3d магазин</a></li>
+                    <li><a href="#">игры</a></li>
+                    <li><a href="#">новости</a></li>
+                    <li><a href="#">личный кабинет</a></li>
+                </ul>
+                <div class="lang">
+                	<div><img src="images/ru.gif" alt="" /></div>
+                </div>
+                <div class="bag"><div>В корзине <a href="#">3 товара</a><br />на 26 500 руб. </div></div>
+            </div>
+        </div>
+        <div class="fix">
+        	<div class="head_bot">
+            	<div class="phone">
+                	<div>Наш телефон<br /><big><img src="images/phone.gif" alt="" /></big><br /><a href="#">Написать письмо</a></div>
+                </div>
+                <div class="brends_top">
+                	<div class="all_brends">все бренды</div>
+                    <div class="brends_link"><a href="#"><img src="images/b3.gif" alt="" /></a><a href="#"><img src="images/b2.gif" alt="" /></a><a href="#"><img src="images/b1.gif" alt="" /></a></div>
+                </div>
+                <ul class="menu_main">
+                    <li class="m1"><a class="m1" href="#">мужская одежда</a>
+                    	<ul>
+                        	<li>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="m1"><a class="m1" href="#">женская одежда</a>
+                    	<ul>
+                        	<li>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="m1"><a class="m1" href="#">детская одежда</a>
+                    	<ul>
+                        	<li>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            	<div class="clothing_list">
+                                	<a href="#"><img src="images/9.jpg" alt="" /></a>
+                                    <div>
+                                    	<label>Брюки</label>
+                                        <a href="#">Бермуды</a>
+                                        <a href="#">Легенсы</a>
+                                        <a href="#">Брюки</a>
+                                        <a href="#">Классические брюки</a>
+                                        <a href="#">Брюки-капри</a>
+                                        <a href="#">Шоры</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--/HEAD-->
+    <div class="content">
+    	<h1>примерочная</h1>
+        <div class="crumb"><a href="#">Личный кабинет</a><span>/</span><a href="#">Вещи для примерки</a></div>
+        <div class="width">
+        	<div class="all">
+            	<div class="main">
+                	<div class="big">
+                    	<div class="korzina">
+                            <div class="bag_tov"><p>
+                            	<span><a href="#" class="del">&nbsp;</a><a href="#">Брюки Sisley</a> <a href="#" class="price">25 000 руб</a>.</span>
+                                <span><a href="#" class="del">&nbsp;</a><a href="#">Рубашка Sisley Music</a> <a href="#" class="price">25 000 руб</a>.</span>
+                                <span><a href="#" class="del">&nbsp;</a><a href="#">Футболка Sisley Summer </a> <a href="#" class="price">25 000 руб</a>.</span>
+                            </p></div>
+                            <div class="itogo"><a href="#" id="hide">свернуть</a><label><big>итого</big> 23 000  руб.</label><a href="#" class="button1"><span class="l">&nbsp;</span><span class="c">купить</span><span class="r">&nbsp;</span></a></div>
+                        </div>
+                    	<div class="img_big"><img src="images/12.jpg" alt="" /></div>
+                    </div>
+                    <div class="sort"><p><span>Размер:</span><a href="#" class="s_size1">&nbsp;</a><a href="#" class="s_size2">&nbsp;</a></p><div><span>Cортировать по:</span><a href="#" class="active">Цене</a><a href="#">Дате</a><a href="#">Популярности</a></div></div>
+                    <!--Slider block-->
+                    <script type="text/javascript" src="js/jQuery.Carousel.js"></script>
+                    <div class="product_list">
+                        <ul>
+                            <li>
+                                <div class="catalog_part">
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                  </div>
+                            </li>
+                            <li>
+                                <div class="catalog_part">
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                  </div>
+                            </li>
+                            <li>
+                                <div class="catalog_part">
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                  </div>
+                            </li>
+                            <li>
+                                <div class="catalog_part">
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                  </div>
+                            </li>
+                            <li>
+                                <div class="catalog_part">
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                      <div class="product">
+                                          <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                          <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                      </div>
+                                  </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <script type="text/javascript">
+                        $(function(){
+                            $("div.product_list").carousel({ 
+                                autoSlide: false,
+                                animSpeed: "slow", 
+                                loop: true, 
+                                pagination: true,
+                                autoSlideInterval: 5000
+                            });
+                        });
+                        $(document).ready(function(){
+                            $('.foo_scr').hide();
+                            $('div.center-wrap .carousel-pagination p').css('margin-left',-($('div.center-wrap .carousel-pagination p').width())/2+'px');
+                            $('.product_list .carousel-next').css('left',($('div.center-wrap').width())/2+'px');
+                            $('.product_list .carousel-previous').css('left',($('div.center-wrap').width())/2+'px');
+                            $('.product_list .carousel-next').css('margin-left',($('div.center-wrap .carousel-pagination p').width())/2+3+'px');
+                            $('.product_list .carousel-previous').css('margin-left',-($('div.center-wrap .carousel-pagination p').width())/2-9+'px');
+                        });
+                    </script>
+                    <!--End Slider block-->
+                    <div class="clear"><img src="images/x.gif" width="1" height="15" alt="" /></div>
+                    <ul class="menu_tov_bot">
+                    	<li class="m1"><a class="m1" href="#">фон</a>
+                            <ul>
+                                <li>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    	<li class="m1"><a class="m1" href="#">эффекты</a>
+                            <ul>
+                                <li>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="m1"><a class="m1" href="#">модели и лица</a>
+                            <ul>
+                                <li>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="m1"><a class="m1" href="#">портрет</a>
+                            <ul>
+                                <li>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                    <div class="product">
+                                        <div><a href="#"><img src="images/10.jpg" alt="" /></a></div>
+                                        <p><a href="#" class="z">&nbsp;</a><a href="#" class="tit">Женская юбка</a><br /><a href="#" class="price">25 000 руб</a></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="m1"><a class="m1" href="#">повернуть</a></li>
+                        <li class="m1"><a class="m1" href="#">снять всю одежду</a></li>
+                        <li class="m1"><a class="m1" href="#">случайный образ</a></li>
+                    </ul>
+                    <ul class="menu_tov_save">
+                    	<li><a href="#">сохранить образ</a></li>
+                        <li><a href="#">распечатать образ</a></li>
+                        <li><a href="#">отправить другу</a></li>
+                        <li><a href="#" class="pay">купить все</a></li>
+                    </ul>
+                    <div class="clear"></div>
+                    
+                    <div class="vkladki">
+                    	<ul class="pager_dots"><li class="active"><a href="#">&nbsp;</a></li><li><a href="#">&nbsp;</a></li><li><a href="#">&nbsp;</a></li></ul>
+                        <div class="t">
+                            <ul>
+                                <li class="active"><a href="#" id="num0">лента образов</a></li>
+                                <li><a href="#" id="num1">каталог образов</a></li>
+                            </ul>
+                        </div>
+                        <div class="vk_content">
+                            <!--jCarousel-->
+                            <div class="j_carusel">
+                                <ul id="mycarousel" class="jcarousel-skin-tango">
+                                    <li><a href="#"><img src="images/5.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/5.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/5.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/5.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/5.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/5.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/5.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/5.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/5.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/5.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                </ul>
+                            </div>
+                            <!--/jCarousel-->
+                        </div>
+                        <div class="vk_content" style="display:block;">
+                            <!--jCarousel-->
+                            <div class="j_carusel">
+                                <ul id="mycarousel2" class="jcarousel-skin-tango">
+                                    <li><a href="#"><img src="images/11.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/11.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/11.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/11.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/11.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/11.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/11.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/11.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/11.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                    <li><a href="#"><img src="images/11.jpg" width="112" height="144" alt="" /></a><div><a href="#" class="price">25 000 руб</a></div></li>
+                                </ul>
+                            </div>
+                            <!--/jCarousel-->
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="left">
+            	<ul class="left_menu">
+                	<li class="m1"><a class="m1" href="#">платья</a></li>
+                    <li class="m1"><a class="m1" href="#">топы</a></li>
+                    <li class="m1"><a class="m1" href="#">футболки</a></li>
+                    <li class="m1"><a class="m1" href="#">рубашки, блузки</a></li>
+                    <li class="m1"><a class="m1" href="#">свитера</a></li>
+                	<li class="m1 active"><div class="checkbox ch_right"><label><input class="all_check" type="checkbox" name="ch" value="0" /><span class="inputRadio">&nbsp;</span><big>&nbsp;</big></label></div><a class="m1" href="#">брюки</a>
+                    	<ul>
+                        	<li><div class="checkbox"><label><input type="checkbox" name="ch" value="1" /><span class="inputRadio">&nbsp;</span><big>Брюки</big></label></div></li>
+                            <li><div class="checkbox"><label><input type="checkbox" name="ch" value="2" /><span class="inputRadio">&nbsp;</span><big>Легинсы и колготки</big></label></div></li>
+                            <li><div class="checkbox"><label><input type="checkbox" name="ch" value="3" /><span class="inputRadio">&nbsp;</span><big>Джегинсы</big></label></div></li>
+                            <li><div class="checkbox"><label><input type="checkbox" name="ch" value="4" /><span class="inputRadio">&nbsp;</span><big>Мама</big></label></div></li></ul>
+                    </li>
+                	<li class="m1"><a class="m1" href="#">шорты, бермуды</a></li>
+                    <li class="m1"><a class="m1" href="#">юбки</a></li>
+                    <li class="m1"><a class="m1" href="#">моно, комбинезоны</a></li>
+                    <li class="m1"><a class="m1" href="#">женское белье</a></li>
+                    <li class="m1"><a class="m1" href="#">купальники</a></li>
+                </ul>
+                <ul class="colors">
+                	<li class="m1"><a class="m1" href="#">цвета</a>
+                    	<a href="#" class="color" style="background:#c80000;">&nbsp;</a>
+                    	<a href="#" class="color active" style="background:#00864d;">&nbsp;</a>
+                    	<a href="#" class="color active" style="background:#00b4c4;">&nbsp;</a>
+                    	<a href="#" class="color" style="background:#dcdcdc;">&nbsp;</a>
+                    	<a href="#" class="color" style="background:#000;">&nbsp;</a>
+                    	<a href="#" class="color active" style="background:#86349b;">&nbsp;</a>
+                    	<a href="#" class="color" style="background:#b05b0f;">&nbsp;</a>
+                    </li>
+                </ul>
+                <ul class="size">
+                	<li class="m1"><a class="m1" href="#">размер</a>
+                    	<div class="size_a"><p>Аксессуары</p>
+                            <div class="checkbox"><label><input type="checkbox" name="ch" value="2" /><span class="inputRadio">&nbsp;</span><big>One size</big></label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="ch" value="2" /><span class="inputRadio">&nbsp;</span><big>S</big></label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="ch" value="2" /><span class="inputRadio">&nbsp;</span><big>M</big></label></div>
+                            <div class="clear"></div>
+                        </div>
+                    	<div class="size_a"><p>Джинсы брюки</p>
+                            <div class="checkbox"><label><input type="checkbox" name="ch" value="2" /><span class="inputRadio">&nbsp;</span><big>28</big></label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="ch" value="2" /><span class="inputRadio">&nbsp;</span><big>29</big></label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="ch" value="2" /><span class="inputRadio">&nbsp;</span><big>30</big></label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="ch" value="2" /><span class="inputRadio">&nbsp;</span><big>29</big></label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="ch" value="2" /><span class="inputRadio">&nbsp;</span><big>30</big></label></div>
+                            <div class="clear"></div>
+                        </div>
+                    	<div class="size_a"><p>Обувь</p>
+                            <div class="checkbox"><label><input type="checkbox" name="ch" value="2" /><span class="inputRadio">&nbsp;</span><big>28</big></label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="ch" value="2" /><span class="inputRadio">&nbsp;</span><big>29</big></label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="ch" value="2" /><span class="inputRadio">&nbsp;</span><big>30</big></label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="ch" value="2" /><span class="inputRadio">&nbsp;</span><big>29</big></label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="ch" value="2" /><span class="inputRadio">&nbsp;</span><big>30</big></label></div>
+                            <div class="clear"></div>
+                        </div>
+                        <a href="#" class="my_size">Подсказать размер</a>
+                    </li>
+                </ul>
+                <ul class="menu_left2">
+                	<li><a href="#" class="m1">Хиты продаж</a>
+                    	<div class="hit">
+                        	<div><a href="#"><img src="images/11.png" alt="" /></a></div>
+                            <p><a href="#">Women's Long Sleeved $65.00</a></p>
+                        </div>
+                    	<div class="hit">
+                        	<div><a href="#"><img src="images/11.png" alt="" /></a></div>
+                            <p><a href="#">Women's Long Sleeved $65.00</a></p>
+                        </div>
+                    </li>
+                    <li><a href="#" class="m1">Скидки и акции</a></li>
+					<li><a href="#" class="m1">Отобранные вещи</a></li>
+                </ul>
+                <div class="more_search"><a href="#">расширенный поиск</a></div>
+                <ul class="see_old">
+                	<li><a href="#" class="m1">недавно просмотренные</a>
+                    	<div class="hit">
+                        	<div><a href="#"><img src="images/11.png" alt="" /></a></div>
+                            <p><a href="#">Women's Long Sleeved $65.00</a></p>
+                        </div>
+                    	<div class="hit">
+                        	<div><a href="#"><img src="images/11.png" alt="" /></a></div>
+                            <p><a href="#">Women's Long Sleeved $65.00</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div id="clearfooter"></div>
+</div>
+<!--Footer-->
+<div id="footer">
+    <div class="foot">
+        <div class="copy"><div><a href="#"><img src="images/logof.gif" alt="" /></a></div><p>Copyright 2011 All rights reserved. Все права защищены</p></div>
+        <ul class="menuf">
+        	<li><div>магазин</div><a href="#">Оплата</a><br /><a href="#">Возврат товара</a><br /><a href="#">Преимущества</a><br /><a href="#">Поддержка</a></li>
+        	<li><div>Информация</div><a href="#">Поддержка</a><br /><a href="#">FAQ</a><br /><a href="#">Адреса магазинов</a><br /><a href="#">Список размеров</a><br /><a href="#">Обратная связь</a></li>
+        	<li><div>о компании</div><a href="#">Справка</a><br /><a href="#">Раздел для СМИ</a><br /><a href="#">Информация о компании</a><br /><a href="#">Правила использования сайта</a></li>
+        </ul>
+    </div>
+</div>
+<!--/Footer-->
+<div class="pop_up_bg"></div>
+<div class="pop_up" style="width:806px; margin-left:-403px;">
+	<table cellpadding="0" cellspacing="0" class="pop_up_border">
+		<tr><td class="pop_up_border_l_t"></td><td class="pop_up_border_c_t"></td><td class="pop_up_border_r_t"></td></tr>
+		<tr><td class="pop_up_border_l_c"></td><td class="pop_up_border_c_c">
+			<div class="pop_up_head">
+				<a href="#" class="close"><img src="images/px.gif" alt="" /></a>
+				<div class="pop_up_head_active">ДЛЯ ЖЕНЩИН</div>
+				<div class="pop_up_head_active_link"><a href="#">ДЛЯ МУЖЧИН</a></div>
+                <div class="pop_up_head_active_link"><a href="#">ДЛЯ ДЕТЕЙ</a></div>
+			</div>
+			<div class="user_size_form">
+				<div class="user_size_img">
+                	<img src="images/size_gerl.jpg" alt="" />
+                </div>
+                <div class="user_size_table">
+                	<table cellpadding="0" cellspacing="0">
+                   		<tr>
+                        	<th></th>
+                            <td><h3>ваши данные в сантиметрах</h3></td>
+                        </tr>	
+                    	<tr>
+                        	<th><span>1</span></th>
+                            <td>
+                          		<p>Рост</p>
+                           	 	<input name="" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                        	<th><span>2</span></th>
+                            <td>
+                          		<p>Обхват груди</p>
+                           	 	<input name="" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                        	<th><span>3</span></th>
+                            <td>
+                          		<p>Обхват под грудью</p>
+                           	 	<input name="" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                        	<th><span>4</span></th>
+                            <td>
+                          		<p>Обхват талии</p>
+                           	 	<input name="" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                        	<th><span>5</span></th>
+                            <td>
+                          		<p>Обхват бедер</p>
+                           	 	<input name="" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                        	<th><span>6</span></th>
+                            <td>
+                          		<p>Длина руки</p>
+                           	 	<input name="" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                        	<th><span>7</span></th>
+                            <td>
+                          		<p>Длина ноги</p>
+                           	 	<input name="" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                        	<th><span>8</span></th>
+                            <td>
+                          		<p>Длина ступни левая</p>
+                           	 	<input name="" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                        	<th><span>9</span></th>
+                            <td>
+                          		<p>Длина ступни левая</p>
+                           	 	<input name="" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                        	<th></th>
+                            <td><div class="your_size_change"><a href="#">Подтвердить данные</a></div> </td>
+                        </tr>
+                    </table>
+                </div>
+			</div>
+		</td><td class="pop_up_border_r_c"></td></tr>
+		<tr><td class="pop_up_border_l_b"></td><td class="pop_up_border_c_b"></td><td class="pop_up_border_r_b"></td></tr>
+	</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+/*GLOBAL + SHARED*/
+	@import "global.css" screen;
+	@import "shared.css" screen;
+	
+/*HEADER*/
+	@import "head.css" screen;
+
+/*NAVIGATION*/
+	@import "navigation.css" screen;
+
+/*PROMOS*/
+	@import "promo.css" screen;
+
+/*POPUPS*/
+	@import "popups.css" screen;
+	
+/*SLIDERS*/
+	@import "slider.css" screen;
+	@import "igal.css" screen;
+	@import "jCarousel.css" screen;
+
+/*FORMS*/
+
+/*LEFT_MENU*/
+	@import "left_menu.css" screen;
+
+/*CATALOG*/
+	@import "catalog.css" screen;
+
+/*CART*/
+	@import "cart.css" screen;
+
+/*VESH*/
+	@import "vesh.css" screen;
+
+/*CUSTOM CONTROLS*/
+	@import "custom_controls.css" screen;
+	
+/*PERSONAL ROOM*/
+	@import "personal_room.css" screen;
+	
+/*FOOTER*/
+	@import "footer.css" screen;
+

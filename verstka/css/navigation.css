@@ -1,0 +1,16 @@
+.crumb	{ padding-bottom:12px; overflow:hidden; border-bottom:1px solid #d2d1d0; margin-bottom:20px;}
+.crumb span		{ display:inline-block; color:#94908f; padding:0 5px;}
+.crumb a		{ display:inline-block; color:#94908f; text-decoration:none;}
+.crumb a:hover	{ text-decoration: underline;}
+
+.pager			{ padding:20px 0 30px 0; overflow:hidden; text-align:center; margin-bottom:0px;}
+.pager a		{ display:inline-block; background:#fff; border:1px solid #dddddd; margin:0 3px; width:20px; color:#000; font-size:12px; line-height:20px; text-decoration:none;}
+.pager a.active		{ background:#3f4248; font-weight:bold; color:#fff;}
+.pager a.prev,
+.pager a.next	{ height:19px; width:auto; text-decoration: underline; padding:0; padding:0; border:0; color:#009933;}
+.pager a.prev	{ background: url( '../images/pager_prev.png' ) no-repeat 0 7px; margin-right:20px; padding-left:18px;}
+.pager a.next	{ background: url( '../images/pager_next.png' ) no-repeat 100% 7px; margin-left:20px; padding-right:18px;}
+.pager a:hover		{ text-decoration:underline;}
+.pager a.active:hover		{ text-decoration: none;}
+.pager a:hover.prev,
+.pager a:hover.next	{ text-decoration:none;}

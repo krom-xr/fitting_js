@@ -1,5 +1,66 @@
-var BASE_PATH = "http://176.9.30.143/"
+var SITE_PATH = "http://176.9.30.143/"
+var AJAX_PATH = '/proxy/fitting_room/looks/imposition'
 
+//Дефолтные данные которые загружаются при первой загрузке страницы
+var default_json = {
+        objects:[
+            {
+                id: 2,
+                type: "Face",
+                photo_id: 2,
+            },
+            {
+                id: 60271,
+                type: "Item",
+                photo_id: 157
+                
+            },
+            {
+                id: 60302,
+                type: "Item",
+                photo_id: 92,
+            },
+            {
+                id: 60563,
+                type:"Item",
+                photo_id : 207
+            },
+            {
+               id:2,
+               type:"Background",
+               photo_id:2
+            },
+            {
+               id:6,
+               type: "Body"
+            },
+            
+        ],
+        new_object:{
+            id: 60271,
+            type: "Item",
+            photo_id: 157
+        },
+        view: "front", //или back,
+};
+
+//посылвает данные к серверу
+var DataSender = function(json){
+    $.get(
+        AJAX_PATH, 
+        {
+            method: 'get_data',
+            format: 'json',
+            v : '2',
+            json: ko.toJSON(json) ,
+            
+        },
+        function(data){
+            $(window).trigger('newDataAdded', data);
+        }, 'json' );
+}
+
+// урпавляет состоянием хэша
 var HashManager = function(){
     var it = this;
 
@@ -61,7 +122,23 @@ var HashManager = function(){
         var backhash    = getObjectHash(background);
         var effecthash  = getObjectHash(effect);
 
+        this.hashChangeIam = true;
         window.location.hash = viewhash + '|' + facehash + '|' + bodyhash + '|' + itemshash + '|' + backhash + '|' + effecthash;
+
+    }
+
+    $(window).bind('hashchange', function(e, data){
+        it.onHashChange();
+    });
+
+    this.hashChangeIam = false;
+
+    this.onHashChange = function() {
+        if(this.hashChangeIam) {
+            this.hashChangeIam = false;
+        } else {
+            DataSender(it.hashToJson());
+        }
     }
 
 
@@ -102,7 +179,6 @@ var HashManager = function(){
                     break;
                 case 3:
                     $.each(_hash.split('&'), function(j, item){
-                        console.log('werwer');
                         json['objects'].push(getObjectFromHash(item, TYPES[i]));
                     })
                     break;
@@ -111,7 +187,10 @@ var HashManager = function(){
         return json;
     };
 
-
+    // если хэш есть, то парсим его и отсылваем данные на сервер
+    if (window.location.hash != '') {
+        DataSender(this.hashToJson());
+    }
 }
 
 //вариант избражения для объекта
@@ -121,7 +200,7 @@ var Variant = function(data){
     this.parent_id   = data.parent_id;
     this.current_photo_id = data.photo_id;
     
-    this.mini_thumb  = BASE_PATH +  data.mini_thumb;
+    this.mini_thumb  = SITE_PATH +  data.mini_thumb;
 
     this.sendInfo = function(){
         if (this.current_photo_id == this.id) { return false }
@@ -130,25 +209,39 @@ var Variant = function(data){
     };
 }
 
-//собственно сам объект, назват так потому что в том числе строит из себя image map (но не всегда)
+//собственно сам объект, назван так потому что в том числе строит из себя image map (но не всегда)
 var Map = function(data){
     var it                  = this;
     this.id                 = data.id;
     this.type               = data.type;
-    this.title              = data.title || data.type;
+    this.title              = data.title;
     this.description        = data.description;
     this.price              = data.price;
 
     this.image_maps         = data.image_map;
 
     if (typeof data.photo != 'undefined') {
-        this.photo = BASE_PATH  + data.photo; // основная картинка
+        this.photo = SITE_PATH  + data.photo; // основная картинка
     } else {
         this.photo = '';
     }
 
+    this.can_display = false;
+    if (data.type == 'Item' || data.type == 'Face' || data.type == "Body" ) {
+        this.can_display = true;
+    }
+
+    this.can_remove = true;
+    if (data.type == 'Face' || data.type == 'Body' ) {
+        this.can_remove = false;
+    }
+
+    if (data.type == 'Face') { this.title = 'Лицо' }; 
+    if (data.type == 'Body') { this.title = 'Тело' }; 
+        
+
     this.photo_id = data.photo_id;
-    this.variants           = ko.observableArray();
+    this.variants = ko.observableArray();
 
     //показать картинку (при наведении)
     this.show_photo = ko.observable(false); 
@@ -171,14 +264,19 @@ var Map = function(data){
         })
     }(data.thumb_photos);
 
+
+    this.freeze_info = ko.observable(false);
+
     // показать контур, убрать контур
     this.togglePhoto = function(){
+        if (this.freeze_info()) { return false };
         this.show_photo(!this.show_photo());
-        $(window).trigger('darkey', this.show_photo());
+        $(window).trigger('blackout', this.show_photo());
     }
 
     // показавает всплывающее информационное окно под курсором
     this.itemInfo = function(e) {
+        this.freeze_info(true);
         ko.cleanNode($('#item_info').get(0));
         $('#item_info').find('.variants img').remove();
         ko.applyBindings(this, $('#item_info').get(0));
@@ -186,7 +284,7 @@ var Map = function(data){
         this.info_left(e.pageX + 1 + "px");
         this.info_top(e.pageY + 1 + "px");
         this.show_info(!this.show_info());
-        $(window).trigger('darkey', {state: this.show_info(), hold: this.show_info()});
+        $(window).trigger('blackout', {state: this.show_info(), hold: this.show_info()});
     }
 
     // закрывает высплываютщее информационно окно
@@ -194,8 +292,10 @@ var Map = function(data){
         it.closeInfo();
     });
     this.closeInfo = function() {
+        this.freeze_info(false);
+        this.show_photo(false);
         this.show_info(false);
-        $(window).trigger('darkey', {state: this.show_info(), hold: this.show_info()});
+        $(window).trigger('blackout', {state: this.show_info(), hold: this.show_info()});
     }
 
     this.removeMap= function(){
@@ -208,28 +308,27 @@ var Map = function(data){
 var ResultImage = function(){
     var it              = this;
 
-    //TODO возможно стоит переделать на main-image, или imposition_url,
-    //back_image - возможно выпилить
-    this.front_image    = ko.observable();
-    this.back_image     = ko.observable();
+    this.main_image    = ko.observable();
+    this.main_image_width = ko.observable();
+    this.main_image_height= ko.observable();
 
     this.view = ko.observable();// front, back or other
 
     // затемнить фон
-    this.darkey = ko.observable(false);
+    this.blackout = ko.observable(false);
     // удерживать фон затемненным
-    this.hold_darkey = false;
+    this.hold_blackout = false;
 
     this.maps = ko.observableArray();
 
     // затемняет фон. Если передано свойство hold = true, то держит фон,
     // пока не придет hold = false
-    $(window).bind('darkey', function(e, state){
+    $(window).bind('blackout', function(e, state){
         if (typeof(state.hold) != 'undefined') {
-            it.hold_darkey = state.hold;
-            it.darkey(state.state);
-        } else if (!it.hold_darkey) {
-            it.darkey(state);
+            it.hold_blackout = state.hold;
+            it.blackout(state.state);
+        } else if (!it.hold_blackout) {
+            it.blackout(state);
         };
     });
 
@@ -239,7 +338,6 @@ var ResultImage = function(){
         })
         it.maps.remove(map);
         $(window).trigger('sendToServer', {action: "removeItem"})
-        
     });
 
     this.getMap = function(id, type){
@@ -260,11 +358,9 @@ var ResultImage = function(){
 
     // отрисовываем полученные данные
     $(window).bind('newDataAdded', function(e, data){
-        //TODO здесь будет еще обнуление всего массива maps
         it.maps([]);
         it.setData(data);
     });
-
 
     // посылаем данные на сервер
     $(window).bind('sendToServer', function(e, data){
@@ -295,43 +391,28 @@ var ResultImage = function(){
             })
         })
 
-        console.log(ko.toJSON(json));
-
-        $.get(
-            '/proxy/fitting_room/looks/imposition',
-            {
-                method: 'get_data',
-                format: 'json',
-                v : '2',
-                json: ko.toJSON(json) ,
-                
-            },
-            function(data){
-                $(window).trigger('newDataAdded', data);
-            }, 'json'
-        );
+        DataSender(json);
     });
 
+    if (!window.location.hash) {
+        DataSender(default_json);
+    }
+
     this.setData = function(data){
-        this.front_image(data.imposition_url);
+        this.main_image(data.imposition_url);
+        this.view(data.view);
         this.addMaps(data.objects);
+
+        this.main_image_width($("#main_image").width());
+        this.main_image_height($("#main_image").height());
     }
 
-    //TODO это возможно выпилить
-    this.show_item_list = ko.observable(true);
-
-    //TODO возможно это надо выпилить будет
-    this.toggleItemList = function(){
-        return false;
-        this.show_item_list(!this.show_item_list());
+    this.freezeBlackout = function(){
+        $(window).trigger('blackout', {state: true, hold: true});
     }
 
-    this.freezeDarkey = function(){
-        $(window).trigger('darkey', {state: true, hold: true});
-    }
-
-    this.unfreezeDarkey = function(){
-        $(window).trigger('darkey', {state: false, hold: false});
+    this.unfreezeBlackout= function(){
+        $(window).trigger('blackout', {state: false, hold: false});
     }
 
     this.getFullPrice = function(){
@@ -351,74 +432,18 @@ var ResultImage = function(){
 $(window).ready(function(){
 
     new ResultImage();
-    hash_manager = new HashManager();
+    new HashManager();
 
+    $('#preloader').ajaxStart(function(){
+        $(this).show();
+    })
+    $('#preloader').ajaxStop(function(){
+        $(this).hide();
+    })
 
-    var json = {
-            objects:[
-                {
-                    id: 2,
-                    type: "Face",
-                    photo_id: 2,
-                },
-                {
-                    id: 60271,
-                    type: "Item",
-                    photo_id: 157
-                    
-                },
-                {
-                    id: 60302,
-                    type: "Item",
-                    photo_id: 92,
-                },
-                {
-                  id: 60563,
-                  type:"Item",
-                  photo_id : 207
-                },
-                {
-                  id:2,
-                  type:"Background",
-                  photo_id:2
-                },
-                {
-                    id:6,
-                    type: "Body"
-                },
-                
-            ],
-            new_object:{
-                id: 60271,
-                type: "Item",
-                photo_id: 157
-            },
-            view: "front", //или back,
-    };
-    if (typeof window.location.hash != 'undefined') {
-        json = hash_manager.hashToJson();
-    }
-    $.get(
-        '/proxy/fitting_room/looks/imposition',
-        {
-            method: 'get_data',
-            format: 'json',
-            v : '2',
-            json: ko.toJSON(json) ,
-            
-        },
-        function(data){
-            $(window).trigger('newDataAdded', data);
-        }, 'json'
-    );
-    
 
     $('.product').click(function(){
         var id = $(this).attr('id').split('_')[0];
-        //Upper = id[0].toUpperCase();
-        //rest = id.substring(1);
-
-        //console.log(test.substring(1));
 
         $(window).trigger('sendToServer', {
             action: 'new_item',
@@ -429,7 +454,4 @@ $(window).ready(function(){
         })
         return false;
     });
-
-
-
 });

@@ -1,0 +1,39 @@
+.head		{ position:relative; height:136px;}
+	.head .top	{ height:43px; background: url( '../images/bg1.gif' ) repeat-x 0 0; margin-bottom:7px;}
+	.head .top .bag	{ position:absolute; right:0; top:0; height:43px; width:165px; background:#009933;cursor:pointer;}
+	.head .top .bag div	{ padding:7px 0 0 10px; font-size:12px; text-transform:uppercase; color:#fff;}
+	.head .top .bag div a	{ color:#fff;}
+	.head .top .lang	{ position:absolute; cursor:pointer; right:175px; top:11px; height:22px; width:40px; background: url( '../images/bg_lang.gif' ) no-repeat 0 0;}
+	.head .top .lang div{ padding:5px 0 0 5px;}
+
+	.head .menu_top	{ overflow:hidden; list-style:none; height:43px; position:absolute; right:218px; top:0;}
+	.head .menu_top li	{ overflow:hidden; list-style:none; float:left; padding: 0 9px;}
+	.head .menu_top li a	{ text-decoration:none; color:#000; text-transform:uppercase; font-size:12px; line-height:43px;}
+	.head .menu_top li a:hover	{ text-decoration: underline;}
+	
+	.head .head_bot		{ height:86px;}
+	.head .phone		{ height:84px; width:217px; border:1px solid #dbdcdd; border-right:0; float:left;}
+	.head .phone div	{ font-size:14px; color:#3c322d; padding:13px 0 0 19px;}
+	.head .phone div a,
+	.head .phone div span	{ color:#00763d;}
+	.head .phone div big	{ font:bold 20px arial narrow; display:inline-block; padding:4px 0 2px 0; line-height:100%;}
+	
+	.head .brends_top		{ overflow:hidden; height:47px;}
+	.head .brends_top .all_brends	{ overflow:hidden; height:46px; border-top:1px solid #dbdcdd; border-right:1px solid #dbdcdd; width:192px; float:left; background:#eef0f1; font:24px Candara, Calibri; text-transform:uppercase; text-align:center; line-height:46px;}
+	.head .brends_top .all_brends a	{ color:#000; text-decoration: none;}
+	.head .brends_top .all_brends a:hover	{ text-decoration:underline;}
+	.head .brends_top .brends_link	{ border-bottom:1px solid #dbdcdd; height:46px; overflow:hidden;}
+	.head .brends_top .brends_link img	{ float:right; margin-left:4px;}
+	
+	.head .menu_main		{ list-style:none; background:#eef0f1; height:38px; width:779px; float:right;border-bottom:1px solid #dbdcdd;border-right:1px solid #dbdcdd;}
+	.head .menu_main li.m1	{ float:left; width:255px; margin:4px 0 0 3px; position:relative;}
+	.head .menu_main li.m1 li	{ list-style:none;}
+	.head .menu_main li.m1 a.m1	{ display:block; font-size:14px; text-transform:uppercase; background:url( '../images/mnbg.gif' ) no-repeat 0 0; height:30px; line-height:30px; text-align:center; color:#2f3032; text-decoration:none; position:relative; z-index:10;}
+	.head .menu_main li:hover.m1 a.m1	{ background-position:0 -70px; height:39px;}
+	
+	.head .menu_main li.m1 ul	{ position:absolute; width:904px; overflow:hidden; z-index:9; background:#fff; padding:4px 0 4px 4px; border:1px solid #dedede; left:-479px; top:38px; background:url( '../images/mnvbg.gif' ) 0 0; display:none;}
+	.head .menu_main li.first ul{ left:-221px;}
+	.head .menu_main li.last ul	{ left: auto; right:-6px;}
+	.head .menu_main li.last ul li	{ overflow:hidden; list-style:none; background:#dedede; margin-right:4px;}
+	
+	.head .menu_main li:hover.m1 ul	{ display:block;}
