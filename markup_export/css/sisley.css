@@ -1,0 +1,1031 @@
+/* line 9, ../sass/reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* line 17, ../sass/reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 18, ../sass/reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 19, ../sass/reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 21, ../sass/reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* remember to define focus styles! */
+/* line 24, ../sass/reset.scss */
+:focus {
+  outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+/* line 27, ../sass/reset.scss */
+ins {
+  text-decoration: none;
+}
+
+/* line 28, ../sass/reset.scss */
+del {
+  text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+/* line 31, ../sass/reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 1, ../sass/_grid.scss */
+.w980 {
+  display: block;
+  width: 980px;
+  margin: 0 auto;
+}
+/* line 6, ../sass/_grid.scss */
+.w980 .w130 {
+  display: block;
+  width: 130px;
+}
+/* line 11, ../sass/_grid.scss */
+.w980 .w180 {
+  display: block;
+  width: 180px;
+}
+/* line 16, ../sass/_grid.scss */
+.w980 .w190 {
+  display: block;
+  width: 190px;
+}
+/* line 21, ../sass/_grid.scss */
+.w980 .w255 {
+  display: block;
+  width: 255px;
+}
+/* line 26, ../sass/_grid.scss */
+.w980 .w260 {
+  display: block;
+  width: 260px;
+}
+/* line 31, ../sass/_grid.scss */
+.w980 .w265 {
+  display: block;
+  width: 265px;
+}
+/* line 36, ../sass/_grid.scss */
+.w980 .w290 {
+  display: block;
+  width: 290px;
+}
+/* line 41, ../sass/_grid.scss */
+.w980 .w210 {
+  display: block;
+  width: 210px;
+}
+/* line 46, ../sass/_grid.scss */
+.w980 .w235 {
+  display: block;
+  width: 235px;
+}
+/* line 51, ../sass/_grid.scss */
+.w980 .w485 {
+  display: block;
+  width: 485px;
+}
+/* line 56, ../sass/_grid.scss */
+.w980 .w440 {
+  display: block;
+  width: 440px;
+  margin: 0 10px;
+}
+/* line 62, ../sass/_grid.scss */
+.w980 .w725 {
+  display: block;
+  width: 725px;
+}
+/* line 67, ../sass/_grid.scss */
+.w980 .w710 {
+  display: block;
+  width: 710px;
+}
+/* line 72, ../sass/_grid.scss */
+.w980 .w250 {
+  display: block;
+  width: 250px;
+}
+/* line 76, ../sass/_grid.scss */
+.w980 .w410 {
+  display: block;
+  width: 410px;
+}
+/* line 81, ../sass/_grid.scss */
+.w980 .w470 {
+  display: block;
+  width: 470px;
+}
+/* line 85, ../sass/_grid.scss */
+.w980 .w500 {
+  display: block;
+  width: 500px;
+}
+/* line 90, ../sass/_grid.scss */
+.w980 .w545 {
+  display: block;
+  width: 545px;
+}
+/* line 95, ../sass/_grid.scss */
+.w980 .w420 {
+  display: block;
+  width: 420px;
+}
+
+/* line 9, ../sass/common.scss */
+header,
+nav,
+section,
+article,
+aside,
+footer {
+  display: block;
+}
+
+/* line 13, ../sass/common.scss */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 8px;
+  padding: 0;
+  font: normal 1em/1.3em sans-serif;
+  text-transform: uppercase;
+}
+
+/* line 21, ../sass/common.scss */
+html {
+  height: 100%;
+}
+
+/* line 25, ../sass/common.scss */
+body {
+  height: 100%;
+  margin: 15px 0;
+  padding: 0;
+  min-width: 980px;
+  font: normal 12px Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+  color: #5a5a5a;
+}
+/* line 33, ../sass/common.scss */
+body.dark {
+  background: #000;
+}
+
+/* line 39, ../sass/common.scss */
+.bg-1 {
+  background: #dedede;
+  display: block;
+  width: 100%;
+}
+
+/* line 45, ../sass/common.scss */
+img {
+  border: none;
+}
+
+/* line 49, ../sass/common.scss */
+.clearfix:after {
+  clear: both;
+  content: "";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+/* line 57, ../sass/common.scss */
+.clearfix {
+  zoom: 1;
+  clear: both;
+}
+
+/* line 63, ../sass/common.scss */
+dd,
+dt {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+/* line 69, ../sass/common.scss */
+a {
+  color: #5a5a5a;
+  text-decoration: underline;
+}
+/* line 73, ../sass/common.scss */
+a:hover {
+  text-decoration: none;
+}
+
+/* line 3, ../sass/common-header-dark.scss */
+header#GeneralHeader {
+  color: #fff;
+}
+/* line 6, ../sass/common-header-dark.scss */
+header#GeneralHeader .headinfo {
+  height: 80px;
+}
+/* line 9, ../sass/common-header-dark.scss */
+header#GeneralHeader .headinfo a {
+  color: #fff;
+}
+/* line 13, ../sass/common-header-dark.scss */
+header#GeneralHeader .headinfo .logo {
+  display: block;
+  float: left;
+  margin-top: 5px;
+  width: 295px;
+  height: 61px;
+  background: url(../img/general/logo-dark.png) no-repeat;
+  text-indent: -3000px;
+}
+/* line 23, ../sass/common-header-dark.scss */
+header#GeneralHeader .headinfo .w190 {
+  float: right;
+}
+/* line 26, ../sass/common-header-dark.scss */
+header#GeneralHeader .headinfo .w190 .phone {
+  margin-top: 15px;
+  background: url(../img/general/head-phone-dark.png) no-repeat 0 0;
+  padding-top: 28px;
+}
+/* line 33, ../sass/common-header-dark.scss */
+header#GeneralHeader .headinfo .w130 {
+  float: right;
+  display: block;
+  margin-left: 40px;
+  background: url(../img/general/cart.png) no-repeat 0 0;
+  padding-left: 60px;
+}
+/* line 40, ../sass/common-header-dark.scss */
+header#GeneralHeader .headinfo .w130 .cart {
+  padding-left: 10px;
+  padding-top: 10px;
+  float: left;
+  height: 80px;
+}
+/* line 46, ../sass/common-header-dark.scss */
+header#GeneralHeader .headinfo .w130 .cart dt {
+  display: block;
+  margin: 0 0 5px 0;
+  font-size: 12px;
+}
+/* line 51, ../sass/common-header-dark.scss */
+header#GeneralHeader .headinfo .w130 .cart dd {
+  display: block;
+  font-size: 11px;
+}
+/* line 60, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main {
+  margin-bottom: 20px;
+  float: left;
+}
+/* line 65, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main .w980 {
+  position: relative;
+  overflow: visible;
+}
+/* line 70, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul {
+  width: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+/* line 78, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li {
+  display: block;
+  position: relative;
+  float: left;
+  margin-right: 2px;
+}
+/* line 84, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li a {
+  text-indent: -4000px;
+  display: block;
+  background: url("../img/sprites/menu-sprite.png") no-repeat;
+}
+/* line 90, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li a.woman {
+  background-position: 0 -300px;
+  height: 50px;
+  width: 214px;
+}
+/* line 93, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li a.woman:hover, header#GeneralHeader nav#Main ul li a.woman.active {
+  background-position: 0 -240px;
+  height: 50px;
+  width: 214px;
+}
+/* line 97, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li a.man {
+  background-position: 0 -180px;
+  height: 50px;
+  width: 214px;
+}
+/* line 100, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li a.man:hover, header#GeneralHeader nav#Main ul li a.man.active {
+  background-position: 0 -120px;
+  height: 50px;
+  width: 214px;
+}
+/* line 104, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li a.child {
+  background-position: 0 -60px;
+  height: 50px;
+  width: 214px;
+}
+/* line 107, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li a.child:hover, header#GeneralHeader nav#Main ul li a.child.active {
+  background-position: 0 0;
+  height: 50px;
+  width: 214px;
+}
+/* line 112, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li.collection {
+  margin-right: 0;
+  text-indent: -4000px;
+  float: right;
+  height: 50px;
+  width: 206px;
+  background: url(../img/general/season.png) no-repeat 0 7px;
+}
+/* line 121, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu {
+  position: absolute;
+  z-index: 500;
+  background: #000;
+  width: 860px;
+  display: none;
+  top: 50px;
+  left: 0;
+}
+/* line 130, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu.man {
+  left: -180px;
+}
+/* line 132, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu.man .container {
+  border-top: 4px solid #028b33;
+}
+/* line 137, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu .container {
+  margin-top: 5px;
+  -moz-box-shadow: 5px 5px 10px #666666;
+  -webkit-box-shadow: 5px 5px 10px #666666;
+  -o-box-shadow: 5px 5px 10px #666666;
+  box-shadow: 5px 5px 10px #666666;
+  width: 860px;
+  float: left;
+  overflow: hidden;
+  padding: 10px 20px;
+  background: #dadbdc;
+  border-top: 4px solid #c0061e;
+  border-bottom: 2px solid #5a5a5a;
+}
+/* line 148, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu .container a {
+  background: none;
+  text-indent: 0;
+  display: normal;
+}
+/* line 154, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu .container .brands {
+  float: left;
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+/* line 160, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu .container .brands li {
+  float: left;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: 20px;
+}
+/* line 168, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu .container .brands li a {
+  text-decoration: none;
+}
+/* line 171, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu .container .brands li a.benetton {
+  color: #028c33;
+}
+/* line 175, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu .container .brands li a.sisley {
+  color: #2d2d2d;
+}
+/* line 179, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu .container .brands li a.playlife {
+  color: #cd1543;
+}
+/* line 183, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu .container .brands li a:hover {
+  text-decoration: underline;
+}
+/* line 190, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu .container .cat {
+  float: left;
+  width: 180px;
+}
+/* line 194, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu .container .cat li {
+  float: none;
+  margin-bottom: 8px;
+}
+/* line 198, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu .container .cat li a {
+  text-decoration: none;
+}
+/* line 201, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu .container .cat li a:hover {
+  text-decoration: underline;
+}
+/* line 209, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu .container .cat.line2 {
+  margin-right: 0;
+}
+/* line 213, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu .container .banner {
+  float: right;
+}
+/* line 218, ../sass/common-header-dark.scss */
+header#GeneralHeader nav#Main ul li .submenu.active {
+  display: block;
+}
+
+/* line 2, ../sass/blocks/block-BannersLine.scss */
+#BannersLine {
+  clear: both;
+  overflow: hidden;
+  display: block;
+  margin-bottom: 20px;
+}
+/* line 8, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 {
+  position: relative;
+}
+/* line 11, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 .prev-button, #BannersLine .w980 .next-button {
+  display: none;
+}
+/* line 15, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 #Rotator {
+  position: absolute;
+  width: 108px;
+  top: 590px;
+  list-style: none;
+  left: 436px;
+}
+/* line 22, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 #Rotator li {
+  display: block;
+  float: left;
+}
+/* line 27, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 #Rotator li a {
+  display: block;
+  text-indent: -4000px;
+  width: 26px;
+  background: url(../img/main/banners/slider-nav.png) no-repeat right 0;
+  height: 25px;
+  margin: 0 5px;
+}
+/* line 36, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 #Rotator .current a, #BannersLine .w980 #Rotator a:hover {
+  background-position: left 0;
+}
+/* line 42, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 .head-banner {
+  position: relative;
+  display: block;
+  height: 640px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+/* line 49, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 .head-banner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+/* line 55, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 .head-banner ul li {
+  overflow: hidden;
+}
+/* line 62, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 .down-banner {
+  float: left;
+  width: 314px;
+  overflow: hidden;
+  display: block;
+  margin-right: 19px;
+}
+/* line 69, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 .down-banner.last {
+  margin-right: 0;
+}
+/* line 73, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 .down-banner a {
+  display: block;
+  width: 314px;
+  height: 100px;
+}
+/* line 79, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 .down-banner.benneton a {
+  background: url(../img/general/banners/downline-1.png) no-repeat 0 0;
+}
+/* line 82, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 .down-banner.benneton a:hover {
+  background: url(../img/general/banners/downline-1.png) no-repeat 0 0;
+  opacity: 0.85;
+}
+/* line 88, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 .down-banner.sisley a {
+  background: url(../img/general/banners/downline-2.png) no-repeat 0 0;
+}
+/* line 91, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 .down-banner.sisley a:hover {
+  background: url(../img/general/banners/downline-2.png) no-repeat 0 0;
+  opacity: 0.85;
+}
+/* line 97, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 .down-banner.playlife a {
+  background: url(../img/general/banners/downline-3.png) no-repeat 0 0;
+}
+/* line 100, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 .down-banner.playlife a:hover {
+  background: url(../img/general/banners/downline-3.png) no-repeat 0 0;
+  opacity: 0.85;
+}
+/* line 107, ../sass/blocks/block-BannersLine.scss */
+.dark #BannersLine .w980 .down-banner {
+  float: left;
+  width: 314px;
+  overflow: hidden;
+  display: block;
+  margin-right: 19px;
+}
+/* line 114, ../sass/blocks/block-BannersLine.scss */
+.dark #BannersLine .w980 .down-banner.last {
+  margin-right: 0;
+}
+/* line 118, ../sass/blocks/block-BannersLine.scss */
+.dark #BannersLine .w980 .down-banner a {
+  display: block;
+  width: 314px;
+  height: 100px;
+}
+/* line 124, ../sass/blocks/block-BannersLine.scss */
+.dark #BannersLine .w980 .down-banner.benneton a {
+  background: url(../img/sisley/banners/downline-1-inactive.png) no-repeat 0 0;
+}
+/* line 127, ../sass/blocks/block-BannersLine.scss */
+.dark #BannersLine .w980 .down-banner.benneton a:hover {
+  background: url(../img/sisley/banners/downline-1.png) no-repeat 0 0;
+}
+/* line 132, ../sass/blocks/block-BannersLine.scss */
+.dark #BannersLine .w980 .down-banner.sisley a {
+  background: url(../img/sisley/banners/downline-2-inactive.png) no-repeat 0 0;
+}
+/* line 135, ../sass/blocks/block-BannersLine.scss */
+.dark #BannersLine .w980 .down-banner.sisley a:hover {
+  background: url(../img/sisley/banners/downline-2.png) no-repeat 0 0;
+}
+/* line 140, ../sass/blocks/block-BannersLine.scss */
+.dark #BannersLine .w980 .down-banner.playlife a {
+  background: url(../img/sisley/banners/downline-3-inactive.png) no-repeat 0 0;
+}
+/* line 143, ../sass/blocks/block-BannersLine.scss */
+.dark #BannersLine .w980 .down-banner.playlife a:hover {
+  background: url(../img/sisley/banners/downline-3.png) no-repeat 0 0;
+}
+/* line 148, ../sass/blocks/block-BannersLine.scss */
+#BannersLine .w980 .graphic, #BannersLine .w980 #prevBtn, #BannersLine .w980 #nextBtn {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: none;
+  text-indent: -8000px;
+}
+
+/* line 3, ../sass/blocks/block-dark.scss */
+.block.dark {
+  background: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+/* line 8, ../sass/blocks/block-dark.scss */
+.block.dark h2 {
+  font-size: 18px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 10px;
+  line-height: 26px;
+}
+/* line 16, ../sass/blocks/block-dark.scss */
+.block.dark h2 span {
+  display: block;
+}
+/* line 21, ../sass/blocks/block-dark.scss */
+.block.dark img {
+  display: block;
+}
+/* line 25, ../sass/blocks/block-dark.scss */
+.block.dark.radio {
+  background: url(../img/sisley/image-radio-block.png) no-repeat;
+  padding: 25px 25px 25px 90px;
+  font-size: 12px;
+  color: #fff;
+  overflow: hidden;
+}
+/* line 32, ../sass/blocks/block-dark.scss */
+.block.dark.radio span {
+  color: #fb44d1;
+}
+/* line 36, ../sass/blocks/block-dark.scss */
+.block.dark.radio .open {
+  display: block;
+  float: right;
+  margin-top: 3px;
+  background: #fb44d1;
+}
+/* line 42, ../sass/blocks/block-dark.scss */
+.block.dark.radio .open a {
+  color: #fff;
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  background: url(../img/general/icons/minidot.png) no-repeat right 7px;
+  padding: 5px 10px 5px 0px;
+  margin: 0 10px;
+}
+
+/* line 2, ../sass/blocks/block-UserPanel.scss */
+#UserPanel {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+}
+/* line 8, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active {
+  display: none;
+  width: 100%;
+  height: 70px;
+  background: #dedede;
+  overflow: hidden;
+}
+/* line 15, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active.display {
+  display: block;
+}
+/* line 18, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul {
+  width: 100%;
+}
+/* line 21, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li {
+  float: left;
+  background: #5a5a5a;
+  height: 70px;
+  overflow: hidden;
+  float: left;
+  color: #fff;
+  margin-right: 2px;
+  padding: 15px 35px;
+}
+/* line 31, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+}
+/* line 36, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li a:hover {
+  text-decoration: underline;
+}
+/* line 41, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.login-reg {
+  text-transform: uppercase;
+}
+/* line 44, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.login-reg a.login {
+  display: inline;
+  font-size: 24px;
+  line-height: 24px;
+  padding: 0;
+  letter-spacing: 2px;
+}
+/* line 52, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.login-reg a.reg {
+  margin-top: 5px;
+  font-size: 11px;
+  font-weight: bold;
+}
+/* line 59, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.user-menu {
+  font-size: 11px;
+}
+/* line 62, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.user-menu ul {
+  width: auto;
+  float: left;
+  position: relative;
+  margin-right: 50px;
+}
+/* line 68, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.user-menu ul.last {
+  margin-right: 0;
+}
+/* line 72, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.user-menu ul li {
+  float: none;
+  height: auto;
+  margin: 0;
+  padding: 3px 0;
+}
+/* line 79, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.user-menu ul li a {
+  display: block;
+  color: #969696;
+}
+/* line 87, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.bonuses {
+  line-height: 40px;
+  font-size: 16px;
+}
+/* line 91, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.bonuses span {
+  font-size: 24px;
+}
+/* line 96, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.search {
+  width: 100px;
+  padding: 10px 20px;
+}
+/* line 99, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.search form {
+  margin: 15px auto;
+  width: 105px;
+}
+/* line 103, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.search .searchtext {
+  border: 0;
+  margin: 3px 0 0 0;
+  padding: 0;
+  float: left;
+  background: none;
+  outline: none;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  line-height: 14px;
+  width: 80px;
+}
+/* line 117, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.search .gosearch {
+  border: 0;
+  float: left;
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  background: url(../img/general/icons/search.png) no-repeat 4px 5px;
+}
+/* line 131, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.hide {
+  padding: 0;
+  margin-right: 0;
+  float: right;
+  width: 40px;
+  height: 70px;
+  text-indent: -4000px;
+}
+/* line 139, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.hide a {
+  display: block;
+  background: #cd1442 url(../img/general/hide.png) no-repeat 0 0;
+  width: 40px;
+  height: 70px;
+}
+/* line 145, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .active ul li.hide a:hover {
+  background-position: -40px 0;
+}
+/* line 156, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .unactive {
+  display: none;
+  height: 35px;
+  overflow: hidden;
+}
+/* line 161, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .unactive ul {
+  float: right;
+  width: 195px;
+}
+/* line 165, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .unactive ul li {
+  float: left;
+  background: #5a5a5a;
+  height: 35px;
+  overflow: hidden;
+  float: left;
+  color: #fff;
+  margin-right: 2px;
+  padding: 5px 35px;
+}
+/* line 175, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .unactive ul li a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+}
+/* line 180, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .unactive ul li a:hover {
+  text-decoration: underline;
+}
+/* line 185, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .unactive ul li.search {
+  width: 111px;
+  padding: 5px 20px;
+}
+/* line 188, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .unactive ul li.search form {
+  margin: 3px auto;
+  width: 105px;
+}
+/* line 192, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .unactive ul li.search .searchtext {
+  border: 0;
+  margin: 3px 0 0 0;
+  padding: 0;
+  float: left;
+  background: none;
+  outline: none;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  line-height: 14px;
+  width: 80px;
+}
+/* line 206, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .unactive ul li.search .gosearch {
+  border: 0;
+  float: left;
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  background: url(../img/general/icons/search.png) no-repeat 4px 5px;
+}
+/* line 220, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .unactive ul li.visible {
+  padding: 0;
+  margin-right: 0;
+  float: right;
+  text-indent: -4000px;
+}
+/* line 226, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .unactive ul li.visible a {
+  display: block;
+  background: #cd1442 url(../img/general/visible.png) no-repeat 0 0;
+  width: 40px;
+  height: 35px;
+}
+/* line 232, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .unactive ul li.visible a:hover {
+  background-position: -40px 0;
+}
+/* line 241, ../sass/blocks/block-UserPanel.scss */
+#UserPanel .unactive.displayme {
+  display: block;
+}
+
+/* line 9, ../sass/sisley.scss */
+#SisleyContent {
+  margin-bottom: 40px;
+}
+/* line 12, ../sass/sisley.scss */
+#SisleyContent .w260, #SisleyContent .w440 {
+  float: left;
+}
+/* line 16, ../sass/sisley.scss */
+#SisleyContent .w440 article {
+  background: #fff;
+  padding: 20px 10px;
+  margin-bottom: 10px;
+}
+/* line 21, ../sass/sisley.scss */
+#SisleyContent .w440 article .s {
+  display: block;
+  position: relative;
+  top: -20px;
+  left: -10px;
+  width: 440px;
+  height: 40px;
+  background: black url(../img/sisley/s.png) no-repeat 0 0;
+}
+/* line 31, ../sass/sisley.scss */
+#SisleyContent .w440 article h2 {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+  font-size: 26px;
+  line-height: 26px;
+}
+/* line 39, ../sass/sisley.scss */
+#SisleyContent .w440 article h2 a {
+  color: #000;
+  text-decoration: none;
+}
+/* line 43, ../sass/sisley.scss */
+#SisleyContent .w440 article h2 a:hover {
+  text-decoration: underline;
+}
+/* line 48, ../sass/sisley.scss */
+#SisleyContent .w440 article h2 .text {
+  display: block;
+  float: left;
+  width: 380px;
+}
+/* line 54, ../sass/sisley.scss */
+#SisleyContent .w440 article h2 time {
+  display: block;
+  float: right;
+  font-size: 13px;
+  font-weight: bold;
+  width: 40px;
+  line-height: 13px;
+  text-align: right;
+}
+/* line 63, ../sass/sisley.scss */
+#SisleyContent .w440 article h2 time .day {
+  color: #000;
+}
+/* line 67, ../sass/sisley.scss */
+#SisleyContent .w440 article h2 time .month {
+  color: #5a5a5a;
+}
+/* line 71, ../sass/sisley.scss */
+#SisleyContent .w440 article h2 time .year {
+  display: block;
+  color: #ccc;
+}
+/* line 77, ../sass/sisley.scss */
+#SisleyContent .w440 article p {
+  margin-top: 10px;
+  font-size: 11px;
+  color: #000;
+}
+/* line 82, ../sass/sisley.scss */
+#SisleyContent .w440 article p a {
+  color: #fb44d1;
+  text-decoration: none;
+}
+/* line 86, ../sass/sisley.scss */
+#SisleyContent .w440 article p a:hover {
+  text-decoration: underline;
+}

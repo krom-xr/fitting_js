@@ -1,0 +1,207 @@
+/* line 2, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages {
+  margin-bottom: 20px;
+}
+/* line 5, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages .sale {
+  margin-bottom: 20px;
+}
+/* line 7, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages .sale ul.tabs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 13, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages .sale ul.tabs li {
+  float: left;
+  display: block;
+  margin-right: 2px;
+  height: 50px;
+}
+/* line 19, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages .sale ul.tabs li a {
+  display: block;
+  height: 50px;
+  text-indent: -4000px;
+  background: url("../img/sprites/sale-tabs-sprite.png") no-repeat;
+}
+/* line 26, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages .sale ul.tabs li.tab-sale-leaders a {
+  background-position: 0 -180px;
+  height: 50px;
+  width: 360px;
+}
+/* line 30, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages .sale ul.tabs li.tab-sale-leaders a:hover, #BlockSaleImages .sale ul.tabs li.tab-sale-leaders.active a {
+  background-position: 0 -120px;
+  height: 50px;
+  width: 360px;
+}
+/* line 33, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages .sale ul.tabs li.tab-sale-images a {
+  background-position: 0 -60px;
+  height: 50px;
+  width: 490px;
+}
+/* line 37, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages .sale ul.tabs li.tab-sale-images a:hover, #BlockSaleImages .sale ul.tabs li.tab-sale-images.active a {
+  background-position: 0 0;
+  height: 50px;
+  width: 490px;
+}
+/* line 45, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab {
+  position: relative;
+  display: none;
+}
+/* line 49, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab.active {
+  display: block;
+}
+/* line 53, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .sale-images {
+  overflow: hidden;
+  width: 910px !important;
+  float: left;
+  margin-left: 45px !important;
+  height: 300px;
+}
+/* line 59, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .sale-images.active {
+  display: block;
+}
+/* line 63, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .sale-images ul {
+  padding: 0;
+  overflow: hidden;
+}
+/* line 67, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .sale-images ul li {
+  display: block;
+  overflow: hidden;
+  float: left;
+  height: 300px;
+  width: 180px!important;
+}
+/* line 78, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .sale-leaders {
+  overflow: hidden;
+  width: 910px !important;
+  float: left;
+  margin-left: 45px !important;
+  height: 300px;
+}
+/* line 86, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .sale-leaders ul {
+  padding: 0;
+  overflow: hidden;
+}
+/* line 90, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .sale-leaders ul li {
+  display: block;
+  overflow: hidden;
+  float: left;
+  height: 300px;
+  width: 180px!important;
+}
+/* line 98, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .sale-leaders ul li .info {
+  display: block;
+  background: #dadbdc;
+  margin-top: 12px;
+  height: 15px;
+  padding: 10px 5px;
+  margin-right: 10px;
+}
+/* line 106, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .sale-leaders ul li .info .title {
+  display: block;
+  float: left;
+  overflow: hidden;
+  width: 65px;
+  white-space: nowrap;
+  height: 20px;
+  font-size: 12px;
+}
+/* line 116, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .sale-leaders ul li .info .price {
+  display: block;
+  position: relative;
+  top: -2px;
+  float: right;
+  font-size: 16px;
+  font-weight: bold;
+}
+/* line 125, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .sale-leaders ul li .info .tocart {
+  float: right;
+}
+/* line 128, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .sale-leaders ul li .info .tocart a {
+  background: url(../img/main/sale-leaders-element-cart.png) no-repeat 0 0;
+  width: 39px;
+  height: 51px;
+  display: block;
+  text-indent: -4000px;
+  float: right;
+  position: relative;
+  top: -23px;
+  right: -5px;
+}
+/* line 139, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .sale-leaders ul li .info .tocart a:hover {
+  opacity: 0.7;
+}
+/* line 151, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .prev-button {
+  display: block;
+  width: 35px;
+  height: 300px;
+  text-indent: -4000px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 160, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .prev-button a {
+  display: block;
+  background: url("../img/sprites/sale-elements-nav-sprite.png") no-repeat;
+  background-position: 0 -310px;
+  height: 300px;
+  width: 35px;
+  width: 35px;
+  height: 300px;
+}
+/* line 167, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .prev-button a:hover {
+  background-position: 0 0;
+  height: 300px;
+  width: 35px;
+}
+/* line 173, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .next-button {
+  display: block;
+  width: 35px;
+  height: 300px;
+  text-indent: -4000px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* line 182, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .next-button a {
+  display: block;
+  background: url("../img/sprites/sale-elements-nav-sprite.png") no-repeat;
+  background-position: 0 -930px;
+  height: 300px;
+  width: 35px;
+  width: 35px;
+  height: 300px;
+}
+/* line 189, ../../sass/blocks/block-SaleImages.scss */
+#BlockSaleImages section.tab .next-button a:hover {
+  background-position: 0 -620px;
+  height: 300px;
+  width: 35px;
+}

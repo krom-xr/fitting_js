@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>Каталог товаров</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css" media="all"/>
+	<link rel="stylesheet" type="text/css" href="css/cart.css" media="all"/>
+	<link rel="stylesheet" type="text/css" href="css/forms.css" media="all"/>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/slider.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/forms.js"></script>	
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<!--[if lt IE 7]>
+		<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
+	<![endif]-->	
+	<script language="javascript">
+		$(function(){
+			$('.filter').jqTransform();
+			$('.subcategory-filter').jqTransform();
+			$('li.color').jqTransform();
+			$('li.size').jqTransform();
+		});
+	</script>	
+</head>
+<body>
+	<header id="GeneralHeader">
+
+		<section class="headinfo">
+			<div class="w980 clearfix">
+				<a href="#" class="logo">Логотип</a>
+				<div class="w130">
+					<dl class="cart">
+						<dt>В корзине:</dt>
+						<dd><a href="#">2 товара</a></dd>
+						<dd><a href="#">645 000 руб.</a></dd>
+					</dl>
+				</div>			
+				<div class="w190">
+					<div class="phone">
+						Доставка&nbsp;&nbsp;&nbsp;Оплата&nbsp;&nbsp;&nbsp;Перезвоните
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<nav id="Main" class="bg-1">
+			<div class="w980 clearfix">
+				<ul>
+					<li class="with-submenu">
+						<a class="woman" href="#">Женская</a>
+						<section class="submenu woman">
+							<div class="container">
+								<ul class="brands">
+									<li><a href="#">ВСЕ БРЕНДЫ</a></li>
+									<li><a href="#" class="benetton">BENETTON</a></li>
+									<li><a href="#" class="sisley">SISLEY</a></li>
+									<li><a href="#" class="playlife">PLAYLIFE</a></li>
+								</ul>
+								<aside class="banner"><a href="#"><img src="img/general/menu/woman-banner.jpg" alt=""/></a></aside>
+								<ul class="cat line1">
+									<li><a href="">ПЛАТЬЯ</a></li>
+									<li><a href="#">ТОПЫ</a></li>
+									<li><a href="">ФУТБОЛКИ</a></li>
+									<li><a href="">РУБАШКИ, БЛУЗКИ</a></li>
+									<li><a href="">СВИТЕР</a></li>
+									<li><a href="">БРЮКИ</a></li>
+								</ul>
+								<ul class="cat line2">
+									<li><a href="">ШОРТЫ, БЕРМУДЫ</a></li>
+									<li><a href="#">ЮБКИ</a></li>
+									<li><a href="">МОНО, КОМБИНЕЗОНЫ</a></li>
+									<li><a href="">БЕЛЬЕ</a></li>
+									<li><a href="">КУПАЛЬНИКИ</a></li>
+								</ul>								
+							</div>
+						</section>							
+					</li>
+					<li class="with-submenu">
+						<a class="man" href="#">Мужская</a>
+						<section class="submenu man">
+							<div class="container">
+								<ul class="brands">
+									<li><a href="#">ВСЕ БРЕНДЫ</a></li>
+									<li><a href="#" class="benetton">BENETTON</a></li>
+									<li><a href="#" class="sisley">SISLEY</a></li>
+									<li><a href="#" class="playlife">PLAYLIFE</a></li>
+								</ul>
+								<aside class="banner"><a href="#"><img src="img/general/menu/man-banner.jpg" alt=""/></a></aside>
+								<ul class="cat line1">
+									<li><a href="">БРЮКИ</a></li>
+									<li><a href="#">ДЖИНСЫ</a></li>
+									<li><a href="">КОФТЫ</a></li>
+									<li><a href="">КАРДИГАНЫ</a></li>
+									<li><a href="">ФУТБОЛКИ И ПОЛО</a></li>
+									<li><a href="">ЖИЛЕТЫ</a></li>
+									<li><a href="">КОСТЮМЫ И ПИДЖАКИ</a></li>							
+								</ul>
+								<ul class="cat line2">
+									<li><a href="">ВЕРХНЯЯ ОДЕЖДА</a></li>
+									<li><a href="#">РУБАШКИ</a></li>
+									<li><a href="">ТОЛСТОВКИ</a></li>
+									<li><a href="">СВИТЕРА И ПУЛОВЕРЫ</a></li>
+									<li><a href="">ШОРТЫ</a></li>
+								</ul>
+							</div>
+						</section>							
+					</li>
+					<li><a class="child" href="#">Детская</a></li>
+					<li class="collection">Коллекция осень/зима 2010-2011</li>
+				</ul>			
+			</div>					
+		</nav>
+	</header>
+	
+	<section id="CartContent">
+		<div class="w980 clearfix">
+			<nav class="bread">
+				<a href="#">THE STORE</a> |
+				<a href="#">Корзина</a>
+			</nav>	
+			<div class="w725">
+				<section class="content-block">
+					<table class="order-list">
+   						<thead>
+      						<tr>
+        	 	        	 	<th colspan="2" class="product">Товар</th>
+        	 	        	 	<th scope="col" class="price">Цена</th>
+              	 	        </tr>
+						</thead>
+   						<tbody>
+      						<tr>
+      		   					<td colspan="2" class="product">
+      		   						<form action="#">
+      		   						<article>
+      		   							<a class="delete" href="#">Удалить</a>
+      		   							<img class="photo" src="img/main/element/sale-leaders-element-image2.jpg" alt="Товар" />
+      		 	  						<ul class="product-info">
+      		 	  							<li class="title">Крутая куртка</li>
+      		 	  							<li class="articule">Артикул: S0K123452-K</li>
+      		 	  							<li class="size">
+      		 	  								<label for="size">Размер:</label>
+      		 	  								<select name="size" id="">
+      		 	  									<option value="32">32</option>
+      		 	  									<option value="35" checked>35</option>
+      		 	  									<option value="38" checked>38</option>
+      		 	  								</select>
+      		 	  							</li>
+  		 	  							<li class="color">
+      		 	  								<label for="color">Цвет:</label>
+      		 	  								 <select name="size" id="">
+      		 	  									<option value="32"><img src="img/general/colors/1.png" alt="" /></option>
+      		 	  									<option value="35" checked><img src="img/general/colors/3.png" alt="" /></option>
+      		 	  									<option value="38"><img src="img/general/colors/2.png" alt="" /></option>
+      		 	  								</select>
+      		 	  							</li>
+      		 	  							<li class="count">
+      		 	  								<label for="count">Количество:</label>
+      		 	  								<input type="text" name="count" id="count" />
+      		 	  							</li>
+      		 	  						</ul>
+      		   						</article>
+      		   						</form>
+      		   					</td>
+         						<td class="price"><span>3000-</span></td>
+     						</tr>
+       					      						<tr>
+      		   					<td colspan="2" class="product">
+      		   						<form action="#">
+      		   						<article>
+      		   							<a class="delete" href="#">Удалить</a>
+      		   							<img class="photo" src="img/main/element/sale-leaders-element-image2.jpg" alt="Товар" />
+      		 	  						<ul class="product-info">
+      		 	  							<li class="title">Крутая куртка</li>
+      		 	  							<li class="articule">Артикул: S0K123452-K</li>
+      		 	  							<li class="size">
+      		 	  								<label for="size">Размер:</label>
+      		 	  								<select name="size" id="">
+      		 	  									<option value="32">32</option>
+      		 	  									<option value="35" checked>35</option>
+      		 	  									<option value="38" checked>38</option>
+      		 	  								</select>
+      		 	  							</li>
+  		 	  							<li class="color">
+      		 	  								<label for="color">Цвет:</label>
+      		 	  								 <select name="size" id="">
+      		 	  									<option value="32"><img src="img/general/colors/1.png" alt="" /></option>
+      		 	  									<option value="35" checked><img src="img/general/colors/3.png" alt="" /></option>
+      		 	  									<option value="38"><img src="img/general/colors/2.png" alt="" /></option>
+      		 	  								</select>
+      		 	  							</li>
+      		 	  							<li class="count">
+      		 	  								<label for="count">Количество:</label>
+      		 	  								<input type="text" name="count" id="count" />
+      		 	  							</li>
+      		 	  						</ul>
+      		   						</article>
+      		   						</form>
+      		   					</td>
+         						<td class="price"><span>3000-</span></td>
+     						</tr>
+     						
+   						</tbody>
+   						<tfoot>
+         					<tr>
+   								<td class="bonus-count">У ВАС НА СЧЕТУ: <strong>670 БОНУСОВ</strong></td>
+   						   		<td class="bonus-pay">ОПЛАТИТЬ БОНУСАМИ:</td>
+   								<td class="bonus-to-pay"><div class="block"><span>-</span><input type="text" value="500"></div></td>
+   						   	</tr>
+          					<tr>
+   								<td class="bonus-info">Вы можете оплатить бонусами до 5% от стоимости заказа.
+В поле «Оплатить бонусами» автоматически занесена 
+максимальная сумма оплаты бонусами.</td>
+   						   		<td class="to-pay">ИТОГО К ОПЛАТЕ:</td>
+   								<td class="price">9 480-</td>
+   						   	</tr>  						   	
+   						</tfoot>  						
+					</table>
+					<section class="back-order">
+						<a href="#" class="order">Оформить заказ</a>
+						<a href="#">« ВЕРНУТЬСЯ К ПОКУПКАМ</a>
+					</section>		
+				</section>
+				
+			</div>
+			<div class="w235">
+				<aside class="block gray online-pay">
+					<a href="#"><img src="img/general/sidebars/online-pay.png" alt="" /></a>
+				</aside>		
+				<aside class="block gray free-delivery">
+					<h2>Бесплатная доставка</h2>
+					<p>При заказе от 3000 рублей в города Москва, Нижний Новгород, Санкт-Петербург, Казань, Тверь, Калуга, Рязань</p>
+				</aside>
+				<aside class="block delivery">
+					<p>После оформления заказа с Вами обязательно свяжется менеджер Интернет-магазина, чтобы уточнить параметры и условия доставки заказа.</p>
+					<p>Вы можете проконсультироваться с менеджером Интернет-магазина по телефону: <strong>(495) 674 58 73</strong></p>
+				</aside>				
+			</div>			
+		</div>
+	</section>
+	<section id="UserPanel">
+		<div class="active">
+			<div class="w980">
+				<ul>
+					<li class="login-reg">
+						<a class="login" href="#">Войти</a>
+						<a class="reg" href="#">зарегистрироваться</a>
+					</li>
+					<li class="user-menu">
+						<ul class="col">
+						<li><a href="#">Моя примерочная (0)</a></li>
+						<li><a href="#">Мои желания (0)</a></li>
+						</ul>
+						<ul class="col">
+						<li><a href="#">Мой размер <span>off</span></a></li>
+						<li><a href="#">Мои заказы (0)</a></li>
+						</ul>	
+						<ul class="col last">
+						<li><a href="#">Мои игры (0)</a></li>
+						<li><a href="#">Мой 3D магазин</a></li>
+						</ul>						
+					</li>
+					<li class="bonuses">
+						<span>0</span> бонусов
+					</li>
+					<li class="search">
+						<form action="">
+						<input type="text" class="searchtext" onblur="if (!value) value=defaultValue" onclick="if (value==defaultValue) value=''" value="ПОИСК" />
+						<button type="submit" class="gosearch"></button>
+						</form>
+					</li>
+					<li class="hide-visible hide">
+						<a href="#">Свернуть</a>
+					</li>
+				</ul>
+			</div>		
+		</div>
+		<div class="user-block unactive display">
+			<div class="w980">
+				<ul>
+					<li class="search">
+						<form action="">
+						<input type="text" class="searchtext" onblur="if (!value) value=defaultValue" onclick="if (value==defaultValue) value=''" value="ПОИСК" />
+						<button type="submit" class="gosearch"></button>
+						</form>
+					</li>
+					<li class="hide-visible visible">
+						<a href="#">Свернуть</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<footer id="GeneralFooter">
+		<div class="w980 clearfix">
+			<div class="disclaimer">
+				<a href="#" class="foot-logo">The Store</a>
+				<span class="foot-phone">Telephone Number</span>
+			</div>
+			<nav id="foot-menu">
+				<dl>
+					<dt>МАГАЗИН</dt>
+					<dd><a href="#">Оплата</a></dd>
+					<dd><a href="#">Возврат и обмен товаров</a></dd>
+					<dd><a href="#">Преимущества</a></dd>
+					<dd><a href="#">Поддержка</a></dd>
+				</dl>
+				<dl>
+					<dt>ИНФОРМАЦИЯ</dt>
+					<dd><a href="#">FAQ</a></dd>
+					<dd><a href="#">Адреса магазинов</a></dd>
+					<dd><a href="#">Как выбрать размер</a></dd>
+					<dd><a href="#">Обратная связь</a></dd>
+				</dl>	
+				<dl class="last">
+					<dt>О КОМПАНИИ</dt>
+					<dd><a href="#">Справка</a></dd>
+					<dd><a href="#">Раздел для СМИ</a></dd>
+					<dd><a href="#">Информация о компании</a></dd>
+					<dd><a href="#">Правила использования сайта</a></dd>
+				</dl>			
+			</nav>
+		</div>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<html>
+	<head>
+	  <link href="css/formtastic.css" rel="stylesheet" type="text/css" />
+	  <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	  <script src="js/forms.js" type="text/javascript" charset="utf-8"></script>
+	  <style>
+      body {
+        font-family: helvetica, arial;
+        font-size: 12px;
+      }
+      .choices label.active {
+        color:red;
+      }
+      
+    </style>
+    <script>
+		$(function(){
+			//$('.lalala').jqTransform();
+		});    
+    </script>
+    
+	</head>
+	<body>
+		<h1>Form 1</h1>
+		<form action="/books" class="formtastic book" id="new_book" method="post">
+
+		<div class="lalala">
+		<select name="book5454">
+		    <option value=""><img src="img/general/colors/2.png" width="30" height="25" alt="" /></option> 
+		    <option value="1">The Pragmatic Bookshelf</option> 
+		    <option  value="2">sitepoint</option> 
+		    <option value="3">O'Reilly</option>
+		</select>		
+		</div>
+
+		<fieldset class="inputs">
+		<ol>
+		<li class="select required" id="book_publisher_input">
+		<label for="book_publisher_id">
+		    Publisher<abbr title="required">*</abbr>
+		</label>
+		
+		<select id="book_publisher_id">
+		    <option value=""></option> 
+		    <option value="1">The Pragmatic Bookshelf</option> 
+		    <option  value="2">sitepoint</option> 
+		    <option value="3">O'Reilly</option>
+		</select>
+		
+		</li>
+
+		<li class="string required" id="book_title_input">
+		<label for="book_title">
+		    Title<abbr title="required">*</abbr>
+		</label>
+		    <input id="book_title" maxlength="255" name="book[title]" size="50" type="text" />
+		</li>
+
+		<li class="string required" id="book_rating_input">
+		<label for="book_rating">
+		   Rating<abbr title="required">*</abbr>
+		</label>
+		    <input id="book_rating" maxlength="255" name="book[rating]" size="50" type="text">
+		</li>
+
+		<li class="text required" id="book_description_input">
+		<label for="book_description">
+		    Description<abbr title="required">*</abbr>
+		</label>
+		    <textarea cols="40" id="book_description" name="book[description]" rows="20"></textarea>
+		</li>
+
+		<li class="boolean required" id="book_still_in_print_input">
+		<label for="book_still_in_print">
+		    Still in print<abbr title="required">*</abbr>
+		</label>
+		    <input name="book[still_in_print]" type="hidden" value="0" />
+		    <input id="book_still_in_print" name="book[still_in_print]" type="checkbox" value="1" />
+		</li>
+
+		<li class="date required" id="book_published_input">
+		<fieldset>
+		<legend class="label">	
+		<label for="book_published_1i">
+		    Published<abbr title="required">*</abbr>
+		</label>
+		</legend>
+		<ol>
+		<li>
+		<label for="book_published_1i">
+		    Year
+		</label>
+		    <select id="book_published_1i" name="book[published(1i)]"> 
+		    <option value=""></option> 
+		    <option value="2005">2005</option> 
+		    <option value="2006">2006</option> 
+		    <option value="2007">2007</option> 
+		    <option value="2008">2008</option> 
+		    <option value="2009">2009</option> 
+		    <option selected="selected" value="2010">2010</option> 
+		    <option value="2011">2011</option> 
+		    <option value="2012">2012</option> 
+		    <option value="2013">2013</option> 
+		    <option value="2014">2014</option> 
+		    <option value="2015">2015</option> 
+		    </select> 
+		</li>
+
+		<li>
+		<label for="book_published_2i">
+		    Month
+		</label>
+		    <select id="book_published_2i" name="book[published(2i)]"> 
+		    <option value=""></option> 
+		    <option value="1">January</option> 
+		    <option value="2">February</option> 
+		    <option selected="selected" value="3">March</option> 
+		    <option value="4">April</option> 
+		    <option value="5">May</option> 
+		    <option value="6">June</option> 
+		    <option value="7">July</option> 
+		    <option value="8">August</option> 
+		    <option value="9">September</option> 
+		    <option value="10">October</option> 
+		    <option value="11">November</option> 
+		    <option value="12">December</option> 
+		    </select> 
+		</li>
+
+		<li>
+		<label for="book_published_3i">
+		    Day
+		</label>
+		    <select id="book_published_3i" name="book[published(3i)]"> 
+		    <option value=""></option> 
+		    <option value="1">1</option> 
+		    <option value="2">2</option> 
+		    <option value="3">3</option> 
+		    <option value="4">4</option> 
+		    <option value="5">5</option> 
+		    <option value="6">6</option> 
+		    <option value="7">7</option> 
+		    <option value="8">8</option> 
+		    <option value="9">9</option> 
+		    <option value="10">10</option> 
+		    <option value="11">11</option> 
+		    <option value="12">12</option> 
+		    <option value="13">13</option> 
+		    <option value="14">14</option> 
+		    <option value="15">15</option> 
+		    <option value="16">16</option> 
+		    <option selected="selected" value="17">17</option> 
+		    <option value="18">18</option> 
+		    <option value="19">19</option> 
+		    <option value="20">20</option> 
+		    <option value="21">21</option> 
+		    <option value="22">22</option> 
+		    <option value="23">23</option> 
+		    <option value="24">24</option> 
+		    <option value="25">25</option> 
+		    <option value="26">26</option> 
+		    <option value="27">27</option> 
+		    <option value="28">28</option> 
+		    <option value="29">29</option> 
+		    <option value="30">30</option> 
+		    <option value="31">31</option> 
+		    </select> 
+		</li>
+		</ol>
+		</fieldset>
+
+		<li class="numeric required" id="book_isbn_number_input">
+		<label for="book_isbn_number">
+		    Isbn number<abbr title="required">*</abbr>
+		</label>
+		    <input id="book_isbn_number" name="book[isbn_number]" size="50" type="text" />
+		</li>
+
+		<li class="numeric required" id="book_price_input">
+		<label for="book_price">
+		    Price<abbr title="required">*</abbr>
+		</label>
+		    <input id="book_price" name="book[price]" size="50" type="text" value="0.0" />
+		</li>
+		</ol>
+		</fieldset> 
+
+		<fieldset class="buttons">
+		<ol>
+		<li class="commit">
+		    <input class="create" id="book_submit" name="commit" type="submit" value="Create Book" />
+		</li>
+		</ol>
+		</fieldset> 
+
+		</form>
+	
+	
+		<h1>Form 2</h1>
+
+	  <form action="basic_inputs.html" class="formtastic gem" id="new_gem" method="get">
+	    <fieldset class="inputs">
+	      <ol>
+	        <li class="input string stringish optional" id="gem_summary_input">
+	          <label class="label" for="gem_summary">Summary</label>
+	          <input id="gem_summary" name="gem[summary]" type="text" value="A Rails form builder plugin/gem with semantically rich and accessible markup" maxlength="255">
+	        </li>
+
+	        <li class="input text optional" id="gem_description_input">
+	          <label class="label" for="gem_description">Description</label>
+	          <textarea id="gem_description" rows="5">A Rails form builder plugin/gem with semantically rich and accessible markup</textarea>
+	        </li>
+
+	        <li class="input url stringish optional" id="gem_url_input">
+	          <label class="label" for="gem_url">URL</label>
+	          <input id="gem_url" name="gem[url]" type="url">
+	          <p class="inline-hints">Example: https://github.com/justinfrench/formtastic</p>
+	        </li>
+
+	        <li class="input password stringish required" id="gem_password_input">
+	          <label class="label" for="gem_password">Password<abbr title="required">*</abbr></label>
+	          <input id="gem_password" name="gem[password]" type="password">
+	          <p class="inline-errors">can't be blank</p>
+	        </li>
+
+	        <li class="input password stringish required" id="gem_password_input">
+	          <label class="label" for="gem_password_confirmation">Password confirmation<abbr title="required">*</abbr></label>
+	          <input id="gem_password_confirmation" name="gem[password_confirmation]" type="password">
+	          <p class="inline-errors">can't be blank</p>
+	        </li>
+
+	        <li class="input numeric stringish optional" id="gem_downloads_input">
+	          <label class="label" for="gem_downloads">Downloads</label>
+	          <input id="gem_downloads" name="gem[downloads]" type="numeric" value="209,354">
+	        </li>
+
+	        <li class="input file optional" id="gem_file_input">
+	          <label class="label" for="gem_file">File</label>
+	          <input id="gem_file" name="gem[file]" type="file" value="value">
+	        </li>
+
+	        <li class="input email stringish optional" id="gem_email_input">
+	          <label class="label" for="gem_email">Email</label>
+	          <input id="gem_email" name="gem[email]" type="email">
+	        </li>
+
+	        <li class="input phone stringish optional" id="gem_phone_input">
+	          <label class="label" for="gem_phone">Phone</label>
+	          <input id="gem_phone" name="gem[phone]" type="phone">
+	        </li>
+
+	        <li class="input search stringish optional" id="gem_search_input">
+	          <label class="label" for="gem_search">Search</label>
+	          <input id="gem_search" name="gem[search]" type="search">
+	        </li>
+
+	        <li class="input date optional">
+	          <fieldset class="fragments">
+	            <legend class="label"><label>First release</label></legend>
+	            <ol class="fragments-group">
+	              <li class="fragment">
+	                <label>Year</label>
+	                <select id="gem_first_release_1i" name="gem[first_release][1i]">
+	                  <option>2009</option>
+	                </select>
+	              </li>
+	              <li class="fragment">
+	                <label>Month</label>
+	                <select id="gem_first_release_2i" name="gem[first_release][2i]">
+	                  <option>October</option>
+	                </select>
+	              </li>
+	              <li class="fragment">
+	                <label>Day</label>
+	                <select id="gem_first_release_3i" name="gem[first_release][3i]">
+	                  <option>15</option>
+	                </select>
+	              </li>
+	            </ol>
+	          </fieldset>
+	        </li>
+
+	        <li class="input string stringish optional autofocus" id="gem_autofocus_input">
+	          <label class="label" for="gem_autofocus">Autofocus</label>
+	          <input id="gem_autofocus" name="gem[autofocus]" type="text" value="The focus is set to this field" autofocus="autofocus">
+	        </li>
+
+	        <li class="input boolean optional" id="gem_terms_and_conditions_input">
+	          <label for="gem_terms_and_conditions">
+	            <input id="gem_terms_and_conditions" name="gem[terms_and_conditions]" type="checkbox" value="1" checked="checked">
+	            I agree to your draconian terms of service even though I didn't read them
+	          </label>
+	        </li>
+        
+	        <li class="input select optional" id="gem_awesomeness_input">
+	          <label class="label" for="gem_awesomeness">Select</label>
+	          <select id="gem_awesomeness" name="gem[awesomeness]">
+	            <option value="5">First choice</option>
+	            <option value="4">Second choice</option>
+	          </select>
+	        </li>
+
+	        <li class="input radio optional">
+	          <fieldset class="choices">
+	            <legend class="label"><label>Rate</label></legend>
+	            <ol class="choices-group">
+	              <li class="choice">
+	                <label><input id="gem_rate_five" name="gem[rate]" type="radio"> Five</label></label>
+	              </li>
+	              <li class="choice">
+	                <label><input id="gem_rate_four" disabled="disabled" name="gem[rate]" type="radio"> Four</label></label>
+	              </li>
+	              <li class="choice">
+	                <label><input id="gem_rate_three" name="gem[rate]" type="radio" checked="checked"> Three</label></label>
+	              </li>
+	              <li class="choice">
+	                <label><input id="gem_rate_two" name="gem[rate]" type="radio"> Two</label></label>
+	              </li>
+	              <li class="choice">
+	                <label><input id="gem_rate_one" name="gem[rate]" type="radio"> One</label></label>
+	              </li>
+	            </ol>
+	          </fieldset>
+	        </li>
+
+	        <li class="input check_boxes optional">
+	          <fieldset class="choices">
+	            <legend class="label"><label>Browsers</label></legend>
+	            <ol class="choices-group">
+	              <li class="choice">
+	                <label><input id="gem_browser_google_chrome" name="gem[browser][]" type="checkbox"> Google Chrome</label></label>
+	              </li>
+	              <li class="choice">
+	                <label><input id="gem_browser_apple_safari" name="gem[browser][]" type="checkbox" checked="checked"> Apple Safari</label></label>
+	              </li>
+	              <li class="choice">
+	                <label><input id="gem_browser_mozilla_firefox" name="gem[browser][]" type="checkbox"> Mozilla Firefox</label></label>
+	              </li>
+	              <li class="choice">
+	                <label><input id="gem_browser_opera" name="gem[browser][]" type="checkbox" checked="checked"> Opera</label></label>
+	              </li>
+	              <li class="choice">
+	                <label><input id="gem_browser_internet_explorer" name="gem[browser][]" type="checkbox"> Internet Explorer (Although you really can't call it a browser can you? This is some long text to force wrapping.)</label></label>
+	              </li>
+	            </ol>
+	          </fieldset>
+	        </li>
+	      </ol>
+	    </fieldset>
+
+	    <fieldset class="buttons">
+	      <ol>
+	        <li class="button commit">
+	          <input class="create" id="gem_submit" type="submit">
+	        </li>
+	      </ol>
+	    </fieldset>
+	  </form>
+  
+	</body>
+</html>
