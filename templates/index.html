@@ -30,9 +30,10 @@
     
     <!--основной объект с данными-->
     <div id='result_image' class="result_image">
-        <ul data-bind="template: {name: 'item_list', foreach: maps}, event: {mouseover: freezeBlackout, mouseout: unfreezeBlackout}" class="item_list_parent"  > 
+
+        <ul data-bind="template: {name: 'item_list', foreach: maps}" class="item_list_parent"  > 
             {% jqtpl "item_list" %}
-            <li data-bind="event: {mouseover: togglePhoto , mouseout: togglePhoto }, visible: can_display" >
+            <li data-bind="event: {mouseover: togglePhoto , mouseout: togglePhoto }, visible: can_display, click: itemInfo" >
                 <b data-bind="click: removeMap, visible: can_remove">X</b> 
                 <span data-bind="text: title"></span> 
                 <b data-bind="text: price"></b> 
@@ -43,15 +44,14 @@
         <img src="images/transparent.png" width="100%" height="100%"
             usemap="#map" id="main_transparent_shell" />
 
+        <!--здесь image map - ы-->
         <map name="map" data-bind="template: {name: 'map_list', foreach:maps}">
-            <span>
             {% jqtpl "map_list" %}
                 {{each $item.data.image_maps }}
                     <area shape="poly" coords="${$value}" 
                     data-bind="click: itemInfo, event: {mouseover: togglePhoto , mouseout: togglePhoto }" />
                 {{/each}}
             {% endjqtpl %}
-            </span> 
         </map>
 
         <div data-bind="template:{name:'variants_img', foreach:maps}" id="variants_img_parent">

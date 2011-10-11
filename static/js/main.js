@@ -10,12 +10,6 @@ var default_json = {
                 photo_id: 2,
             },
             {
-                id: 60271,
-                type: "Item",
-                photo_id: 157
-                
-            },
-            {
                 id: 60302,
                 type: "Item",
                 photo_id: 92,
