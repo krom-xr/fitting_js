@@ -24,7 +24,7 @@
   display: block;
   height: 50px;
   text-indent: -4000px;
-  background: url("../img/sprites/sale-tabs-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_sale-tabs-sd2934ed78f.png')) no-repeat;
 }
 /* line 26, ../../sass/blocks/block-SaleImages.scss */
 #BlockSaleImages .sale ul.tabs li.tab-sale-leaders a {
@@ -166,7 +166,7 @@
 /* line 160, ../../sass/blocks/block-SaleImages.scss */
 #BlockSaleImages section.tab .prev-button a {
   display: block;
-  background: url("../img/sprites/sale-elements-nav-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_sale-elements-nav-s365b0fb5c7.png')) no-repeat;
   background-position: 0 -310px;
   height: 300px;
   width: 35px;
@@ -192,7 +192,7 @@
 /* line 182, ../../sass/blocks/block-SaleImages.scss */
 #BlockSaleImages section.tab .next-button a {
   display: block;
-  background: url("../img/sprites/sale-elements-nav-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_sale-elements-nav-s365b0fb5c7.png')) no-repeat;
   background-position: 0 -930px;
   height: 300px;
   width: 35px;

@@ -340,7 +340,7 @@ header#GeneralHeader nav#Main ul li {
 header#GeneralHeader nav#Main ul li a {
   text-indent: -4000px;
   display: block;
-  background: url("../img/sprites/menu-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_menu-s7248127677.png')) no-repeat;
 }
 /* line 96, ../sass/common-header.scss */
 header#GeneralHeader nav#Main ul li a.woman {
@@ -639,11 +639,11 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   height: 100px;
 }
 /* line 79, ../sass/blocks/block-BannersLine.scss */
-#BannersLine .w980 .down-banner.benneton a {
+#BannersLine .w980 .down-banner.benetton a {
   background: url(../img/general/banners/downline-1.png) no-repeat 0 0;
 }
 /* line 82, ../sass/blocks/block-BannersLine.scss */
-#BannersLine .w980 .down-banner.benneton a:hover {
+#BannersLine .w980 .down-banner.benetton a:hover {
   background: url(../img/general/banners/downline-1.png) no-repeat 0 0;
   opacity: 0.85;
 }
@@ -684,11 +684,11 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   height: 100px;
 }
 /* line 124, ../sass/blocks/block-BannersLine.scss */
-.dark #BannersLine .w980 .down-banner.benneton a {
+.dark #BannersLine .w980 .down-banner.benetton a {
   background: url(../img/sisley/banners/downline-1-inactive.png) no-repeat 0 0;
 }
 /* line 127, ../sass/blocks/block-BannersLine.scss */
-.dark #BannersLine .w980 .down-banner.benneton a:hover {
+.dark #BannersLine .w980 .down-banner.benetton a:hover {
   background: url(../img/sisley/banners/downline-1.png) no-repeat 0 0;
 }
 /* line 132, ../sass/blocks/block-BannersLine.scss */
@@ -742,7 +742,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   display: block;
   height: 50px;
   text-indent: -4000px;
-  background: url("../img/sprites/sale-tabs-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_sale-tabs-sd2934ed78f.png')) no-repeat;
 }
 /* line 26, ../sass/blocks/block-SaleImages.scss */
 #BlockSaleImages .sale ul.tabs li.tab-sale-leaders a {
@@ -884,7 +884,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
 /* line 160, ../sass/blocks/block-SaleImages.scss */
 #BlockSaleImages section.tab .prev-button a {
   display: block;
-  background: url("../img/sprites/sale-elements-nav-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_sale-elements-nav-s365b0fb5c7.png')) no-repeat;
   background-position: 0 -310px;
   height: 300px;
   width: 35px;
@@ -910,7 +910,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
 /* line 182, ../sass/blocks/block-SaleImages.scss */
 #BlockSaleImages section.tab .next-button a {
   display: block;
-  background: url("../img/sprites/sale-elements-nav-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_sale-elements-nav-s365b0fb5c7.png')) no-repeat;
   background-position: 0 -930px;
   height: 300px;
   width: 35px;

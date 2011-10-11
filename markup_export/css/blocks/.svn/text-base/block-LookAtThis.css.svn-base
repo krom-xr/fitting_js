@@ -24,7 +24,7 @@
   display: block;
   height: 30px;
   text-indent: -4000px;
-  background: url("../img/sprites/look-at-this-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_look-at-this-se38e3362a4.png')) no-repeat;
 }
 /* line 27, ../../sass/blocks/block-LookAtThis.scss */
 #BlockLookAtThis .sale ul.tabs li.tab-lookatthis a {
@@ -166,7 +166,7 @@
 /* line 161, ../../sass/blocks/block-LookAtThis.scss */
 #BlockLookAtThis section.tab .prev-button a {
   display: block;
-  background: url("../img/sprites/sale-elements-nav-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_sale-elements-nav-s365b0fb5c7.png')) no-repeat;
   background-position: 0 -310px;
   height: 300px;
   width: 35px;
@@ -192,7 +192,7 @@
 /* line 183, ../../sass/blocks/block-LookAtThis.scss */
 #BlockLookAtThis section.tab .next-button a {
   display: block;
-  background: url("../img/sprites/sale-elements-nav-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_sale-elements-nav-s365b0fb5c7.png')) no-repeat;
   background-position: 0 -930px;
   height: 300px;
   width: 35px;

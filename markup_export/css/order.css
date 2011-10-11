@@ -339,7 +339,7 @@ header#GeneralHeader nav#Main ul li {
 header#GeneralHeader nav#Main ul li a {
   text-indent: -4000px;
   display: block;
-  background: url("../img/sprites/menu-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_menu-s7248127677.png')) no-repeat;
 }
 /* line 96, ../sass/common-header.scss */
 header#GeneralHeader nav#Main ul li a.woman {
@@ -930,7 +930,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   display: block;
   height: 30px;
   text-indent: -4000px;
-  background: url("../img/sprites/look-at-this-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_look-at-this-se38e3362a4.png')) no-repeat;
 }
 /* line 27, ../sass/blocks/block-LookAtThis.scss */
 #BlockLookAtThis .sale ul.tabs li.tab-lookatthis a {
@@ -1072,7 +1072,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
 /* line 161, ../sass/blocks/block-LookAtThis.scss */
 #BlockLookAtThis section.tab .prev-button a {
   display: block;
-  background: url("../img/sprites/sale-elements-nav-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_sale-elements-nav-s365b0fb5c7.png')) no-repeat;
   background-position: 0 -310px;
   height: 300px;
   width: 35px;
@@ -1098,7 +1098,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
 /* line 183, ../sass/blocks/block-LookAtThis.scss */
 #BlockLookAtThis section.tab .next-button a {
   display: block;
-  background: url("../img/sprites/sale-elements-nav-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_sale-elements-nav-s365b0fb5c7.png')) no-repeat;
   background-position: 0 -930px;
   height: 300px;
   width: 35px;
@@ -1233,7 +1233,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   cursor: pointer;
   font-size: 16px;
   line-height: 25px;
-  background: url("../img/sprites/block-select-header-sprite.png") no-repeat top right;
+  background: url(url('/img/../img/sprites/_block-select-header-sbb509d8d60.png')) no-repeat top right;
   color: #fff;
 }
 /* line 80, ../sass/blocks/block-leftbar.scss */
@@ -1689,7 +1689,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
 }
 /* line 102, ../sass/order.scss */
 #OrderContent .content-block .back-order a.order {
-  background: url("../img/sprites/cart-order-button-sprite.png") no-repeat top right;
+  background: url(url('/img/../img/sprites/_cart-order-button-s9fe340c704.png')) no-repeat top right;
   margin-left: 20px;
   text-indent: -4000px;
   width: 360px;

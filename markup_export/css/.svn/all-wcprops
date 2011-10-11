@@ -1,19 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 30
-/svn/Benetton3/!svn/ver/59/css
-END
-dressing-room.css
-K 25
-svn:wc:ra_dav:version-url
-V 48
-/svn/Benetton3/!svn/ver/59/css/dressing-room.css
-END
-thanks.css
-K 25
-svn:wc:ra_dav:version-url
-V 41
-/svn/Benetton3/!svn/ver/59/css/thanks.css
+/svn/Benetton3/!svn/ver/62/css
 END
 common.css
 K 25
@@ -21,17 +9,29 @@ svn:wc:ra_dav:version-url
 V 41
 /svn/Benetton3/!svn/ver/58/css/common.css
 END
+thanks.css
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/Benetton3/!svn/ver/61/css/thanks.css
+END
+dressing-room.css
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/Benetton3/!svn/ver/62/css/dressing-room.css
+END
 cart.css
 K 25
 svn:wc:ra_dav:version-url
 V 39
-/svn/Benetton3/!svn/ver/59/css/cart.css
+/svn/Benetton3/!svn/ver/61/css/cart.css
 END
 common-header-dark.css
 K 25
 svn:wc:ra_dav:version-url
 V 53
-/svn/Benetton3/!svn/ver/56/css/common-header-dark.css
+/svn/Benetton3/!svn/ver/61/css/common-header-dark.css
 END
 page-main.css
 K 25
@@ -45,17 +45,17 @@ svn:wc:ra_dav:version-url
 V 44
 /svn/Benetton3/!svn/ver/9/css/navigation.css
 END
-PIE.js
-K 25
-svn:wc:ra_dav:version-url
-V 37
-/svn/Benetton3/!svn/ver/17/css/PIE.js
-END
 left-sidebar.css
 K 25
 svn:wc:ra_dav:version-url
 V 46
 /svn/Benetton3/!svn/ver/9/css/left-sidebar.css
+END
+PIE.js
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/Benetton3/!svn/ver/17/css/PIE.js
 END
 PIE.htc
 K 25
@@ -69,23 +69,23 @@ svn:wc:ra_dav:version-url
 V 41
 /svn/Benetton3/!svn/ver/9/css/sliders.css
 END
-sisley.css
-K 25
-svn:wc:ra_dav:version-url
-V 41
-/svn/Benetton3/!svn/ver/59/css/sisley.css
-END
 benneton.css
 K 25
 svn:wc:ra_dav:version-url
 V 43
-/svn/Benetton3/!svn/ver/59/css/benneton.css
+/svn/Benetton3/!svn/ver/61/css/benneton.css
+END
+sisley.css
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/Benetton3/!svn/ver/61/css/sisley.css
 END
 catalog.css
 K 25
 svn:wc:ra_dav:version-url
 V 42
-/svn/Benetton3/!svn/ver/59/css/catalog.css
+/svn/Benetton3/!svn/ver/61/css/catalog.css
 END
 formtastic.css
 K 25
@@ -97,7 +97,7 @@ order.css
 K 25
 svn:wc:ra_dav:version-url
 V 40
-/svn/Benetton3/!svn/ver/59/css/order.css
+/svn/Benetton3/!svn/ver/61/css/order.css
 END
 bread.css
 K 25
@@ -111,11 +111,17 @@ svn:wc:ra_dav:version-url
 V 48
 /svn/Benetton3/!svn/ver/27/css/common-header.css
 END
+benetton.css
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/Benetton3/!svn/ver/61/css/benetton.css
+END
 product.css
 K 25
 svn:wc:ra_dav:version-url
 V 42
-/svn/Benetton3/!svn/ver/59/css/product.css
+/svn/Benetton3/!svn/ver/61/css/product.css
 END
 reset.css
 K 25
@@ -127,7 +133,7 @@ main.css
 K 25
 svn:wc:ra_dav:version-url
 V 39
-/svn/Benetton3/!svn/ver/59/css/main.css
+/svn/Benetton3/!svn/ver/61/css/main.css
 END
 common-footer.css
 K 25

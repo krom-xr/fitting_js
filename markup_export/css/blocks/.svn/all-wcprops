@@ -1,13 +1,13 @@
 K 25
 svn:wc:ra_dav:version-url
 V 37
-/svn/Benetton3/!svn/ver/59/css/blocks
+/svn/Benetton3/!svn/ver/61/css/blocks
 END
 block-BannersLine.css
 K 25
 svn:wc:ra_dav:version-url
 V 59
-/svn/Benetton3/!svn/ver/48/css/blocks/block-BannersLine.css
+/svn/Benetton3/!svn/ver/61/css/blocks/block-BannersLine.css
 END
 block-CatalogCategories.css
 K 25
@@ -19,7 +19,7 @@ block-LookAtThis.css
 K 25
 svn:wc:ra_dav:version-url
 V 58
-/svn/Benetton3/!svn/ver/50/css/blocks/block-LookAtThis.css
+/svn/Benetton3/!svn/ver/61/css/blocks/block-LookAtThis.css
 END
 block-dark.css
 K 25
@@ -49,7 +49,7 @@ block-SaleImages.css
 K 25
 svn:wc:ra_dav:version-url
 V 58
-/svn/Benetton3/!svn/ver/49/css/blocks/block-SaleImages.css
+/svn/Benetton3/!svn/ver/61/css/blocks/block-SaleImages.css
 END
 block-LeftDarkBlocks.css
 K 25
@@ -73,5 +73,5 @@ block-leftbar.css
 K 25
 svn:wc:ra_dav:version-url
 V 55
-/svn/Benetton3/!svn/ver/50/css/blocks/block-leftbar.css
+/svn/Benetton3/!svn/ver/61/css/blocks/block-leftbar.css
 END
