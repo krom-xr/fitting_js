@@ -8,6 +8,7 @@ import settings
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'views.index', name='home'),
+    (r'^dressing-room/$', 'views.dressing'),
 
     (r'^test/$', 'views.test'),
 

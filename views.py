@@ -7,3 +7,9 @@ def index(request):
 def test(request):
     """docstring for te"""
     return render_to_response("test.html")
+
+
+def dressing(request):
+    """docstring for te"""
+    return render_to_response("dressing-room.html")
+
