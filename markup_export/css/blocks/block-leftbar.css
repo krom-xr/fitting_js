@@ -73,7 +73,7 @@
   cursor: pointer;
   font-size: 16px;
   line-height: 25px;
-  background: url("../img/sprites/block-select-header-sprite.png") no-repeat top right;
+  background: url(url('/img/../img/sprites/_block-select-header-sbb509d8d60.png')) no-repeat top right;
   color: #fff;
 }
 /* line 80, ../../sass/blocks/block-leftbar.scss */

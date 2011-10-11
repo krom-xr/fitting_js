@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 38
-/svn/Benetton3/!svn/ver/51/img/sprites
+/svn/Benetton3/!svn/ver/61/img/sprites
 END
 _sale-elements-nav-sbbc96e6174.png
 K 25
@@ -20,6 +20,24 @@ K 25
 svn:wc:ra_dav:version-url
 V 75
 /svn/Benetton3/!svn/ver/51/img/sprites/_block-select-header-s0995998992.png
+END
+_look-at-this-se38e3362a4.png
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/Benetton3/!svn/ver/61/img/sprites/_look-at-this-se38e3362a4.png
+END
+_cart-order-button-s9fe340c704.png
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/Benetton3/!svn/ver/61/img/sprites/_cart-order-button-s9fe340c704.png
+END
+_block-select-header-sbb509d8d60.png
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/Benetton3/!svn/ver/61/img/sprites/_block-select-header-sbb509d8d60.png
 END
 _block-select-header-s6ee87b15a2.png
 K 25
@@ -87,23 +105,29 @@ svn:wc:ra_dav:version-url
 V 73
 /svn/Benetton3/!svn/ver/32/img/sprites/_cart-order-button-sfaa48109c9.png
 END
-_catalog-category-s6c2ccdfabc.png
-K 25
-svn:wc:ra_dav:version-url
-V 72
-/svn/Benetton3/!svn/ver/27/img/sprites/_catalog-category-s6c2ccdfabc.png
-END
 _look-at-this-se9df9428ff.png
 K 25
 svn:wc:ra_dav:version-url
 V 68
 /svn/Benetton3/!svn/ver/23/img/sprites/_look-at-this-se9df9428ff.png
 END
+_catalog-category-s6c2ccdfabc.png
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/Benetton3/!svn/ver/27/img/sprites/_catalog-category-s6c2ccdfabc.png
+END
 _sale-tabs-s2668b13c58.png
 K 25
 svn:wc:ra_dav:version-url
 V 65
 /svn/Benetton3/!svn/ver/36/img/sprites/_sale-tabs-s2668b13c58.png
+END
+_sale-elements-nav-s365b0fb5c7.png
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/Benetton3/!svn/ver/61/img/sprites/_sale-elements-nav-s365b0fb5c7.png
 END
 _cart-order-button-s1da2cf01f6.png
 K 25
@@ -117,11 +141,11 @@ svn:wc:ra_dav:version-url
 V 68
 /svn/Benetton3/!svn/ver/36/img/sprites/_look-at-this-s89e99adcf9.png
 END
-icon-delete-sprite.png
+_sale-elements-nav-s7237df4a5f.png
 K 25
 svn:wc:ra_dav:version-url
-V 61
-/svn/Benetton3/!svn/ver/32/img/sprites/icon-delete-sprite.png
+V 73
+/svn/Benetton3/!svn/ver/50/img/sprites/_sale-elements-nav-s7237df4a5f.png
 END
 _menu-s810a086926.png
 K 25
@@ -129,23 +153,29 @@ svn:wc:ra_dav:version-url
 V 60
 /svn/Benetton3/!svn/ver/36/img/sprites/_menu-s810a086926.png
 END
-_sale-elements-nav-s7237df4a5f.png
+icon-delete-sprite.png
 K 25
 svn:wc:ra_dav:version-url
-V 73
-/svn/Benetton3/!svn/ver/50/img/sprites/_sale-elements-nav-s7237df4a5f.png
+V 61
+/svn/Benetton3/!svn/ver/32/img/sprites/icon-delete-sprite.png
 END
-_sale-tabs-s876a7966c0.png
+_sale-tabs-sd2934ed78f.png
 K 25
 svn:wc:ra_dav:version-url
 V 65
-/svn/Benetton3/!svn/ver/36/img/sprites/_sale-tabs-s876a7966c0.png
+/svn/Benetton3/!svn/ver/61/img/sprites/_sale-tabs-sd2934ed78f.png
 END
 _product-addto-sbeec590c25.png
 K 25
 svn:wc:ra_dav:version-url
 V 69
 /svn/Benetton3/!svn/ver/36/img/sprites/_product-addto-sbeec590c25.png
+END
+_sale-tabs-s876a7966c0.png
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/Benetton3/!svn/ver/36/img/sprites/_sale-tabs-s876a7966c0.png
 END
 block-select-header-sprite.png
 K 25
@@ -165,17 +195,17 @@ svn:wc:ra_dav:version-url
 V 59
 /svn/Benetton3/!svn/ver/9/img/sprites/_menu-s968ee1ee1e.png
 END
-_sale-tabs-sad55df82d6.png
-K 25
-svn:wc:ra_dav:version-url
-V 64
-/svn/Benetton3/!svn/ver/9/img/sprites/_sale-tabs-sad55df82d6.png
-END
 _block-select-header-s0a8b60fb99.png
 K 25
 svn:wc:ra_dav:version-url
 V 75
 /svn/Benetton3/!svn/ver/36/img/sprites/_block-select-header-s0a8b60fb99.png
+END
+_sale-tabs-sad55df82d6.png
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/Benetton3/!svn/ver/9/img/sprites/_sale-tabs-sad55df82d6.png
 END
 _menu-sde31e29d54.png
 K 25
@@ -219,11 +249,23 @@ svn:wc:ra_dav:version-url
 V 67
 /svn/Benetton3/!svn/ver/36/img/sprites/_icon-delete-s3404ded696.png
 END
+_icon-delete-sd654ae8165.png
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/Benetton3/!svn/ver/61/img/sprites/_icon-delete-sd654ae8165.png
+END
 _form-select-big-sbd2d6e0c7f.png
 K 25
 svn:wc:ra_dav:version-url
 V 71
 /svn/Benetton3/!svn/ver/35/img/sprites/_form-select-big-sbd2d6e0c7f.png
+END
+_menu-s7248127677.png
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/Benetton3/!svn/ver/61/img/sprites/_menu-s7248127677.png
 END
 catalog-category-sprite.png
 K 25

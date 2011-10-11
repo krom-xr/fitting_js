@@ -339,7 +339,7 @@ header#GeneralHeader nav#Main ul li {
 header#GeneralHeader nav#Main ul li a {
   text-indent: -4000px;
   display: block;
-  background: url("../img/sprites/menu-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_menu-s7248127677.png')) no-repeat;
 }
 /* line 96, ../sass/common-header.scss */
 header#GeneralHeader nav#Main ul li a.woman {
@@ -930,7 +930,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   display: block;
   height: 30px;
   text-indent: -4000px;
-  background: url("../img/sprites/look-at-this-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_look-at-this-se38e3362a4.png')) no-repeat;
 }
 /* line 27, ../sass/blocks/block-LookAtThis.scss */
 #BlockLookAtThis .sale ul.tabs li.tab-lookatthis a {
@@ -1072,7 +1072,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
 /* line 161, ../sass/blocks/block-LookAtThis.scss */
 #BlockLookAtThis section.tab .prev-button a {
   display: block;
-  background: url("../img/sprites/sale-elements-nav-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_sale-elements-nav-s365b0fb5c7.png')) no-repeat;
   background-position: 0 -310px;
   height: 300px;
   width: 35px;
@@ -1098,7 +1098,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
 /* line 183, ../sass/blocks/block-LookAtThis.scss */
 #BlockLookAtThis section.tab .next-button a {
   display: block;
-  background: url("../img/sprites/sale-elements-nav-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_sale-elements-nav-s365b0fb5c7.png')) no-repeat;
   background-position: 0 -930px;
   height: 300px;
   width: 35px;
@@ -1233,7 +1233,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   cursor: pointer;
   font-size: 16px;
   line-height: 25px;
-  background: url("../img/sprites/block-select-header-sprite.png") no-repeat top right;
+  background: url(url('/img/../img/sprites/_block-select-header-sbb509d8d60.png')) no-repeat top right;
   color: #fff;
 }
 /* line 80, ../sass/blocks/block-leftbar.scss */
@@ -1633,6 +1633,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   display: none;
   width: 540px;
   top: 25px;
+  z-index: 20;
   overflow: hidden;
   left: 0;
   border-top: 2px solid #fff;
@@ -1642,21 +1643,21 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   -o-box-shadow: 5px 5px 10px #666666;
   box-shadow: 5px 5px 10px #666666;
 }
-/* line 52, ../sass/dressing-room.scss */
+/* line 53, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products header .selector .categories {
   padding: 10px;
 }
-/* line 55, ../sass/dressing-room.scss */
+/* line 56, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products header .selector .categories.w340 {
   float: left;
   width: 340px;
 }
-/* line 60, ../sass/dressing-room.scss */
+/* line 61, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products header .selector .categories li {
   float: left;
   width: 50%;
 }
-/* line 64, ../sass/dressing-room.scss */
+/* line 65, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products header .selector .categories li a {
   font-size: 12px;
   float: left;
@@ -1664,62 +1665,62 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   text-decoration: none;
   margin-bottom: 10px;
 }
-/* line 71, ../sass/dressing-room.scss */
+/* line 72, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products header .selector .categories li a:hover {
   text-decoration: underline;
 }
-/* line 75, ../sass/dressing-room.scss */
+/* line 76, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products header .selector .categories li a.active {
   font-weight: bold;
 }
-/* line 83, ../sass/dressing-room.scss */
+/* line 84, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products header .selector .brands-colors {
   padding: 10px;
 }
-/* line 85, ../sass/dressing-room.scss */
+/* line 86, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products header .selector .brands-colors li {
   margin-bottom: 10px;
 }
-/* line 89, ../sass/dressing-room.scss */
+/* line 90, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products header .selector .brands-colors li.brands {
   line-height: 20px;
 }
-/* line 92, ../sass/dressing-room.scss */
+/* line 93, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products header .selector .brands-colors li.brands a {
   margin-right: 10px;
 }
-/* line 97, ../sass/dressing-room.scss */
+/* line 98, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products header .selector .brands-colors li.colors {
   line-height: 18px;
 }
-/* line 100, ../sass/dressing-room.scss */
+/* line 101, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products header .selector .brands-colors li.colors a {
   margin-right: 2px;
 }
-/* line 105, ../sass/dressing-room.scss */
+/* line 106, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products header .selector .brands-colors li a {
   font-size: 12px;
   text-transform: uppercase;
   text-decoration: none;
 }
-/* line 110, ../sass/dressing-room.scss */
+/* line 111, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products header .selector .brands-colors li a:hover {
   text-decoration: underline;
 }
-/* line 114, ../sass/dressing-room.scss */
-#DressingRoomContent .dressed-products header .selector .brands-colors li a.benneton {
+/* line 115, ../sass/dressing-room.scss */
+#DressingRoomContent .dressed-products header .selector .brands-colors li a.benetton {
   color: #028c33;
 }
-/* line 117, ../sass/dressing-room.scss */
+/* line 118, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products header .selector .brands-colors li a.playlife {
   color: #cd1543;
 }
-/* line 129, ../sass/dressing-room.scss */
+/* line 130, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products ul.product-list {
   padding: 0;
   overflow: hidden;
 }
-/* line 133, ../sass/dressing-room.scss */
+/* line 134, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products ul.product-list li {
   display: block;
   overflow: hidden;
@@ -1729,11 +1730,11 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   margin-bottom: 40px;
   margin-right: 15px;
 }
-/* line 143, ../sass/dressing-room.scss */
+/* line 144, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products ul.product-list li.lastinline {
   margin-right: 0;
 }
-/* line 147, ../sass/dressing-room.scss */
+/* line 148, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products ul.product-list li .info {
   display: block;
   background: #dadbdc;
@@ -1741,7 +1742,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   height: 15px;
   padding: 10px 5px;
 }
-/* line 154, ../sass/dressing-room.scss */
+/* line 155, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products ul.product-list li .info .title {
   display: block;
   float: left;
@@ -1751,7 +1752,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   height: 20px;
   font-size: 12px;
 }
-/* line 164, ../sass/dressing-room.scss */
+/* line 165, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products ul.product-list li .info .price {
   display: block;
   position: relative;
@@ -1760,11 +1761,11 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   font-size: 16px;
   font-weight: bold;
 }
-/* line 173, ../sass/dressing-room.scss */
+/* line 174, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products ul.product-list li .info .tocart {
   float: right;
 }
-/* line 176, ../sass/dressing-room.scss */
+/* line 177, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products ul.product-list li .info .tocart a {
   background: url(../img/main/sale-leaders-element-cart.png) no-repeat 0 0;
   width: 39px;
@@ -1776,20 +1777,20 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   top: -23px;
   right: -5px;
 }
-/* line 187, ../sass/dressing-room.scss */
+/* line 188, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-products ul.product-list li .info .tocart a:hover {
   opacity: 0.7;
 }
-/* line 198, ../sass/dressing-room.scss */
+/* line 199, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer {
   position: relative;
 }
-/* line 201, ../sass/dressing-room.scss */
+/* line 202, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header {
   position: relative;
   margin-bottom: 20px;
 }
-/* line 205, ../sass/dressing-room.scss */
+/* line 206, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header a.nav {
   display: block;
   width: 118px;
@@ -1802,16 +1803,17 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   color: #fff;
   text-decoration: none;
 }
-/* line 217, ../sass/dressing-room.scss */
+/* line 218, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header a.nav:hover, #DressingRoomContent .dressed-viewer header a.nav.active {
   background: #c0061e;
 }
-/* line 225, ../sass/dressing-room.scss */
+/* line 226, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header .selector {
   position: absolute;
   display: none;
   width: 420px!important;
   top: 25px;
+  z-index: 20;
   overflow: hidden;
   height: 245px!important;
   left: -5px;
@@ -1823,23 +1825,23 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   -o-box-shadow: 5px 5px 10px #666666;
   box-shadow: 5px 5px 10px #666666;
 }
-/* line 239, ../sass/dressing-room.scss */
+/* line 241, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header .selector .overflow {
   width: 420px;
   overflow: hidden;
   display: block;
 }
-/* line 245, ../sass/dressing-room.scss */
+/* line 247, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header .selector .slider {
   position: relative;
   overflow: hidden;
 }
-/* line 250, ../sass/dressing-room.scss */
+/* line 252, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header .selector ul {
   overflow: hidden;
   height: 215px!important;
 }
-/* line 254, ../sass/dressing-room.scss */
+/* line 256, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header .selector ul li {
   float: left;
   padding: 0 20px;
@@ -1848,7 +1850,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   overflow: hidden !important;
   height: 208px!important;
 }
-/* line 262, ../sass/dressing-room.scss */
+/* line 264, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header .selector ul li div {
   margin-right: 6px;
   margin-bottom: 6px;
@@ -1856,15 +1858,15 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   width: 100px;
   height: 100px;
 }
-/* line 269, ../sass/dressing-room.scss */
+/* line 271, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header .selector ul li div.lastinline {
   margin-right: 0;
 }
-/* line 274, ../sass/dressing-room.scss */
+/* line 276, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header .selector ul li img {
   border: 1px solid #5a5a5a;
 }
-/* line 281, ../sass/dressing-room.scss */
+/* line 283, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header .buttons {
   background: #dadbdc;
   display: block;
@@ -1873,7 +1875,7 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   margin-top: 10px;
   width: 100%;
 }
-/* line 290, ../sass/dressing-room.scss */
+/* line 292, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header .prev-button-selector {
   display: block;
   width: 25px;
@@ -1883,18 +1885,18 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   bottom: 0px;
   left: 0px;
 }
-/* line 299, ../sass/dressing-room.scss */
+/* line 301, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header .prev-button-selector a {
   display: block;
   background: url(../img/slider/slider-nav-buttons-mini.png) no-repeat 0 0;
   width: 25px;
   height: 25px;
 }
-/* line 305, ../sass/dressing-room.scss */
+/* line 307, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header .prev-button-selector a:hover {
   background-position: 0 -25px;
 }
-/* line 311, ../sass/dressing-room.scss */
+/* line 313, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header .next-button-selector {
   display: block;
   width: 25px;
@@ -1904,37 +1906,76 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   bottom: 0px;
   right: 0px;
 }
-/* line 321, ../sass/dressing-room.scss */
+/* line 323, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header .next-button-selector a {
   display: block;
   background: url(../img/slider/slider-nav-buttons-mini.png) no-repeat -25px 0;
   width: 25px;
   height: 25px;
 }
-/* line 327, ../sass/dressing-room.scss */
+/* line 329, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer header .next-button-selector a:hover {
   background-position: -25px -25px;
 }
-/* line 334, ../sass/dressing-room.scss */
+/* line 336, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer #Viewer {
   border: 1px solid #a8a9a9;
-  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  margin-top: 45px;
   width: 418px;
 }
-/* line 340, ../sass/dressing-room.scss */
+/* line 343, ../sass/dressing-room.scss */
+#DressingRoomContent .dressed-viewer #Viewer a {
+  display: block;
+  position: absolute;
+  bottom: 5px;
+  width: 25px;
+  height: 25px;
+  text-indent: -4000px;
+  background: url(../img/general/icons/icons-dressed-viewer.png) no-repeat;
+}
+/* line 352, ../sass/dressing-room.scss */
+#DressingRoomContent .dressed-viewer #Viewer a.zoom {
+  background-position: 0 0;
+  left: 5px;
+}
+/* line 356, ../sass/dressing-room.scss */
+#DressingRoomContent .dressed-viewer #Viewer a.zoom:hover {
+  background-position: 0 -30px;
+}
+/* line 361, ../sass/dressing-room.scss */
+#DressingRoomContent .dressed-viewer #Viewer a.rotate {
+  background-position: -29px 0;
+  left: 35px;
+}
+/* line 365, ../sass/dressing-room.scss */
+#DressingRoomContent .dressed-viewer #Viewer a.rotate:hover {
+  background-position: -29px -30px;
+}
+/* line 370, ../sass/dressing-room.scss */
+#DressingRoomContent .dressed-viewer #Viewer a.delete {
+  background-position: 100% 0;
+  left: 65px;
+}
+/* line 374, ../sass/dressing-room.scss */
+#DressingRoomContent .dressed-viewer #Viewer a.delete:hover {
+  background-position: 100% -30px;
+}
+/* line 381, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .price {
   margin: 20px 0;
   text-align: right;
   font-size: 50px;
   font-weight: bold;
 }
-/* line 346, ../sass/dressing-room.scss */
+/* line 387, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .price span {
   font-size: 17px;
   text-transform: uppercase;
   font-weight: normal;
 }
-/* line 353, ../sass/dressing-room.scss */
+/* line 394, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .tocart {
   margin-top: 40px;
   background: #dedede;
@@ -1942,27 +1983,27 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   padding: 10px 50px 10px 10px;
   font-size: 22px;
 }
-/* line 360, ../sass/dressing-room.scss */
+/* line 401, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .tocart a {
   text-decoration: none;
   display: block;
 }
-/* line 364, ../sass/dressing-room.scss */
+/* line 405, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .tocart a:hover {
   color: #000;
   opacity: 0.8;
 }
-/* line 370, ../sass/dressing-room.scss */
+/* line 411, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .tocart .cart {
   position: absolute;
   right: 0px;
   top: -20px;
 }
-/* line 378, ../sass/dressing-room.scss */
+/* line 419, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .view-list {
   margin-top: 20px;
 }
-/* line 380, ../sass/dressing-room.scss */
+/* line 421, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .view-list a {
   display: block;
   height: 14px;
@@ -1973,22 +2014,22 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   background: url(../img/general/icons/icon-delete-mini.png) no-repeat 0 bottom;
   padding-left: 20px;
 }
-/* line 390, ../sass/dressing-room.scss */
+/* line 431, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .view-list a span {
   float: right;
   font-weight: bold;
 }
-/* line 395, ../sass/dressing-room.scss */
+/* line 436, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .view-list a:hover {
   background: url(../img/general/icons/icon-delete-mini.png) no-repeat 0 0;
 }
-/* line 401, ../sass/dressing-room.scss */
+/* line 442, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .morebuttons {
   position: absolute;
   bottom: 0;
   left: 0;
 }
-/* line 406, ../sass/dressing-room.scss */
+/* line 447, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .morebuttons a {
   display: block;
   width: 25px;
@@ -1997,43 +2038,43 @@ footer#GeneralFooter #foot-menu dl dd a:hover {
   margin-right: 5px;
   text-indent: -4000px;
 }
-/* line 414, ../sass/dressing-room.scss */
+/* line 455, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .morebuttons a.circle {
   background: url(../img/general/icons/icons-dressed-more.png) no-repeat 0 0;
 }
-/* line 417, ../sass/dressing-room.scss */
+/* line 458, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .morebuttons a.circle:hover {
   background-position: 0 -30px;
 }
-/* line 422, ../sass/dressing-room.scss */
+/* line 463, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .morebuttons a.send {
   background: url(../img/general/icons/icons-dressed-more.png) no-repeat -29px 0;
 }
-/* line 425, ../sass/dressing-room.scss */
+/* line 466, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .morebuttons a.send:hover {
   background-position: -29px -30px;
 }
-/* line 430, ../sass/dressing-room.scss */
+/* line 471, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .morebuttons a.print {
   background: url(../img/general/icons/icons-dressed-more.png) no-repeat 100% 0;
 }
-/* line 433, ../sass/dressing-room.scss */
+/* line 474, ../sass/dressing-room.scss */
 #DressingRoomContent .dressed-viewer .morebuttons a.print:hover {
   background-position: 100% -30px;
 }
-/* line 442, ../sass/dressing-room.scss */
+/* line 483, ../sass/dressing-room.scss */
 #DressingRoomContent .w545, #DressingRoomContent .w420 {
   float: left;
 }
-/* line 445, ../sass/dressing-room.scss */
+/* line 486, ../sass/dressing-room.scss */
 #DressingRoomContent .w420 {
   margin-left: 15px;
 }
-/* line 448, ../sass/dressing-room.scss */
+/* line 489, ../sass/dressing-room.scss */
 #DressingRoomContent .w235 {
   float: right;
 }
-/* line 452, ../sass/dressing-room.scss */
+/* line 493, ../sass/dressing-room.scss */
 #DressingRoomContent .w160 {
   float: left;
   display: block;

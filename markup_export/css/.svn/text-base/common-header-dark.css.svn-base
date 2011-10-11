@@ -86,7 +86,7 @@ header#GeneralHeader nav#Main ul li {
 header#GeneralHeader nav#Main ul li a {
   text-indent: -4000px;
   display: block;
-  background: url("../img/sprites/menu-sprite.png") no-repeat;
+  background: url(url('/img/../img/sprites/_menu-s7248127677.png')) no-repeat;
 }
 /* line 90, ../sass/common-header-dark.scss */
 header#GeneralHeader nav#Main ul li a.woman {

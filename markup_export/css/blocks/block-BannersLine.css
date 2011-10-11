@@ -77,11 +77,11 @@
   height: 100px;
 }
 /* line 79, ../../sass/blocks/block-BannersLine.scss */
-#BannersLine .w980 .down-banner.benneton a {
+#BannersLine .w980 .down-banner.benetton a {
   background: url(../img/general/banners/downline-1.png) no-repeat 0 0;
 }
 /* line 82, ../../sass/blocks/block-BannersLine.scss */
-#BannersLine .w980 .down-banner.benneton a:hover {
+#BannersLine .w980 .down-banner.benetton a:hover {
   background: url(../img/general/banners/downline-1.png) no-repeat 0 0;
   opacity: 0.85;
 }
@@ -122,11 +122,11 @@
   height: 100px;
 }
 /* line 124, ../../sass/blocks/block-BannersLine.scss */
-.dark #BannersLine .w980 .down-banner.benneton a {
+.dark #BannersLine .w980 .down-banner.benetton a {
   background: url(../img/sisley/banners/downline-1-inactive.png) no-repeat 0 0;
 }
 /* line 127, ../../sass/blocks/block-BannersLine.scss */
-.dark #BannersLine .w980 .down-banner.benneton a:hover {
+.dark #BannersLine .w980 .down-banner.benetton a:hover {
   background: url(../img/sisley/banners/downline-1.png) no-repeat 0 0;
 }
 /* line 132, ../../sass/blocks/block-BannersLine.scss */
