@@ -37,6 +37,25 @@
     <div id="preloader">
         <img src="{% get_static_prefix %}img/preloader.png" alt="" />
     </div>
+
+    <!--информация об объекте, а так же варианты объектов-->
+    <div id="item_info" class="item_info" data-bind="style: {
+        display: show_info() == true ? 'block': 'none'}">
+        <div class="holder" data-bind="style: {left: info_left, top: info_top}">
+            <div class="title" >
+                <span data-bind="text: title"></span> 
+                <b data-bind="text: price"></b> 
+            </div>
+            <div class="close" data-bind="click: closeInfo">X</div> 
+            <div style="clear:both"></div>
+            <div class="variants" data-bind="template:{name: 'variants', foreach: variants}">
+                {% jqtpl "variants" %}
+                    <img data-bind="attr:{src: mini_thumb}, click: sendInfo "/>
+                {% endjqtpl %}
+            </div>
+            <div data-bind="click: removeMap, visible: can_remove">Удалить</div>
+        </div>
+    </div> 
     
 	<header id="GeneralHeader">
 
@@ -241,24 +260,6 @@
 					</article>
 			</div>
 
-            <!--информация об объекте, а так же варианты объектов-->
-            <div id="item_info" class="item_info" data-bind="style: {
-                display: show_info() == true ? 'block': 'none'}">
-                <div class="holder" data-bind="style: {left: info_left, top: info_top}">
-                    <div class="title" >
-                        <span data-bind="text: title"></span> 
-                        <b data-bind="text: price"></b> 
-                    </div>
-                    <div class="close" data-bind="click: closeInfo">X</div> 
-                    <div style="clear:both"></div>
-                    <div class="variants" data-bind="template:{name: 'variants', foreach: variants}">
-                        {% jqtpl "variants" %}
-                            <img data-bind="attr:{src: mini_thumb}, click: sendInfo "/>
-                        {% endjqtpl %}
-                    </div>
-                    <div data-bind="click: removeMap, visible: can_remove">Удалить</div>
-                </div>
-            </div> 
 
 			<div class="dressed-viewer w420" id="result_image">
 				<header>
@@ -389,7 +390,7 @@
                         <div id="blackout" data-bind="style:{opacity: blackout() ? '0.5' : '0'}"></div> 
 
                         <!-- это самое основное изображение -->
-                        <img data-bind="attr: {src: main_image }" />
+                        <img data-bind="attr: {src: main_image, height: main_image_height }" />
                         <a href="#" class="zoom" title="Масштабирование"></a>
                         <a href="#" class="rotate" title="Вращать"></a>
                         <a href="#" class="delete" title="Удалить"></a>

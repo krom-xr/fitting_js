@@ -211,8 +211,17 @@ var Map = function(data){
     this.title              = data.title;
     this.description        = data.description;
     this.price              = data.price;
+    this.coef               = data.coef || 1;
 
-    this.image_maps         = data.image_map;
+    this.image_maps         = ko.observable(data.image_map || []);
+
+    var temp = $.map(this.image_maps(), function(map, i) {
+        map = $.map(map.split(','), function(coord, i){
+            return Math.round(coord * it.coef);
+        })
+        return ",".join(map);
+    });
+    this.image_maps(temp);
 
     if (typeof data.photo != 'undefined') {
         this.photo = SITE_PATH  + data.photo; // основная картинка
@@ -270,13 +279,14 @@ var Map = function(data){
 
     // показавает всплывающее информационное окно под курсором
     this.itemInfo = function(e) {
+        console.log(e);
         this.freeze_info(true);
         ko.cleanNode($('#item_info').get(0));
         $('#item_info').find('.variants img').remove();
         ko.applyBindings(this, $('#item_info').get(0));
 
-        this.info_left(e.pageX + 1 + "px");
-        this.info_top(e.pageY + 1 + "px");
+        this.info_left(e.pageX + "px");
+        this.info_top(e.pageY + "px");
         this.show_info(!this.show_info());
         $(window).trigger('blackout', {state: this.show_info(), hold: this.show_info()});
     }
@@ -299,12 +309,17 @@ var Map = function(data){
 }
 
 // главный объект. отвечает за общение с сервером и отрисовку себя и своих дочерних элементов
-var ResultImage = function(){
-    var it              = this;
+var ResultImage = function(data){
+    var it = this;
 
+    //TODO это потом вынести в конфиг
     this.main_image    = ko.observable();
-    this.main_image_width = ko.observable();
-    this.main_image_height= ko.observable();
+    //data.image_width = 413;
+    data.image_height = 538;
+    this.coef = data.image_height/1000; 
+
+    //this.main_image_width = ko.observable(data.image_width);
+    this.main_image_height= ko.observable(data.image_height);
 
     this.view = ko.observable();// front, back or other
 
@@ -341,6 +356,7 @@ var ResultImage = function(){
     }
     
     this.addMap = function(map){
+        map['coef'] = this.coef;
         this.maps.push(new Map(map));
     }
 
@@ -397,8 +413,8 @@ var ResultImage = function(){
         this.view(data.view);
         this.addMaps(data.objects);
 
-        this.main_image_width($("#main_image").width());
-        this.main_image_height($("#main_image").height());
+        //this.main_image_width($("#main_image").width());
+        //this.main_image_height($("#main_image").height());
     }
 
     this.freezeBlackout = function(){
@@ -425,7 +441,7 @@ var ResultImage = function(){
 
 $(window).ready(function(){
 
-    new ResultImage();
+    new ResultImage({});
     new HashManager();
 
     $('#preloader').ajaxStart(function(){
