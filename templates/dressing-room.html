@@ -29,6 +29,17 @@
 			$('.select').jqTransform();
 		});
 	</script>	
+    <style type="text/css" media="screen">
+        #DressingRoomContent .dressed-viewer #Viewer a.zoom {
+            z-index: 101;
+        } 
+        #DressingRoomContent .dressed-viewer #Viewer a.rotate {
+            z-index: 101;
+        } 
+        #DressingRoomContent .dressed-viewer #Viewer a.delete {
+            z-index: 101;
+        } 
+    </style>
 
 {% endblock %}
 {% block "content" %}
@@ -53,6 +64,10 @@
                     <img data-bind="attr:{src: mini_thumb}, click: sendInfo "/>
                 {% endjqtpl %}
             </div>
+            <div data-bind="visible: index_under, click: itemUp">Поднять над: <span data-bind="text: index_under.title"></span></div> 
+            <div data-bind="visible: index_below, click: itemDown">Опустить под: <span data-bind="text: index_below.title"></span></div> 
+
+
             <div data-bind="click: removeMap, visible: can_remove">Удалить</div>
         </div>
     </div> 
@@ -204,7 +219,7 @@
 				</header>
 					<article class="clearfix">
 							<ul class="product-list">
-								<li>
+								<li id="item_59930">
 									<a href="#" title="Жакет AlldayMay"><img src="{% get_static_prefix %}img/main/element/sale-leaders-element-image.png" width="170"  alt="Образ"/></a>
 									<div class="info">
 										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
@@ -212,7 +227,7 @@
 										<span class="price">9999-</span>
 									</div>									
 								</li>
-								<li>
+								<li id="item_60064">
 									<a href="#" title="Жакет AlldayMay"><img src="{% get_static_prefix %}img/main/element/sale-leaders-element-image2.jpg" width="170"  alt="Образ"/></a>
 									<div class="info">
 										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
@@ -220,7 +235,7 @@
 										<span class="price">9999-</span>
 									</div>									
 								</li>
-								<li class="lastinline">
+								<li id="item_60270" class="lastinline">
 									<a href="#" title="Жакет AlldayMay">
 										<img src="{% get_static_prefix %}img/main/element/sale-leaders-element-image3.jpg" width="170"  alt="Образ"/>
 									</a>
@@ -230,7 +245,7 @@
 										<span class="price">9999-</span>
 									</div>									
 								</li>
-								<li>
+								<li id="item_60271">
 									<a href="#" title="Жакет AlldayMay"><img src="{% get_static_prefix %}img/main/element/sale-leaders-element-image4.jpg" width="170"  alt="Образ"/></a>
 									<div class="info">
 										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
@@ -238,7 +253,7 @@
 										<span class="price">9999-</span>
 									</div>									
 								</li>								
-								<li>
+								<li id="item_60302">
 									<a href="#" title="Жакет AlldayMay"><img src="{% get_static_prefix %}img/main/element/sale-leaders-element-image5.jpg" width="170"  alt="Образ"/></a>
 									<div class="info">
 										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
@@ -246,7 +261,7 @@
 										<span class="price">9999-</span>
 									</div>									
 								</li>
-								<li class="lastinline">
+								<li id="item_60305" class="lastinline">
 									<a href="#" title="Жакет AlldayMay"><img src="{% get_static_prefix %}img/main/element/sale-leaders-element-image6.jpg" width="170"  alt="Образ"/></a>
 									<div class="info">
 										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
@@ -271,14 +286,14 @@
 									<div class="overflow">
 									<ul>
 										<li>
-											<div><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face1.png" alt="Альт" /></a></div>
-											<div><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face2.png" alt="Альт" /></a></div>
-											<div><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face1.png" alt="Альт" /></a></div>
-											<div class="lastinline"><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face1.png" alt="Альт" /></a></div>
-											<div><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face1.png" alt="Альт" /></a></div>
-											<div><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face1.png" alt="Альт" /></a></div>
-											<div><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face1.png" alt="Альт" /></a></div>
-											<div class="lastinline"><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face1.png" alt="Альт" /></a></div>
+											<div  ><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face1.png" alt="Альт" /></a></div>
+											<div ><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face2.png" alt="Альт" /></a></div>
+											<div ><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face1.png" alt="Альт" /></a></div>
+											<div  class="lastinline"><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face1.png" alt="Альт" /></a></div>
+											<div ><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face1.png" alt="Альт" /></a></div>
+											<div ><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face1.png" alt="Альт" /></a></div>
+											<div ><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face1.png" alt="Альт" /></a></div>
+											<div  class="lastinline"><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face1.png" alt="Альт" /></a></div>
 										</li>
 										<li>
 											<div><a href="#"><img src="{% get_static_prefix %}img/dressed/model-woman-face2.png" alt="Альт" /></a></div>
@@ -367,6 +382,11 @@
 				<section id="Viewer">
                     <!--основной объект с данными-->
                     <div class="result_image">
+
+                        <a href="#" class="zoom" title="Масштабирование" data-bind="click: zoomToggle"></a>
+                        <a href="#" class="rotate" title="Вращать" data-bind="click: toggleView"></a>
+                        <a href="#" class="delete" title="Удалить" data-bind="click: removeAllItems"></a>
+
                         <img src="{% get_static_prefix %}img/transparent.png" width="100%" height="100%"
                             usemap="#map" id="main_transparent_shell" />
 
@@ -382,8 +402,9 @@
 
                         <div data-bind="template:{name:'variants_img', foreach:maps}" id="variants_img_parent">
                             {% jqtpl "variants_img" %}
-                                <img data-bind="attr: {src: photo}, visible: show_photo,
-                                    style: {left: photo_left, top: photo_top}"/ >
+                                <img data-bind="attr: {src: photo, width: photo_width, height: photo_height}, 
+                                        visible: show_photo,
+                                        style: {left: photo_left, top: photo_top}"/ >
                             {% endjqtpl %}
                         </div>
 
@@ -391,9 +412,6 @@
 
                         <!-- это самое основное изображение -->
                         <img data-bind="attr: {src: main_image, height: main_image_height }" />
-                        <a href="#" class="zoom" title="Масштабирование"></a>
-                        <a href="#" class="rotate" title="Вращать"></a>
-                        <a href="#" class="delete" title="Удалить"></a>
                     </div> 
 
                     {# <div id='result_image' class="result_image"> #}

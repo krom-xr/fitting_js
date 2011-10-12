@@ -3,39 +3,34 @@ var AJAX_PATH = '/proxy/fitting_room/looks/imposition'
 
 //Дефолтные данные которые загружаются при первой загрузке страницы
 var default_json = {
-        objects:[
-            {
-                id: 2,
-                type: "Face",
-                photo_id: 2,
-            },
-            {
-                id: 60302,
-                type: "Item",
-                photo_id: 92,
-            },
-            {
-                id: 60563,
-                type:"Item",
-                photo_id : 207
-            },
-            {
-               id:2,
-               type:"Background",
-               photo_id:2
-            },
-            {
-               id:6,
-               type: "Body"
-            },
-            
-        ],
-        new_object:{
-            id: 60271,
-            type: "Item",
-            photo_id: 157
-        },
-        view: "front", //или back,
+    objects:[
+        {
+            id:2,
+            type:"Face",
+            photo_id:2
+        },{
+            id:60302,
+            type:"Item",
+            photo_id:92
+        },{
+            id:60563,
+            type:"Item",
+            photo_id:207
+        },{
+            id:2,
+            type:"Background",
+            photo_id:2
+        },{
+            id:6,
+            type:"Body"
+        }
+    ],
+    new_object:{
+        id:60271,
+        type:"Item",
+        photo_id:157
+    },
+    view:"front",
 };
 
 //посылвает данные к серверу
@@ -72,11 +67,14 @@ var HashManager = function(){
                     return object.id;
                 };
             } else {
-                return "00"
+                return 0; 
             }
         }
 
         var getArrayHash = function(array) {
+            if (!array.length) {
+                return 0;
+            }
             var result = Array();
             $.each(array, function(i, object){
                 result.push(getObjectHash(object));
@@ -90,6 +88,7 @@ var HashManager = function(){
         var items       = Array();
         var background  = false;
         var effect      = false;
+        var zoomhash    = data.zoom || '';
 
         $.each(data.objects, function(i, object){
             switch(object.type) {
@@ -117,7 +116,7 @@ var HashManager = function(){
         var effecthash  = getObjectHash(effect);
 
         this.hashChangeIam = true;
-        window.location.hash = viewhash + '|' + facehash + '|' + bodyhash + '|' + itemshash + '|' + backhash + '|' + effecthash;
+        window.location.hash = viewhash + '|' + facehash + '|' + itemshash + '|' + bodyhash + '|' + backhash + '|' + effecthash + '|' + zoomhash;
 
     }
 
@@ -149,11 +148,13 @@ var HashManager = function(){
         }
 
         var TYPES = [];
+        TYPES[0] = "view";
         TYPES[1] = "Face";
-        TYPES[2] = "Body";
-        TYPES[3] = "Item";
+        TYPES[2] = "Item";
+        TYPES[3] = "Body";
         TYPES[4] = "Background";
         TYPES[5] = "Effect";
+        TYPES[6] = "zoom";
 
         // 0 - view, 1 - face, 2 - body, 3 - items, 4 - background, 5 - effect
         var hash = window.location.hash.split('|');
@@ -165,16 +166,25 @@ var HashManager = function(){
                 case 0:
                     json['view'] = _hash.split('#')[1];
                     break;
+                case 6:
+                    if (_hash) {
+                        json['zoom'] = _hash; 
+                    }
+                    break;
                 case 1:
-                case 2:
+                case 3:
                 case 4:
                 case 5:
-                    json['objects'].push(getObjectFromHash(_hash, TYPES[i]));
+                    if(_hash!='0'){
+                        json['objects'].push(getObjectFromHash(_hash, TYPES[i]));
+                    }
                     break;
-                case 3:
-                    $.each(_hash.split('&'), function(j, item){
-                        json['objects'].push(getObjectFromHash(item, TYPES[i]));
-                    })
+                case 2:
+                    if(_hash!='0'){
+                        $.each(_hash.split('&'), function(j, item){
+                            json['objects'].push(getObjectFromHash(item, TYPES[i]));
+                        })
+                    }
                     break;
             }
         });
@@ -197,14 +207,14 @@ var Variant = function(data){
     this.mini_thumb  = SITE_PATH +  data.mini_thumb;
 
     this.sendInfo = function(){
-        if (this.current_photo_id == this.id) { return false }
+        //if (this.current_photo_id == this.id) { return false }
         $(window).trigger('closeInfo');
         $(window).trigger('sendToServer', {action: 'new_photo', object: this});
     };
 }
 
 //собственно сам объект, назван так потому что в том числе строит из себя image map (но не всегда)
-var Map = function(data){
+var Map = function(data) {
     var it                  = this;
     this.id                 = data.id;
     this.type               = data.type;
@@ -219,15 +229,9 @@ var Map = function(data){
         map = $.map(map.split(','), function(coord, i){
             return Math.round(coord * it.coef);
         })
-        return ",".join(map);
+        return map.join(',');
     });
     this.image_maps(temp);
-
-    if (typeof data.photo != 'undefined') {
-        this.photo = SITE_PATH  + data.photo; // основная картинка
-    } else {
-        this.photo = '';
-    }
 
     this.can_display = false;
     if (data.type == 'Item') {
@@ -242,14 +246,44 @@ var Map = function(data){
     if (data.type == 'Face') { this.title = 'Лицо' }; 
     if (data.type == 'Body') { this.title = 'Тело' }; 
         
-
+    // основное фото объекта (если есть)
+    if (typeof data.photo != 'undefined') {
+        this.photo = SITE_PATH  + data.photo; // основная картинка
+    } else {
+        this.photo = '';
+    }
     this.photo_id = data.photo_id;
+
+    // координаты фото
+    this.photo_left = false;
+    this.photo_top = false;
+    if (typeof data.top_left != 'undefined'){
+        this.photo_left = data.top_left[0] + 'px';
+        this.photo_top  = data.top_left[1] + 'px';
+    }
+
+    // ширина высота основной фотографии
+    this.photo_width = '';
+    this.photo_height = '';
+    if (typeof data.dimensions != 'undefined') {
+        this.photo_width = data.dimensions[0] * this.coef;
+        this.photo_height = data.dimensions[1] * this.coef;
+    }
+
+    this.index_under = false;
+    this.index_below = false;
+    if (typeof data.index_under != 'undefined') {
+        this.index_under = data.index_under[0];
+    }
+    if (typeof data.index_below!= 'undefined') {
+        this.index_below = data.index_below[0];
+    }
+
+
     this.variants = ko.observableArray();
 
     //показать картинку (при наведении)
     this.show_photo = ko.observable(false); 
-    this.photo_left = '0px';//data.top_left[0] + 'px';
-    this.photo_top  = '0px';// data.top_left[1] + 'px';
 
     //показать информацию о данном объекте
     this.show_info = ko.observable(false);
@@ -279,7 +313,6 @@ var Map = function(data){
 
     // показавает всплывающее информационное окно под курсором
     this.itemInfo = function(e) {
-        console.log(e);
         this.freeze_info(true);
         ko.cleanNode($('#item_info').get(0));
         $('#item_info').find('.variants img').remove();
@@ -291,10 +324,19 @@ var Map = function(data){
         $(window).trigger('blackout', {state: this.show_info(), hold: this.show_info()});
     }
 
-    // закрывает высплываютщее информационно окно
+    // закрывает выплывающее информационно окно
     $(window).bind('closeInfo', function(e, data) {
         it.closeInfo();
     });
+    
+    //обрабатываем esc
+    $(window).keydown(function(e){
+        if (e.keyCode == 27) {
+            it.closeInfo();
+        }
+    })
+
+
     this.closeInfo = function() {
         this.freeze_info(false);
         this.show_photo(false);
@@ -305,6 +347,15 @@ var Map = function(data){
     this.removeMap= function(){
         this.closeInfo();
         $(window).trigger('removeMap', this)
+    }
+
+    this.itemUp = function(){
+        $(window).trigger('closeInfo');
+        $(window).trigger('sendToServer', {action: 'item_up', object: this})
+    }
+    this.itemDown = function(){
+        $(window).trigger('closeInfo');
+        $(window).trigger('sendToServer', {action: 'item_down', object: this})
     }
 }
 
@@ -375,8 +426,33 @@ var ResultImage = function(data){
     // посылаем данные на сервер
     $(window).bind('sendToServer', function(e, data){
 
+        if (data.action == 'item_up') {
+            var prev_index = 0;
+            $.each(it.maps(), function(i, map) {
+                if (map == data.object) {
+                    it.maps()[i] = it.maps()[prev_index];
+                    it.maps()[prev_index] = data.object;
+                    return false;
+                }
+                prev_index = i;
+            })
+        }
+
+        if (data.action == 'item_down') {
+            var next_index = 0;
+            $.each(it.maps(), function(i, map) {
+                next_index = i + 1;
+                if (map == data.object) {
+                    it.maps()[i] = it.maps()[next_index];
+                    it.maps()[next_index] = data.object;
+                    return false;
+                }
+            })
+        }
+
         // если выбрали новый рисунок у вещи
         if (data.action == 'new_photo'){
+            if (data.object.id == data.object.current_photo_id) { return false };
             var map = it.getMap(data.object.parent_id, data.object.type);
             map['photo_id'] = data.object.id;
         }
@@ -391,6 +467,16 @@ var ResultImage = function(data){
             };
         }
 
+        if (it.zoom) {
+            json['zoom'] = true;
+        }
+
+        if (data.action == 'remove_all_items') {
+            it.maps.remove(function(map){
+                return map.type == "Item";
+            });
+        }
+
         // список объектов который мы будем отдавать серверу
         json['objects'] = Array();
         $.each(it.maps(), function(i, map) {
@@ -401,6 +487,8 @@ var ResultImage = function(data){
             })
         })
 
+        json['view'] = it.view();
+
         DataSender(json);
     });
 
@@ -410,7 +498,7 @@ var ResultImage = function(data){
 
     this.setData = function(data){
         this.main_image(data.imposition_url);
-        this.view(data.view);
+        this.view(data.view || "front");
         this.addMaps(data.objects);
 
         //this.main_image_width($("#main_image").width());
@@ -435,11 +523,41 @@ var ResultImage = function(data){
         return price
     }
      
+    this.zoom = data.zoom || false;
+
+    this.zoomToggle = function(){
+        this.zoom = !this.zoom;
+        $(window).trigger('sendToServer', {action: 'zoom_toggle'});
+    }
+
+    this.toggleView = function() {
+        if (this.view() == 'front') {
+            this.view('back');
+        } else {
+            this.view('front');
+        }
+        $(window).trigger('sendToServer', {action: 'toggle_view'});
+    }
+
+    this.removeAllItems = function() {
+        $(window).trigger('sendToServer', {action: 'remove_all_items'})
+    }
+     
     ko.applyBindings(this, $('#result_image').get(0))
 }
 
 
 $(window).ready(function(){
+    function sendToServer (object) {
+        var type = $(object).attr('id').split('_')[0];
+        $(window).trigger('sendToServer', {
+            action: 'new_item',
+            object: {
+                type: type[0].toUpperCase() + type.substring(1),
+                id:   $(object).attr('id').split('_')[1],
+            }
+        })
+    }
 
     new ResultImage({});
     new HashManager();
@@ -451,6 +569,23 @@ $(window).ready(function(){
         $(this).hide();
     })
 
+    $('ul li.model ul li div').live('click', function(){
+        //sendToServer(this);
+        return false;
+    });
+
+    $('ul.product-list li').live('click', function(){
+        sendToServer(this);
+        //var type = $(this).attr('id').split('_')[0];
+        //$(window).trigger('sendToServer', {
+            //action: 'new_item',
+            //object: {
+                //type: type[0].toUpperCase() + type.substring(1),
+                //id:   $(this).attr('id').split('_')[1],
+            //}
+        //})
+        return false;
+    })
 
     $('.product').click(function(){
         var id = $(this).attr('id').split('_')[0];
