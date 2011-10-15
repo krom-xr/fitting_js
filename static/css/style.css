@@ -70,10 +70,18 @@
     position: absolute; 
     z-index: 100;
 }
-#variants_img_parent img{
+#variants_img_parent img {
+    position: absolute; 
+    z-index:98;
+}
+#variants_img_parent div{
+    border: 2px solid green;
+    padding: 5px;
+    background-color: white;
     position: absolute; 
     z-index:99;
 }
+
 #blackout {
     background-color: gray;
     position: absolute; 

@@ -35,18 +35,35 @@ var default_json = {
 
 //посылвает данные к серверу
 var DataSender = function(json){
-    $.get(
-        AJAX_PATH, 
-        {
+    $.ajax({
+        url: AJAX_PATH,
+        dataType: 'json',
+        data: {
             method: 'get_data',
             format: 'json',
             v : '2',
             json: ko.toJSON(json) ,
-            
         },
-        function(data){
+        success: function(data){
             $(window).trigger('newDataAdded', data);
-        }, 'json' );
+        },
+        error: function(){
+            alert('произошла неизвестная ошибка');
+        }
+    });    
+
+    //$.get(
+        //AJAX_PATH, 
+        //{
+            //method: 'get_data',
+            //format: 'json',
+            //v : '2',
+            //json: ko.toJSON(json) ,
+            
+        //},
+        //function(data){
+            //$(window).trigger('newDataAdded', data);
+        //}, 'json' );
 }
 
 // урпавляет состоянием хэша
@@ -290,6 +307,20 @@ var Map = function(data) {
     this.info_left = ko.observable(0); 
     this.info_top  = ko.observable(0);
     
+    // показать заголовок (при наведении)
+    this.show_title = ko.observable(false);
+    this.titleX = ko.observable();
+    this.titleY = ko.observable();
+
+    // показываем заголовок
+    this.showTitle = function(e){
+        if(!this.show_title()){ return false };
+        var x = e.layerX || e.offsetX;
+        var y = e.layerY || e.offsetY;
+        this.titleX(x + 5 + 'px');
+        this.titleY(y + 5 + 'px');
+    }
+
     // добавляем варианты изображений для данного объекта
     this.addVariants = function(variants){
         if (typeof variants == "undefined") {return false };
@@ -304,8 +335,11 @@ var Map = function(data) {
 
     this.freeze_info = ko.observable(false);
 
+
     // показать контур, убрать контур
-    this.togglePhoto = function(){
+    this.togglePhoto = function(e){
+        this.show_title(!this.show_title());
+        if(!this.photo){return false}
         if (this.freeze_info()) { return false };
         this.show_photo(!this.show_photo());
         $(window).trigger('blackout', this.show_photo());
@@ -390,6 +424,12 @@ var ResultImage = function(data){
         } else if (!it.hold_blackout) {
             it.blackout(state);
         };
+
+        if(it.blackout()){
+            Pixastic.process($('#main_image').get(0), "blurfast", {amount:0.3});
+        } else {
+            Pixastic.revert($('#main_image').get(0));
+        }
     });
 
     $(window).bind('removeMap', function(e, map){
@@ -419,6 +459,12 @@ var ResultImage = function(data){
 
     // отрисовываем полученные данные
     $(window).bind('newDataAdded', function(e, data){
+        console.log(data);
+        console.log(data.error);
+        if (typeof data.error != 'undefined') { 
+            alert(data.error);
+            return false;
+        }
         it.maps([]);
         it.setData(data);
     });
@@ -460,11 +506,19 @@ var ResultImage = function(data){
         // здесь будет храниться весь json
         var json = {}
 
+        // пришел новый объект
         if (data.action == "new_item") {
-            json['new_object'] = {
-                id: data.object.id,
-                type: data.object.type,
-            };
+            var isset_object = sm.detect(it.maps(), function(map){
+                return Boolean(map.type == data.object.type && map.id == data.object.id)
+            });
+            if (isset_object){
+                it.maps.remove(isset_object);
+            } else {
+                json['new_object'] = {
+                    id: data.object.id,
+                    type: data.object.type,
+                }
+            }
         }
 
         if (it.zoom) {
@@ -472,7 +526,7 @@ var ResultImage = function(data){
         }
 
         if (data.action == 'remove_all_items') {
-            it.maps.remove(function(map){
+            it.maps.remove(function(map) {
                 return map.type == "Item";
             });
         }
@@ -500,9 +554,6 @@ var ResultImage = function(data){
         this.main_image(data.imposition_url);
         this.view(data.view || "front");
         this.addMaps(data.objects);
-
-        //this.main_image_width($("#main_image").width());
-        //this.main_image_height($("#main_image").height());
     }
 
     this.freezeBlackout = function(){
@@ -599,4 +650,5 @@ $(window).ready(function(){
         })
         return false;
     });
+
 });
