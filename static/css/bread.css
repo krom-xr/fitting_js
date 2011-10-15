@@ -1,0 +1,13 @@
+/* line 1, ../sass/bread.scss */
+.bread {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+/* line 5, ../sass/bread.scss */
+.bread a {
+  text-decoration: none;
+}
+/* line 8, ../sass/bread.scss */
+.bread a:hover {
+  text-decoration: underline;
+}

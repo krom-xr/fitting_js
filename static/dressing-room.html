@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>Do Not Forget Edit It</title>
+
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.tmpl.js"></script>
+    <script type="text/javascript" src="js/knockout.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="css/common.css" media="all"/>
+	<link rel="stylesheet" type="text/css" href="css/dressing-room.css" media="all"/>
+	<link rel="stylesheet" type="text/css" href="css/forms.css" media="all"/>
+	<script type="text/javascript" src="js/slider.js"></script>	
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/forms.js"></script>	
+
+    <script type="text/javascript" src="js/hashchange.js"></script>
+    <script type="text/javascript" src="js/fitting.js"></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8">
+
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<!--[if lt IE 7]>
+		<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
+	<![endif]-->	
+	<script language="javascript">
+		$(function(){
+			$('.filter').jqTransform();
+			$('.product-colors').jqTransform();
+			$('.product-sizes').jqTransform();
+			$('.subcategory-filter').jqTransform();
+			$('.select').jqTransform();
+		});
+	</script>	
+    <style type="text/css" media="screen">
+        #DressingRoomContent .dressed-viewer #Viewer a.zoom {
+            z-index: 101;
+        } 
+        #DressingRoomContent .dressed-viewer #Viewer a.rotate {
+            z-index: 101;
+        } 
+        #DressingRoomContent .dressed-viewer #Viewer a.delete {
+            z-index: 101;
+        } 
+    </style>
+
+
+    <!--прелоадер-->
+    <div id="preloader">
+        <img src="images/preloader.png" alt="" />
+    </div>
+
+    <!--информация об объекте, а так же варианты объектов-->
+    <div id="item_info" class="item_info" data-bind="style: {
+        display: show_info() == true ? 'block': 'none'}">
+        <div class="holder" data-bind="style: {left: info_left, top: info_top}">
+            <div class="title" >
+                <span data-bind="text: title"></span> 
+                <b data-bind="text: price"></b> 
+            </div>
+            <div class="close" data-bind="click: closeInfo">X</div> 
+            <div style="clear:both"></div>
+            <div class="variants" data-bind="template:{name: 'variants', foreach: variants}">
+                {% jqtpl "variants" %}
+                    <img data-bind="attr:{src: mini_thumb}, click: sendInfo "/>
+                {% endjqtpl %}
+            </div>
+            <div data-bind="visible: index_under, click: itemUp">Поднять над: <span data-bind="text: index_under.title"></span></div> 
+            <div data-bind="visible: index_below, click: itemDown">Опустить под: <span data-bind="text: index_below.title"></span></div> 
+
+
+            <div data-bind="click: removeMap, visible: can_remove">Удалить</div>
+        </div>
+    </div> 
+    
+	<header id="GeneralHeader">
+
+		<section class="headinfo">
+			<div class="w980 clearfix">
+				<a href="#" class="logo">Логотип</a>
+				<div class="w130">
+					<dl class="cart">
+						<dt>В корзине:</dt>
+						<dd><a href="#">2 товара</a></dd>
+						<dd><a href="#">645 000 руб.</a></dd>
+					</dl>
+				</div>			
+				<div class="w190">
+					<div class="phone">
+						Доставка&nbsp;&nbsp;&nbsp;Оплата&nbsp;&nbsp;&nbsp;Перезвоните
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<nav id="Main" class="bg-1">
+			<div class="w980 clearfix">
+				<ul>
+					<li class="with-submenu">
+						<a class="woman" href="#">Женская</a>
+						<section class="submenu woman">
+							<div class="container">
+								<ul class="brands">
+									<li><a href="#">ВСЕ БРЕНДЫ</a></li>
+									<li><a href="#" class="benetton">BENETTON</a></li>
+									<li><a href="#" class="sisley">SISLEY</a></li>
+									<li><a href="#" class="playlife">PLAYLIFE</a></li>
+								</ul>
+								<aside class="banner"><a href="#"><img src="images/general/menu/woman-banner.jpg" alt=""/></a></aside>
+								<ul class="cat line1">
+									<li><a href="">ПЛАТЬЯ</a></li>
+									<li><a href="#">ТОПЫ</a></li>
+									<li><a href="">ФУТБОЛКИ</a></li>
+									<li><a href="">РУБАШКИ, БЛУЗКИ</a></li>
+									<li><a href="">СВИТЕР</a></li>
+									<li><a href="">БРЮКИ</a></li>
+								</ul>
+								<ul class="cat line2">
+									<li><a href="">ШОРТЫ, БЕРМУДЫ</a></li>
+									<li><a href="#">ЮБКИ</a></li>
+									<li><a href="">МОНО, КОМБИНЕЗОНЫ</a></li>
+									<li><a href="">БЕЛЬЕ</a></li>
+									<li><a href="">КУПАЛЬНИКИ</a></li>
+								</ul>								
+							</div>
+						</section>							
+					</li>
+					<li class="with-submenu">
+						<a class="man" href="#">Мужская</a>
+						<section class="submenu man">
+							<div class="container">
+								<ul class="brands">
+									<li><a href="#">ВСЕ БРЕНДЫ</a></li>
+									<li><a href="#" class="benetton">BENETTON</a></li>
+									<li><a href="#" class="sisley">SISLEY</a></li>
+									<li><a href="#" class="playlife">PLAYLIFE</a></li>
+								</ul>
+								<aside class="banner"><a href="#"><img src="images/general/menu/man-banner.jpg" alt=""/></a></aside>
+								<ul class="cat line1">
+									<li><a href="">БРЮКИ</a></li>
+									<li><a href="#">ДЖИНСЫ</a></li>
+									<li><a href="">КОФТЫ</a></li>
+									<li><a href="">КАРДИГАНЫ</a></li>
+									<li><a href="">ФУТБОЛКИ И ПОЛО</a></li>
+									<li><a href="">ЖИЛЕТЫ</a></li>
+									<li><a href="">КОСТЮМЫ И ПИДЖАКИ</a></li>							
+								</ul>
+								<ul class="cat line2">
+									<li><a href="">ВЕРХНЯЯ ОДЕЖДА</a></li>
+									<li><a href="#">РУБАШКИ</a></li>
+									<li><a href="">ТОЛСТОВКИ</a></li>
+									<li><a href="">СВИТЕРА И ПУЛОВЕРЫ</a></li>
+									<li><a href="">ШОРТЫ</a></li>
+								</ul>
+							</div>
+						</section>							
+					</li>
+					<li><a class="child" href="#">Детская</a></li>
+					<li class="collection">Коллекция осень/зима 2010-2011</li>
+				</ul>			
+			</div>					
+		</nav>
+	</header>
+	
+	<section id="DressingRoomContent">
+		<div class="w980 clearfix">
+			<nav class="bread">
+				<a href="#">THE STORE</a> |
+				<a href="#">Примерочная</a>
+				<a href="#" class="dressed child">ДЕТСКАЯ ПРИМЕРОЧНАЯ</a>
+				<a href="#" class="dressed man">МУЖСКАЯ ПРИМЕРОЧНАЯ</a>
+				<a href="#" class="dressed woman active">ЖЕНСКАЯ ПРИМЕРОЧНАЯ</a>		
+				<aside class="breadfoot"></aside>		
+			</nav>	
+			<div class="dressed-products w545">
+				<header>
+					<ul>
+						<li class="catalog">
+							<a href="#" class="nav">Каталог</a>
+							<section class="icatalog selector">
+									<ul class="categories w340">									
+										<li>
+											<a href="#">ПЛАТЬЯ</a>
+											<a href="#">ТОПЫ</a>
+											<a href="#">МОНО, КОМБИНЕЗОНЫ</a>
+											<a href="#">РУБАШКИ, БЛУЗКИ</a>
+											<a href="#">СВИТЕРА</a>
+											<a href="#" class="active">БРЮКИ</a>
+										</li>		
+										<li>
+											<a href="#">ШОРТЫ, БЕРМУДЫ</a>
+											<a href="#">ЮБКИ</a>
+											<a href="#">МОНО, КОМБИНЕЗОНЫ</a>
+											<a href="#">БЕЛЬЕ</a>
+											<a href="#">КУПАЛЬНИКИ</a>
+										</li>																																											
+									</ul>
+									<ul class="brands-colors">
+										<li><a href="#">Все бренды</a></li>
+										<li class="brands">
+											<a href="#" class="benetton">Benetton</a>
+											<a href="#" class="sisley">Sisley</a>
+											<a href="#" class="playlife">Playlife</a>
+										</li>
+										<li class="colors">
+											<a href="#"><img src="images/general/colors/1.png" alt="" /></a>
+											<a href="#"><img src="images/general/colors/2.png" alt="" /></a>
+											<a href="#"><img src="images/general/colors/3.png" alt="" /></a>
+											<a href="#"><img src="images/general/colors/4.png" alt="" /></a>
+											<a href="#"><img src="images/general/colors/5.png" alt="" /></a>
+											<a href="#"><img src="images/general/colors/6.png" alt="" /></a>
+											<a href="#"><img src="images/general/colors/7.png" alt="" /></a>
+											<a href="#"><img src="images/general/colors/8.png" alt="" /></a>
+										</li>
+									</ul>
+							</section>								
+						</li>
+						<li class="favorite"><a href="#" class="nav">Избранное</a></li>
+					</ul>
+				</header>
+					<article class="clearfix">
+							<ul class="product-list">
+								<li id="item_59930">
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/element/sale-leaders-element-image.png" width="170"  alt="Образ"/></a>
+									<div class="info">
+										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
+										<span class="tocart"><a href="#">В корзину</a></span>
+										<span class="price">9999-</span>
+									</div>									
+								</li>
+								<li id="item_60064">
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/element/sale-leaders-element-image2.jpg" width="170"  alt="Образ"/></a>
+									<div class="info">
+										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
+										<span class="tocart"><a href="#">В корзину</a></span>
+										<span class="price">9999-</span>
+									</div>									
+								</li>
+								<li id="item_60270" class="lastinline">
+									<a href="#" title="Жакет AlldayMay">
+										<img src="images/main/element/sale-leaders-element-image3.jpg" width="170"  alt="Образ"/>
+									</a>
+									<div class="info">
+										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
+										<span class="tocart"><a href="#">В корзину</a></span>
+										<span class="price">9999-</span>
+									</div>									
+								</li>
+								<li id="item_60271">
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/element/sale-leaders-element-image4.jpg" width="170"  alt="Образ"/></a>
+									<div class="info">
+										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
+										<span class="tocart"><a href="#">В корзину</a></span>
+										<span class="price">9999-</span>
+									</div>									
+								</li>								
+								<li id="item_60302">
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/element/sale-leaders-element-image5.jpg" width="170"  alt="Образ"/></a>
+									<div class="info">
+										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
+										<span class="tocart"><a href="#">В корзину</a></span>
+										<span class="price">9999-</span>
+									</div>									
+								</li>
+								<li id="item_60305" class="lastinline">
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/element/sale-leaders-element-image6.jpg" width="170"  alt="Образ"/></a>
+									<div class="info">
+										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
+										<span class="tocart"><a href="#">В корзину</a></span>
+										<span class="price">9999 -</span>
+										
+									</div>									
+								</li>											
+							</ul>	
+							<aside class="photo-buttons"></aside>							
+					</article>
+			</div>
+
+
+			<div class="dressed-viewer w420" id="result_image">
+				<header>
+					<ul>
+						<li class="model">
+							<a href="#" class="nav">Модель</a>
+							<section class="imodel selector">
+								<div class="slider">
+									<div class="overflow">
+									<ul>
+										<li>
+											<div  ><a href="#"><img src="images/dressed/model-woman-face1.png" alt="Альт" /></a></div>
+											<div ><a href="#"><img src="images/dressed/model-woman-face2.png" alt="Альт" /></a></div>
+											<div ><a href="#"><img src="images/dressed/model-woman-face1.png" alt="Альт" /></a></div>
+											<div  class="lastinline"><a href="#"><img src="images/dressed/model-woman-face1.png" alt="Альт" /></a></div>
+											<div ><a href="#"><img src="images/dressed/model-woman-face1.png" alt="Альт" /></a></div>
+											<div ><a href="#"><img src="images/dressed/model-woman-face1.png" alt="Альт" /></a></div>
+											<div ><a href="#"><img src="images/dressed/model-woman-face1.png" alt="Альт" /></a></div>
+											<div  class="lastinline"><a href="#"><img src="images/dressed/model-woman-face1.png" alt="Альт" /></a></div>
+										</li>
+										<li>
+											<div><a href="#"><img src="images/dressed/model-woman-face2.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/model-woman-face2.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/model-woman-face2.png" alt="Альт" /></a></div>
+											<div class="lastinline"><a href="#"><img src="images/dressed/model-woman-face2.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/model-woman-face2.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/model-woman-face2.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/model-woman-face2.png" alt="Альт" /></a></div>
+											<div class="lastinline"><a href="#"><img src="images/dressed/model-woman-face2.png" alt="Альт" /></a></div>
+										</li>									
+									</ul>
+									</div>
+									<aside class="buttons"></aside>
+								</div>
+							</section>
+						</li>
+						<li class="background">
+							<a href="#" class="nav">Фон</a>
+							<section class="ibackground selector">
+								<div class="slider">
+									<div class="overflow">
+									<ul>
+										<li>
+											<div><a href="#"><img src="images/dressed/background-face1.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face1.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face1.png" alt="Альт" /></a></div>
+											<div class="lastinline"><a href="#"><img src="images/dressed/background-face1.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face1.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face1.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face1.png" alt="Альт" /></a></div>
+											<div class="lastinline"><a href="#"><img src="images/dressed/background-face1.png" alt="Альт" /></a></div>
+										</li>
+										<li>
+											<div><a href="#"><img src="images/dressed/background-face2.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face2.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face2.png" alt="Альт" /></a></div>
+											<div class="lastinline"><a href="#"><img src="images/dressed/background-face2.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face2.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face2.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face2.png" alt="Альт" /></a></div>
+											<div class="lastinline"><a href="#"><img src="images/dressed/background-face2.png" alt="Альт" /></a></div>
+										</li>									
+									</ul>
+									</div>
+									<aside class="buttons"></aside>
+								</div>
+							</section>						
+						</li>
+						<li class="effects">
+							<a href="#" class="nav">Эффекты</a>
+							<section class="ieffects selector">
+								<div class="slider">
+									<div class="overflow">
+									<ul>
+										<li>
+											<div><a href="#"><img src="images/dressed/background-face1.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face1.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face1.png" alt="Альт" /></a></div>
+											<div class="lastinline"><a href="#"><img src="images/dressed/background-face1.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face1.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face1.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face1.png" alt="Альт" /></a></div>
+											<div class="lastinline"><a href="#"><img src="images/dressed/background-face1.png" alt="Альт" /></a></div>
+										</li>
+										<li>
+											<div><a href="#"><img src="images/dressed/background-face2.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face2.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face2.png" alt="Альт" /></a></div>
+											<div class="lastinline"><a href="#"><img src="images/dressed/background-face2.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face2.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face2.png" alt="Альт" /></a></div>
+											<div><a href="#"><img src="images/dressed/background-face2.png" alt="Альт" /></a></div>
+											<div class="lastinline"><a href="#"><img src="images/dressed/background-face2.png" alt="Альт" /></a></div>
+										</li>									
+									</ul>
+									</div>
+									<aside class="buttons"></aside>
+								</div>
+							</section>								
+						</li>
+					</ul>
+				</header>
+
+
+				<section id="Viewer">
+                    <!--основной объект с данными-->
+                    <div class="result_image">
+
+                        <a href="#" class="zoom" title="Масштабирование" data-bind="click: zoomToggle"></a>
+                        <a href="#" class="rotate" title="Вращать" data-bind="click: toggleView"></a>
+                        <a href="#" class="delete" title="Удалить" data-bind="click: removeAllItems"></a>
+
+                        <img src="images/transparent.png" width="100%" height="100%"
+                            usemap="#map" id="main_transparent_shell" />
+
+                        <!--здесь image map - ы-->
+                        <map name="map" data-bind="template: {name: 'map_list', foreach:maps}">
+                            {% jqtpl "map_list" %}
+                                {{each $item.data.image_maps }}
+                                    <area shape="poly" coords="${$value}" 
+                                    data-bind="click: itemInfo, event: {mouseover: togglePhoto , mouseout: togglePhoto }" />
+                                {{/each}}
+                            {% endjqtpl %}
+                        </map>
+
+                        <div data-bind="template:{name:'variants_img', foreach:maps}" id="variants_img_parent">
+                            {% jqtpl "variants_img" %}
+                                <img data-bind="attr: {src: photo, width: photo_width, height: photo_height}, 
+                                        visible: show_photo,
+                                        style: {left: photo_left, top: photo_top}"/ >
+                            {% endjqtpl %}
+                        </div>
+
+                        <div id="blackout" data-bind="style:{opacity: blackout() ? '0.5' : '0'}"></div> 
+
+                        <!-- это самое основное изображение -->
+                        <img data-bind="attr: {src: main_image, height: main_image_height }" />
+                    </div> 
+
+                    {# <div id='result_image' class="result_image"> #}
+
+                        {# <img src="images/dressed/model-woman-body1.jpg" alt="Моделька" data-bind="attr: {src: main_image }" /> #}
+                        {# <a href="#" class="zoom" title="Масштабирование"></a> #}
+                        {# <a href="#" class="rotate" title="Вращать"></a> #}
+                        {# <a href="#" class="delete" title="Удалить"></a> #}
+                    {# </div>  #}
+
+				</section>	
+				<div class="w235">				
+                    <aside class="price">
+                        <span >Итого:</span><b data-bind="text: getFullPrice()+'-'"></b> 
+                    </aside>
+                    <section class="tocart">
+                        <a href="#">
+                            Добавить в корзину
+                            <img src="images/general/cart-medium.png" alt="Добавить в корзину" class="cart" />
+                        </a>
+                    </section>		
+				</div>	
+
+                {# <ul data-bind="template: {name: 'item_list', foreach: maps}" class="item_list_parent"  >  #}
+                    {# {% jqtpl "item_list" %} #}
+                    {# <li data-bind="event: {mouseover: togglePhoto , mouseout: togglePhoto }, visible: can_display, click: itemInfo" > #}
+                        {# <b data-bind="click: removeMap, visible: can_remove">X</b>  #}
+                        {# <span data-bind="text: title"></span>  #}
+                        {# <b data-bind="text: price"></b>  #}
+                    {# </li>  #}
+                    {# {% endjqtpl %} #}
+                {# </ul>  #}
+
+				<div class="view-list w160" data-bind="template: {name: 'item_list', foreach: maps}">
+                    {% jqtpl "item_list" %}
+                    <a href="#" data-bind="event: {mouseover: togglePhoto , mouseout: togglePhoto }, visible: can_display, click: itemInfo" >
+                        <b data-bind="click: removeMap, visible: can_remove">X</b>
+                        <b data-bind="text: title"></b> 
+                        <span data-bind="text: price+'-'"></span>
+                    </a>
+                    {% endjqtpl %}
+				</div>
+
+				<aside class="morebuttons w160">
+					<a href="#" class="circle">Кружок</a>
+					<a href="#" class="send">Отправить другу</a>
+					<a href="#" class="print">Отпечатать</a>					
+				</aside>	
+			</div>
+		</div>
+	</section>
+	<section id="BlockLookAtThis">	
+			<nav class="sale bg-1">
+				<div class="w980 clearfix">
+					<ul class="tabs">
+						<li class="tab-lookatthis swibtcher active"><a href="#">Обратите внимание</a></li>
+						<li class="tab-images switcher"><a href="#">Образы примерочной</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="w980 clearfix articles">
+					<section class="tab first active">
+						<article class="sale-leaders">
+							<ul>
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/element/sale-leaders-element-image.png" alt="Образ"/></a>
+									<div class="info">
+										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
+										<span class="tocart"><a href="#">В корзину</a></span>
+										<span class="price">9999-</span>
+									</div>									
+								</li>
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/element/sale-leaders-element-image2.jpg" alt="Образ"/></a>
+									<div class="info">
+										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
+										<span class="tocart"><a href="#">В корзину</a></span>
+										<span class="price">9999-</span>
+									</div>									
+								</li>
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/element/sale-leaders-element-image3.jpg" alt="Образ"/></a>
+									<div class="info">
+										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
+										<span class="tocart"><a href="#">В корзину</a></span>
+										<span class="price">9999-</span>
+									</div>									
+								</li>
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/element/sale-leaders-element-image4.jpg" alt="Образ"/></a>
+									<div class="info">
+										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
+										<span class="tocart"><a href="#">В корзину</a></span>
+										<span class="price">9999-</span>
+									</div>									
+								</li>								
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/element/sale-leaders-element-image5.jpg" alt="Образ"/></a>
+									<div class="info">
+										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
+										<span class="tocart"><a href="#">В корзину</a></span>
+										<span class="price">9999-</span>
+									</div>									
+								</li>
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/element/sale-leaders-element-image6.jpg" alt="Образ"/></a>
+									<div class="info">
+										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
+										<span class="tocart"><a href="#">В корзину</a></span>
+										<span class="price">9999 -</span>
+										
+									</div>									
+								</li>
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/element/sale-leaders-element-image7.jpg" alt="Образ"/></a>
+									<div class="info">
+										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
+										<span class="tocart"><a href="#">В корзину</a></span>
+										<span class="price">19799-</span>
+									</div>									
+								</li>
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/element/sale-leaders-element-image8.jpg" alt="Образ"/></a>
+									<div class="info">
+										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
+										<span class="tocart"><a href="#">В корзину</a></span>
+										<span class="price">19799-</span>
+									</div>									
+								</li>	
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/element/sale-leaders-element-image9.jpg" alt="Образ"/></a>
+									<div class="info">
+										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
+										<span class="tocart"><a href="#">В корзину</a></span>
+										<span class="price">19799-</span>
+									</div>									
+								</li>
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/element/sale-leaders-element-image10.jpg" alt="Образ"/></a>
+									<div class="info">
+										<span class="title"><a href="#" title="Жакет AlldayMay">Жакет AlldayMay</a></span>
+										<span class="tocart"><a href="#">В корзину</a></span>
+										<span class="price">19799-</span>
+									</div>									
+								</li>								
+							</ul>				
+						</article>	
+					</section>
+					<section class="tab second">
+						<article  class="sale-images">
+							<ul>
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/sale-images-element-image.png" alt="Образ"/></a>						
+								</li>
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/sale-images-element-image.png" alt="Образ"/></a>						
+								</li>
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/sale-images-element-image.png" alt="Образ"/></a>								
+								</li>
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/sale-images-element-image.png" alt="Образ"/></a>									
+								</li>								
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/sale-images-element-image.png" alt="Образ"/></a>									
+								</li>
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/sale-images-element-image.png" alt="Образ"/></a>									
+								</li>
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/sale-images-element-image.png" alt="Образ"/></a>								
+								</li>
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/sale-images-element-image.png" alt="Образ"/></a>								
+								</li>	
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/sale-images-element-image.png" alt="Образ"/></a>									
+								</li>
+								<li>
+									<a href="#" title="Жакет AlldayMay"><img src="images/main/sale-images-element-image.png" alt="Образ"/></a>								
+								</li>								
+							</ul>				
+						</article>	
+					</section>
+			</div>
+	</section>	
+	<section id="UserPanel">
+		<div class="active">
+			<div class="w980">
+				<ul>
+					<li class="login-reg">
+						<a class="login" href="#">Войти</a>
+						<a class="reg" href="#">зарегистрироваться</a>
+					</li>
+					<li class="user-menu">
+						<ul class="col">
+						<li><a href="#">Моя примерочная (0)</a></li>
+						<li><a href="#">Мои желания (0)</a></li>
+						</ul>
+						<ul class="col">
+						<li><a href="#">Мой размер <span>off</span></a></li>
+						<li><a href="#">Мои заказы (0)</a></li>
+						</ul>	
+						<ul class="col last">
+						<li><a href="#">Мои игры (0)</a></li>
+						<li><a href="#">Мой 3D магазин</a></li>
+						</ul>						
+					</li>
+					<li class="bonuses">
+						<span>0</span> бонусов
+					</li>
+					<li class="search">
+						<form action="">
+						<input type="text" class="searchtext" onblur="if (!value) value=defaultValue" onclick="if (value==defaultValue) value=''" value="ПОИСК" />
+						<button type="submit" class="gosearch"></button>
+						</form>
+					</li>
+					<li class="hide-visible hide">
+						<a href="#">Свернуть</a>
+					</li>
+				</ul>
+			</div>		
+		</div>
+		<div class="user-block unactive display">
+			<div class="w980">
+				<ul>
+					<li class="search">
+						<form action="">
+						<input type="text" class="searchtext" onblur="if (!value) value=defaultValue" onclick="if (value==defaultValue) value=''" value="ПОИСК" />
+						<button type="submit" class="gosearch"></button>
+						</form>
+					</li>
+					<li class="hide-visible visible">
+						<a href="#">Свернуть</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<footer id="GeneralFooter">
+		<div class="w980 clearfix">
+			<div class="disclaimer">
+				<a href="#" class="foot-logo">The Store</a>
+				<span class="foot-phone">Telephone Number</span>
+			</div>
+			<nav id="foot-menu">
+				<dl>
+					<dt>МАГАЗИН</dt>
+					<dd><a href="#">Оплата</a></dd>
+					<dd><a href="#">Возврат и обмен товаров</a></dd>
+					<dd><a href="#">Преимущества</a></dd>
+					<dd><a href="#">Поддержка</a></dd>
+				</dl>
+				<dl>
+					<dt>ИНФОРМАЦИЯ</dt>
+					<dd><a href="#">FAQ</a></dd>
+					<dd><a href="#">Адреса магазинов</a></dd>
+					<dd><a href="#">Как выбрать размер</a></dd>
+					<dd><a href="#">Обратная связь</a></dd>
+				</dl>	
+				<dl class="last">
+					<dt>О КОМПАНИИ</dt>
+					<dd><a href="#">Справка</a></dd>
+					<dd><a href="#">Раздел для СМИ</a></dd>
+					<dd><a href="#">Информация о компании</a></dd>
+					<dd><a href="#">Правила использования сайта</a></dd>
+				</dl>			
+			</nav>
+		</div>
+	</footer>

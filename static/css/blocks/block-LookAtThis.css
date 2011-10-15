@@ -1,0 +1,207 @@
+/* line 3, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis {
+  margin-bottom: 40px;
+}
+/* line 6, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis .sale {
+  margin-bottom: 20px;
+}
+/* line 8, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis .sale ul.tabs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 14, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis .sale ul.tabs li {
+  float: left;
+  display: block;
+  margin-right: 2px;
+  height: 30px;
+}
+/* line 20, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis .sale ul.tabs li a {
+  display: block;
+  height: 30px;
+  text-indent: -4000px;
+  background: url(url('/img/../img/sprites/_look-at-this-se38e3362a4.png')) no-repeat;
+}
+/* line 27, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis .sale ul.tabs li.tab-lookatthis a {
+  background-position: 0 -120px;
+  height: 30px;
+  width: 269px;
+}
+/* line 31, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis .sale ul.tabs li.tab-lookatthis a:hover, #BlockLookAtThis .sale ul.tabs li.tab-lookatthis.active a {
+  background-position: 0 -80px;
+  height: 30px;
+  width: 269px;
+}
+/* line 34, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis .sale ul.tabs li.tab-images a {
+  background-position: 0 -40px;
+  height: 30px;
+  width: 298px;
+}
+/* line 38, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis .sale ul.tabs li.tab-images a:hover, #BlockLookAtThis .sale ul.tabs li.tab-images.active a {
+  background-position: 0 0;
+  height: 30px;
+  width: 298px;
+}
+/* line 46, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab {
+  position: relative;
+  display: none;
+}
+/* line 50, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab.active {
+  display: block;
+}
+/* line 54, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .sale-images {
+  overflow: hidden;
+  width: 910px !important;
+  float: left;
+  margin-left: 45px !important;
+  height: 300px;
+}
+/* line 60, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .sale-images.active {
+  display: block;
+}
+/* line 64, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .sale-images ul {
+  padding: 0;
+  overflow: hidden;
+}
+/* line 68, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .sale-images ul li {
+  display: block;
+  overflow: hidden;
+  float: left;
+  height: 300px;
+  width: 180px!important;
+}
+/* line 79, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .sale-leaders {
+  overflow: hidden;
+  width: 910px !important;
+  float: left;
+  margin-left: 45px !important;
+  height: 300px;
+}
+/* line 87, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .sale-leaders ul {
+  padding: 0;
+  overflow: hidden;
+}
+/* line 91, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .sale-leaders ul li {
+  display: block;
+  overflow: hidden;
+  float: left;
+  height: 300px;
+  width: 180px!important;
+}
+/* line 99, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .sale-leaders ul li .info {
+  display: block;
+  background: #dadbdc;
+  margin-top: 12px;
+  height: 15px;
+  padding: 10px 5px;
+  margin-right: 10px;
+}
+/* line 107, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .sale-leaders ul li .info .title {
+  display: block;
+  float: left;
+  overflow: hidden;
+  width: 65px;
+  white-space: nowrap;
+  height: 20px;
+  font-size: 12px;
+}
+/* line 117, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .sale-leaders ul li .info .price {
+  display: block;
+  position: relative;
+  top: -2px;
+  float: right;
+  font-size: 16px;
+  font-weight: bold;
+}
+/* line 126, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .sale-leaders ul li .info .tocart {
+  float: right;
+}
+/* line 129, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .sale-leaders ul li .info .tocart a {
+  background: url(../img/main/sale-leaders-element-cart.png) no-repeat 0 0;
+  width: 39px;
+  height: 51px;
+  display: block;
+  text-indent: -4000px;
+  float: right;
+  position: relative;
+  top: -23px;
+  right: -5px;
+}
+/* line 140, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .sale-leaders ul li .info .tocart a:hover {
+  opacity: 0.7;
+}
+/* line 152, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .prev-button {
+  display: block;
+  width: 35px;
+  height: 300px;
+  text-indent: -4000px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 161, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .prev-button a {
+  display: block;
+  background: url(url('/img/../img/sprites/_sale-elements-nav-s365b0fb5c7.png')) no-repeat;
+  background-position: 0 -310px;
+  height: 300px;
+  width: 35px;
+  width: 35px;
+  height: 300px;
+}
+/* line 168, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .prev-button a:hover {
+  background-position: 0 0;
+  height: 300px;
+  width: 35px;
+}
+/* line 174, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .next-button {
+  display: block;
+  width: 35px;
+  height: 300px;
+  text-indent: -4000px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* line 183, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .next-button a {
+  display: block;
+  background: url(url('/img/../img/sprites/_sale-elements-nav-s365b0fb5c7.png')) no-repeat;
+  background-position: 0 -930px;
+  height: 300px;
+  width: 35px;
+  width: 35px;
+  height: 300px;
+}
+/* line 190, ../../sass/blocks/block-LookAtThis.scss */
+#BlockLookAtThis section.tab .next-button a:hover {
+  background-position: 0 -620px;
+  height: 300px;
+  width: 35px;
+}
