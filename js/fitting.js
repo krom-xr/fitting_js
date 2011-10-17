@@ -315,10 +315,11 @@ var Map = function(data) {
         $('#item_info').find('.variants img').remove();
         ko.applyBindings(this, $('#item_info').get(0));
 
-        this.info_left(e.pageX + "px");
-        this.info_top(e.pageY + "px");
+        this.info_left(e.pageX + 'px');
+        this.info_top(e.pageY + 'px');
         this.show_info(!this.show_info());
         $(window).trigger('blackout', {state: this.show_info(), hold: this.show_info()});
+        $(window).trigger('displayItemInfo', true);
     }
 
     // закрывает выплывающее информационно окно
@@ -333,12 +334,12 @@ var Map = function(data) {
         }
     })
 
-
     this.closeInfo = function() {
         this.freeze_info(false);
         this.show_photo(false);
         this.show_info(false);
         $(window).trigger('blackout', {state: this.show_info(), hold: this.show_info()});
+        $(window).trigger('displayItemInfo', false);
     }
 
     this.removeMap= function(){
@@ -357,7 +358,7 @@ var Map = function(data) {
 }
 
 // главный объект. отвечает за общение с сервером и отрисовку себя и своих дочерних элементов
-var ResultImage = function(data){
+var FittingRoom = function(data){
     new HashManager(data);
     var it = this;
 
@@ -379,6 +380,13 @@ var ResultImage = function(data){
 
     this.maps = ko.observableArray();
 
+    this.item_list_selector = data.item_list_selector;
+
+
+    this.content_blocker = ko.observable(false);
+    $(window).bind('displayItemInfo', function(e, state){
+        it.content_blocker(state);
+    });
 
     this.item_selector = data.item_selector;
     this.face_selector = data.face_selector;
@@ -413,6 +421,12 @@ var ResultImage = function(data){
         return false;
     });
 
+    this.blackout_color = data.blackout_color || gray;
+
+    this.blackOut = function(){
+        if(!data.use_blackout) {return false ;}
+        return this.blackout();
+    }
 
     // затемняет фон. Если передано свойство hold = true, то держит фон,
     // пока не придет hold = false
@@ -424,10 +438,12 @@ var ResultImage = function(data){
             it.blackout(state);
         };
 
-        if(it.blackout()){
-            Pixastic.process($(data.main_image_selector).get(0), "blurfast", {amount:0.3});
-        } else {
-            Pixastic.revert($(data.main_image_selector).get(0));
+        if(data.use_blur){
+            if(it.blackout()){
+                Pixastic.process($(data.main_image_selector).get(0), "blurfast", {amount: data.blur_amount});
+            } else {
+                Pixastic.revert($(data.main_image_selector).get(0));
+            }
         }
     });
 
@@ -456,7 +472,6 @@ var ResultImage = function(data){
         })
         this.setActiveClasses();
     }
-
 
     // устанавливает класс active, для всех текущих вещей
     this.setActiveClasses = function() {
@@ -536,6 +551,7 @@ var ResultImage = function(data){
             var isset_object = sm.detect(it.maps(), function(map){
                 return Boolean(map.type == data.object.type && map.id == data.object.id)
             });
+            $(window).trigger('closeInfo'); 
             if (isset_object){
                 it.maps.remove(isset_object);
             } else {
@@ -546,7 +562,7 @@ var ResultImage = function(data){
             }
         }
 
-        if (data.action = 'replace_object') {
+        if (data.action == 'replace_object') {
             it.maps.remove(function(map){
                 return data.object.type == map.type;
             });
@@ -555,7 +571,6 @@ var ResultImage = function(data){
                 type: data.object.type,
             })
         };
-
 
         if (it.zoom) {
             json['zoom'] = true;
@@ -577,6 +592,7 @@ var ResultImage = function(data){
         })
 
         json['view'] = it.view();
+
 
         DataSender(json);
     });
@@ -633,14 +649,3 @@ var ResultImage = function(data){
      
     ko.applyBindings(this, $('#result_image').get(0))
 }
-
-
-var fittingStarter = function(data){
-    new ResultImage(data);
-    //$.ajaxError(function(){
-        //alert('wtf');
-    //})
-    //$.ajaxStart(function(){
-        //console.log('yesss');
-    //})
-};

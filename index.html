@@ -49,6 +49,73 @@
         #DressingRoomContent .dressed-viewer #Viewer a.delete {
             z-index: 101;
         } 
+/* line 25, ../sass/blocks/block-Popups.scss */
+.dressed-popup {
+  -moz-box-shadow: 5px 5px 10px #666666;
+  -webkit-box-shadow: 5px 5px 10px #666666;
+  -o-box-shadow: 5px 5px 10px #666666;
+  box-shadow: 5px 5px 10px #666666;
+  width: 205px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  background: #dedede;
+}
+/* line 34, ../sass/blocks/block-Popups.scss */
+.dressed-popup header {
+  display: block;
+  padding: 5px 10px;
+  overflow: hidden;
+  margin-bottom: 0!important;
+  background: #5a5a5a;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #fff;
+}
+/* line 45, ../sass/blocks/block-Popups.scss */
+.dressed-popup aside {
+  padding: 10px;
+  overflow: hidden;
+}
+/* line 49, ../sass/blocks/block-Popups.scss */
+.dressed-popup aside a {
+  display: block;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+/* line 55, ../sass/blocks/block-Popups.scss */
+.dressed-popup aside a:hover {
+  text-decoration: underline;
+}
+/* line 59, ../sass/blocks/block-Popups.scss */
+.dressed-popup aside a.open-after {
+  float: left;
+  text-indent: -3000px;
+  width: 79px;
+  height: 73px;
+  margin-right: 20px;
+  border: 1px solid #5a5a5a;
+  background: url(../img/dressed/open-after.png) no-repeat center top;
+}
+/* line 68, ../sass/blocks/block-Popups.scss */
+.dressed-popup aside a.open-after:hover {
+  border: 1px solid #c0061e;
+}
+/* line 73, ../sass/blocks/block-Popups.scss */
+.dressed-popup aside a.open-before {
+  float: left;
+  text-indent: -3000px;
+  width: 79px;
+  height: 73px;
+  border: 1px solid #5a5a5a;
+  background: url(../img/dressed/open-before.png) no-repeat center top;
+}
+/* line 81, ../sass/blocks/block-Popups.scss */
+.dressed-popup aside a.open-before:hover {
+  border: 1px solid #c0061e;
+}
     </style>
 
     <script type="text/javascript" src="js/fitting.js"></script>
@@ -83,18 +150,26 @@
                     type:"Item",
                     photo_id:157
                 },
-                view:"front",
+                view: "front",
             };
 
-            new fittingStarter({
+            new FittingRoom({
+                item_selector: 'ul.product-list li', // селектор для вещей
+                face_selector: 'ul li.model ul li div', // селектор для лиц
+                background_selector: 'ul li.background ul li div', // селектор для фонов
+                effects_selector: 'ul li.effects ul li div', // селектор для эффектов
 
-                item_selector: 'ul.product-list li',
-                face_selector: 'ul li.model ul li div',
-                background_selector: 'ul li.background ul li div',
-                effects_selector: 'ul li.effects ul li div',
-                image_height: '538',
-                default_json: default_json,
-                main_image_selector: '#main_image',
+                image_height: '538', // высота основного изображения
+                main_image_selector: '#main_image', // селектор основного изображения
+
+                default_json: default_json, // дефолтный json который будет послан на сервер, при первом заходе на страницу
+
+                use_blackout: true, // использовать затемнение при наведении на вещь на модели
+                blackout_selector: '#blackout',
+                blackout_color: 'green', // цвет затемнения
+
+                use_blur: true, // использовать размытие
+                blur_amount: 0.1, // сила размытия
 
             });
         });
@@ -110,8 +185,8 @@
     </div>
 
     <!--информация об объекте, а так же варианты объектов-->
-    <div id="item_info" class="item_info" data-bind="style: {
-        display: show_info() == true ? 'block': 'none'}">
+    <div class="item_info" data-bind="style: {
+        display: show_info() == true ? 'block': 'none'}" style="display: none">
         <div class="holder" data-bind="style: {left: info_left, top: info_top}">
             <div class="title" >
                 <span data-bind="text: title"></span> 
@@ -120,18 +195,35 @@
             <div class="close" data-bind="click: closeInfo">X</div> 
             <div style="clear:both"></div>
             <div class="variants" data-bind="template:{name: 'variants', foreach: variants}">
+                <script id="variantss" type="text/x-jquery-tmpl"> 
+                    <img data-bind="attr:{src: mini_thumb}, click: sendInfo "/>
+                </script> 
+            </div>
+            <div data-bind="visible: index_under, click: itemUp">Поднять над: <span data-bind="text: index_under.title"></span></div> 
+            <div data-bind="visible: index_below, click: itemDown">Опустить под: <span data-bind="text: index_below.title"></span></div> 
+            <div data-bind="click: removeMap, visible: can_remove">Удалить</div>
+        </div>
+    </div> 
+
+    <section class="dressed-popup" id="item_info" 
+        data-bind="style: {display: show_info() == true ? 'block': 'none',
+                    left: info_left, top: info_top }" >
+        <header data-bind="text: title"></header>
+        <aside>
+            <a data-bind="visible: price">Цена: <span data-bind="text: price"></span> руб. </a>
+            <a href="#" data-bind="click: removeMap, visible: can_remove">Удалить с образа</a>
+
+            <div class="variants" data-bind="template:{name: 'variants', foreach: variants}">
                 <script id="variants" type="text/x-jquery-tmpl"> 
                     <img data-bind="attr:{src: mini_thumb}, click: sendInfo "/>
                 </script> 
             </div>
             <div data-bind="visible: index_under, click: itemUp">Поднять над: <span data-bind="text: index_under.title"></span></div> 
             <div data-bind="visible: index_below, click: itemDown">Опустить под: <span data-bind="text: index_below.title"></span></div> 
+            <b data-bind="click: removeMap, visible: can_remove">Удалить</b>
+        </aside>
+    </section>
 
-
-            <div data-bind="click: removeMap, visible: can_remove">Удалить</div>
-        </div>
-    </div> 
-    
 	<header id="GeneralHeader">
 
 		<section class="headinfo">
@@ -335,119 +427,24 @@
 					</article>
 			</div>
 
-			<div class="dressed-viewer w420" id="result_image">
-				<header>
-					<ul>
-                        <li class='model'>
-                        <a class='nav' href='#'>Лицо</a>
-                        <section class='imodel selector'>
-                          <div class='slider'>
-                            <div class='overflow'>
-                              <ul>
-                                <li>
-                                  <div id='Face_1'>
-                                    <a href="#"><img alt="Small_man_front_face" src="/uploads/fitting_room/face/image/1/small_man_front_face.png" />
-                                    </a>
-                                  </div>
-                                  <div id='Face_2'>
-                                    <a href="#"><img alt="Small_man_front_face_2" src="/uploads/fitting_room/face/image/2/small_man_front_face_2.png" />
-                                    </a>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div>
-                                    <a href='#'>
-                                      <img alt='Альт' src='img/dressed/model-woman-obj2.png'>
-                                    </a>
-                                  </div>
-                                  <div>
-                                    <a href='#'>
-                                      <img alt='Альт' src='img/dressed/model-woman-obj2.png'>
-                                    </a>
-                                  </div>
-                                  <div>
-                                    <a href='#'>
-                                      <img alt='Альт' src='img/dressed/model-woman-obj2.png'>
-                                    </a>
-                                  </div>
-                                  <div class='lastinline'></div>
-                                </li>
-                              </ul>
-                            </div>
-                            <aside class='buttons'></aside>
-                          </div>
-                        </section>
-                        </li>
-                        <li class='background'>
-                        <a class='nav' href='#'>Фон</a>
-                        <section class='ibackground selector'>
-                          <div class='slider'>
-                            <div class='overflow'>
-                              <ul>
-                                <li>
-                                  <div id='Background_1'>
-                                    <a href="#"><img alt="Small_fon3_large" src="/uploads/fitting_room/background/image/1/small_fon3_large.jpg" />
-                                    </a>
-                                  </div>
-                                  <div id='Background_2'>
-                                    <a href="#"><img alt="Small_b002" src="/uploads/fitting_room/background/image/2/small_b002.png" />
-                                    </a>
-                                  </div>
-                                  <div id='Background_3'>
-                                    <a href="#"><img alt="Small_b001" src="/uploads/fitting_room/background/image/3/small_b001.png" />
-                                    </a>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div>
-                                    <a href='#'>
-                                      <img alt='Альт' src='img/dressed/model-woman-obj2.png'>
-                                    </a>
-                                  </div>
-                                  <div>
-                                    <a href='#'>
-                                      <img alt='Альт' src='img/dressed/model-woman-obj2.png'>
-                                    </a>
-                                  </div>
-                                  <div>
-                                    <a href='#'>
-                                      <img alt='Альт' src='img/dressed/model-woman-obj2.png'>
-                                    </a>
-                                  </div>
-                                  <div class='lastinline'></div>
-                                </li>
-                              </ul>
-                            </div>
-                            <aside class='buttons'></aside>
-                          </div>
-                        </section>
-                        </li>
-                        <li class='effects'>
-                        <a class='nav' href='#'>Эффекты</a>
-                            <section class='ieffects selector'>
+			<div class="dressed-viewer w420"  id="result_image">
+
+
+                    <header>
+                        <ul>
+                            <li class='model'>
+                            <a class='nav' href='#'>Лицо</a>
+                            <section class='imodel selector'>
                               <div class='slider'>
                                 <div class='overflow'>
                                   <ul>
                                     <li>
-                                      <div id='Effect_1'>
-                                        <a href="#">ЧБ
+                                      <div id='Face_1'>
+                                        <a href="#"><img alt="Small_man_front_face" src="/uploads/fitting_room/face/image/1/small_man_front_face.png" />
                                         </a>
                                       </div>
-                                      <div id='Effect_2'>
-                                        <a href="#">Blur
-                                        </a>
-                                      </div>
-                                      <div id='Effect_3'>
-                                        <a href="#">Motion Blur
-                                        </a>
-                                      </div>
-                                      <div id='Effect_4'>
-                                        <a href="#">Radial Blur
-                                        </a>
-                                      </div>
-                                      <div class='last_line'></div>
-                                      <div id='Effect_5'>
-                                        <a href="#">3D
+                                      <div id='Face_2'>
+                                        <a href="#"><img alt="Small_man_front_face_2" src="/uploads/fitting_room/face/image/2/small_man_front_face_2.png" />
                                         </a>
                                       </div>
                                     </li>
@@ -474,74 +471,173 @@
                                 <aside class='buttons'></aside>
                               </div>
                             </section>
-                        </li>
-					</ul>
-				</header>
+                            </li>
+                            <li class='background'>
+                            <a class='nav' href='#'>Фон</a>
+                            <section class='ibackground selector'>
+                              <div class='slider'>
+                                <div class='overflow'>
+                                  <ul>
+                                    <li>
+                                      <div id='Background_1'>
+                                        <a href="#"><img alt="Small_fon3_large" src="/uploads/fitting_room/background/image/1/small_fon3_large.jpg" />
+                                        </a>
+                                      </div>
+                                      <div id='Background_2'>
+                                        <a href="#"><img alt="Small_b002" src="/uploads/fitting_room/background/image/2/small_b002.png" />
+                                        </a>
+                                      </div>
+                                      <div id='Background_3'>
+                                        <a href="#"><img alt="Small_b001" src="/uploads/fitting_room/background/image/3/small_b001.png" />
+                                        </a>
+                                      </div>
+                                    </li>
+                                    <li>
+                                      <div>
+                                        <a href='#'>
+                                          <img alt='Альт' src='img/dressed/model-woman-obj2.png'>
+                                        </a>
+                                      </div>
+                                      <div>
+                                        <a href='#'>
+                                          <img alt='Альт' src='img/dressed/model-woman-obj2.png'>
+                                        </a>
+                                      </div>
+                                      <div>
+                                        <a href='#'>
+                                          <img alt='Альт' src='img/dressed/model-woman-obj2.png'>
+                                        </a>
+                                      </div>
+                                      <div class='lastinline'></div>
+                                    </li>
+                                  </ul>
+                                </div>
+                                <aside class='buttons'></aside>
+                              </div>
+                            </section>
+                            </li>
+                            <li class='effects'>
+                            <a class='nav' href='#'>Эффекты</a>
+                                <section class='ieffects selector'>
+                                  <div class='slider'>
+                                    <div class='overflow'>
+                                      <ul>
+                                        <li>
+                                          <div id='Effect_1'>
+                                            <a href="#">ЧБ
+                                            </a>
+                                          </div>
+                                          <div id='Effect_2'>
+                                            <a href="#">Blur
+                                            </a>
+                                          </div>
+                                          <div id='Effect_3'>
+                                            <a href="#">Motion Blur
+                                            </a>
+                                          </div>
+                                          <div id='Effect_4'>
+                                            <a href="#">Radial Blur
+                                            </a>
+                                          </div>
+                                          <div class='last_line'></div>
+                                          <div id='Effect_5'>
+                                            <a href="#">3D
+                                            </a>
+                                          </div>
+                                        </li>
+                                        <li>
+                                          <div>
+                                            <a href='#'>
+                                              <img alt='Альт' src='img/dressed/model-woman-obj2.png'>
+                                            </a>
+                                          </div>
+                                          <div>
+                                            <a href='#'>
+                                              <img alt='Альт' src='img/dressed/model-woman-obj2.png'>
+                                            </a>
+                                          </div>
+                                          <div>
+                                            <a href='#'>
+                                              <img alt='Альт' src='img/dressed/model-woman-obj2.png'>
+                                            </a>
+                                          </div>
+                                          <div class='lastinline'></div>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                    <aside class='buttons'></aside>
+                                  </div>
+                                </section>
+                            </li>
+                        </ul>
+                    </header>
 
+                    <section id="Viewer">
+                        <!--основной объект с данными-->
+                        <div class="result_image">
 
-				<section id="Viewer">
-                    <!--основной объект с данными-->
-                    <div class="result_image">
+                            <a href="#" class="zoom" title="Масштабирование" data-bind="click: zoomToggle"></a>
+                            <a href="#" class="rotate" title="Вращать" data-bind="click: toggleView"></a>
+                            <a href="#" class="delete" title="Удалить" data-bind="click: removeAllItems"></a>
 
-                        <a href="#" class="zoom" title="Масштабирование" data-bind="click: zoomToggle"></a>
-                        <a href="#" class="rotate" title="Вращать" data-bind="click: toggleView"></a>
-                        <a href="#" class="delete" title="Удалить" data-bind="click: removeAllItems"></a>
+                            <img src="img/transparent.png" width="100%" height="100%"
+                                usemap="#map" id="main_transparent_shell" />
 
-                        <img src="img/transparent.png" width="100%" height="100%"
-                            usemap="#map" id="main_transparent_shell" />
+                            <!--здесь image map - ы-->
+                            <map name="map" data-bind="template: {name: 'map_list', foreach:maps}">
+                                <script id="map_list" type="text/x-jquery-tmpl">
+                                    {{each $item.data.image_maps }}
+                                        <area shape="poly" coords="${$value}" 
+                                        data-bind="click: itemInfo, event: {mouseover: togglePhoto , mouseout: togglePhoto, mousemove: showTitle }" />
+                                    {{/each}}
+                                </script> 
+                            </map>
 
-                        <!--здесь image map - ы-->
-                        <map name="map" data-bind="template: {name: 'map_list', foreach:maps}">
-                            <script id="map_list" type="text/x-jquery-tmpl">
-                                {{each $item.data.image_maps }}
-                                    <area shape="poly" coords="${$value}" 
-                                    data-bind="click: itemInfo, event: {mouseover: togglePhoto , mouseout: togglePhoto, mousemove: showTitle }" />
-                                {{/each}}
-                            </script> 
-                        </map>
+                            <div id='content_blocker' data-bind="visible: content_blocker" ></div> 
 
-                        <div data-bind="template:{name:'variants_img', foreach:maps}" id="variants_img_parent">
-                            <script id="variants_img" type="text/x-jquery-tmpl">
-                                <img data-bind="attr: {src: photo, width: photo_width, height: photo_height}, 
-                                        visible: show_photo,
-                                        style: {left: photo_left, top: photo_top}"/ >
-                                <div data-bind="visible: show_title, text:title, style: { left: titleX, top: titleY }"></div> 
-                            </script> 
-                        </div>
+                            <div data-bind="template:{name:'variants_img', foreach:maps}" id="variants_img_parent">
+                                <script id="variants_img" type="text/x-jquery-tmpl">
+                                    <img data-bind="attr: {src: photo, width: photo_width, height: photo_height}, 
+                                            visible: show_photo,
+                                            style: {left: photo_left, top: photo_top}"/ >
+                                    <div data-bind="visible: show_title, text:title, style: { left: titleX, top: titleY }"></div> 
+                                </script> 
+                            </div>
 
-                        <!-- это самое основное изображение -->
-                        <img data-bind="attr: {src: main_image, height: main_image_height }" id="main_image" />
-                    </div> 
+                            <div id="blackout" data-bind="visible: blackOut(), style: {background: blackout_color}"></div>
+                            <!-- это самое основное изображение -->
+                            <img data-bind="attr: {src: main_image, height: main_image_height }" id="main_image" />
+                        </div> 
 
-				</section>	
-				<div class="w235">				
-                    <aside class="price">
-                        <span >Итого:</span><b data-bind="text: getFullPrice()+'-'"></b> 
-                    </aside>
-                    <section class="tocart">
-                        <a href="#">
-                            Добавить в корзину
-                            <img src="img/general/cart-medium.png" alt="Добавить в корзину" class="cart" />
+                    </section>	
+                    <div class="w235">				
+                        <aside class="price">
+                            <span >Итого:</span><b data-bind="text: getFullPrice()+'-'"></b> 
+                        </aside>
+                        <section class="tocart">
+                            <a href="#">
+                                Добавить в корзину
+                                <img src="img/general/cart-medium.png" alt="Добавить в корзину" class="cart" />
+                            </a>
+                        </section>		
+                    </div>	
+
+                    <div class="view-list w160" data-bind="template: {name: 'item_list', foreach: maps}">
+
+                        <script id="item_list" type="text/x-jquery-tmpl">
+                        <a href="#" data-bind="event: {mouseover: togglePhoto , mouseout: togglePhoto }, visible: can_display, click: itemInfo" >
+                            <b data-bind="click: removeMap, visible: can_remove">X</b>
+                            <b data-bind="text: title"></b> 
+                            <span data-bind="text: price+'-'"></span>
                         </a>
-                    </section>		
-				</div>	
+                        </script> 
+                    </div>
 
-				<div class="view-list w160" data-bind="template: {name: 'item_list', foreach: maps}">
-
-                    <script id="item_list" type="text/x-jquery-tmpl">
-                    <a href="#" data-bind="event: {mouseover: togglePhoto , mouseout: togglePhoto }, visible: can_display, click: itemInfo" >
-                        <b data-bind="click: removeMap, visible: can_remove">X</b>
-                        <b data-bind="text: title"></b> 
-                        <span data-bind="text: price+'-'"></span>
-                    </a>
-                    </script> 
-				</div>
-
-				<aside class="morebuttons w160">
-					<a href="#" class="circle">Кружок</a>
-					<a href="#" class="send">Отправить другу</a>
-					<a href="#" class="print">Отпечатать</a>					
-				</aside>	
+                    <aside class="morebuttons w160">
+                        <a href="#" class="circle">Кружок</a>
+                        <a href="#" class="send">Отправить другу</a>
+                        <a href="#" class="print">Отпечатать</a>					
+                    </aside>	
 			</div>
 		</div>
 	</section>

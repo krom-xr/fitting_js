@@ -11,11 +11,6 @@
     top: 50%;
 }
 
-
-
-
-
-
 .result_image{
     background-color: #eee; 
     float: left;
@@ -23,13 +18,20 @@
     position: relative;
 }
 
+#content_blocker{
+    position: absolute; 
+    width:100%; 
+    height: 100%; 
+    z-index: 100;
+}
+
 .item_info{
     z-index: 101;
     position: absolute;
-    width: 100%;
-    height: 100%;
-    line-height: 100%;
-    min-height: 100%;
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*line-height: 100%;*/
+    /*min-height: 100%;*/
     /*background: #000;*/
 }
 .item_info .holder{
@@ -87,6 +89,6 @@
     position: absolute; 
     width: 100%; 
     height: 100%;
-    z-index: 98; 
+    z-index: 97; 
     opacity: 0.5;
 }
