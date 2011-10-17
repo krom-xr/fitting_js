@@ -473,6 +473,10 @@ var FittingRoom = function(data){
         this.setActiveClasses();
     }
 
+    $(window).bind('itemsUpdate', function(){
+        it.setActiveClasses();
+    })
+
     // устанавливает класс active, для всех текущих вещей
     this.setActiveClasses = function() {
         var setActive = function(selector, map, type){
