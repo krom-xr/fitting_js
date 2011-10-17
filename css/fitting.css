@@ -72,16 +72,30 @@
     position: absolute; 
     z-index: 100;
 }
+
 #variants_img_parent img {
     position: absolute; 
     z-index:98;
 }
+
 #variants_img_parent div{
-    border: 2px solid green;
     padding: 5px;
-    background-color: white;
-    position: absolute; 
+    position: absolute;
     z-index:99;
+
+    -moz-box-shadow: 5px 5px 10px #666666;
+    -webkit-box-shadow: 5px 5px 10px #666666;
+    -o-box-shadow: 5px 5px 10px #666666;
+    box-shadow: 5px 5px 10px #666666;
+
+    background: none repeat scroll 0 0 #5A5A5A;
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-bottom: 0 !important;
+    overflow: hidden;
+    padding: 5px 10px;
+    text-transform: uppercase;
+
 }
 
 #blackout {
