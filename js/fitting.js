@@ -1,33 +1,17 @@
-var SITE_PATH = "http://176.9.30.143"
-var ajax_path = 'http://176.9.30.143/fitting_room/looks/imposition',
-
-dataSender = function(json){
-    //$('#preloader').show();
-    $.ajax({
-        url: ajax_path + '?jsoncallback=?',
-        dataType: 'json',
-        data: {
-            method: 'get_data',
-            format: 'json',
-            v : '2',
-            json: ko.toJSON(json) ,
-        },
-        success: function(data){
-            $(window).trigger('newDataAdded', data);
-        },
-        error: function(xhr, ajaxOptions, throwStatus){
-            alert('произошла неизвестная ошибка');
-        }, 
-    });    
+//здесь находятся глобальные переменные
+var global = {
+    SITE_PATH: '', 
+    AJAX_PATH: '',
+    preloader_selector: '',
 }
 
 //Добавляет функциональность отправки данных на сервер
 //перед использование должны быть объявлены переменные ajax_path, preloader_selector
 var DataSenderMixin = function(){
     this.dataSender = function(json){
-        $(this.preloader_selector).show();
+        $(global.preloader_selector).show();
         $.ajax({
-            url: this.ajax_path + '?jsoncallback=?',
+            url: global.AJAX_PATH + '?jsoncallback=?',
             dataType: 'json',
             data: {
                 method: 'get_data',
@@ -49,13 +33,9 @@ var DataSenderMixin = function(){
 var HashManager = function(data){
     var it = this;
 
-    this.ajax_path = data.ajax_path;
-    this.preloader_selector = data.preloader_selector;
-
     DataSenderMixin.call(this);
 
     $(window).bind('newDataAdded', function(e, data){
-        console.log('newDataAdd in hash');
         it.jsonToHash(data);
     });
 
@@ -133,9 +113,9 @@ var HashManager = function(data){
             this.hashChangeIam = false;
         } else {
             if (!window.location.hash){
-                dataSender(data.default_json);
+                this.dataSender(data.default_json);
             } else {
-                dataSender(it.hashToJson());
+                this.dataSender(it.hashToJson());
             }
         }
     }
@@ -199,7 +179,7 @@ var HashManager = function(data){
 
     // если хэш есть, то парсим его и отсылваем данные на сервер
     if (window.location.hash != '') {
-        dataSender(this.hashToJson());
+        this.dataSender(this.hashToJson());
     }
 }
 
@@ -210,7 +190,7 @@ var Variant = function(data){
     this.parent_id   = data.parent_id;
     this.current_photo_id = data.photo_id;
     
-    this.mini_thumb  = SITE_PATH +  data.mini_thumb;
+    this.mini_thumb  = global.SITE_PATH +  data.mini_thumb;
 
     this.active = ko.observable(this.id == this.current_photo_id);
 
@@ -256,7 +236,7 @@ var Map = function(data) {
         
     // основное фото объекта (если есть)
     if (typeof data.photo != 'undefined') {
-        this.photo = SITE_PATH  + data.photo; // основная картинка
+        this.photo = global.SITE_PATH  + data.photo; // основная картинка
     } else {
         this.photo = '';
     }
@@ -370,7 +350,7 @@ var Map = function(data) {
         this.freeze_info(false);
         this.show_photo(false);
         this.show_info(false);
-        $(window).trigger('blackout', {state: !this.show_info(), hold: this.show_info()});
+        $(window).trigger('blackout', {state: this.show_info(), hold: this.show_info()});
         $(window).trigger('displayItemInfo', false);
     }
 
@@ -391,12 +371,15 @@ var Map = function(data) {
 
 // главный объект. отвечает за общение с сервером и отрисовку себя и своих дочерних элементов
 var FittingRoom = function(data){
+    var setGlobal = function(){
+        global['SITE_PATH'] = data.SITE_PATH;
+        global['AJAX_PATH'] = data.AJAX_PATH;
+        global['preloader_selector'] = data.preloader_selector;
+    }()
     new HashManager(data);
     var it = this;
 
-    //this.ajax_path = data.ajax_path;
-    this.preloader_selector = data.preloader_selector;
-    //DataSenderMixin.call(this);
+    DataSenderMixin.call(this);
 
     // путь до главной картинки
     this.main_image    = ko.observable();
@@ -419,12 +402,6 @@ var FittingRoom = function(data){
     this.item_list_selector = data.item_list_selector;
 
     this.main_image_selector = data.main_image_selector;
-
-    this.content_blocker = ko.observable(false);
-
-    $(window).bind('displayItemInfo', function(e, state){
-        it.content_blocker(state);
-    });
 
     this.item_selector = data.item_selector;
     this.face_selector = data.face_selector;
@@ -542,7 +519,6 @@ var FittingRoom = function(data){
 
     // отрисовываем полученные данные
     $(window).bind('newDataAdded', function(e, data){
-        console.log('newDataAdded');
         if (typeof data.error != 'undefined') { 
             alert(data.error);
             return false;
@@ -638,20 +614,17 @@ var FittingRoom = function(data){
         json['view'] = it.view();
 
 
-        dataSender(json);
+        it.dataSender(json);
     });
 
     if (!window.location.hash) {
-        dataSender(data.default_json);
+        this.dataSender(data.default_json);
     }
 
     this.setData = function(data){
-        //console.log(data.imposition_url);
-        //this.main_image('');
         this.main_image(data.imposition_url);
         this.view(data.view || "front");
         this.addMaps(data.objects);
-        //this.main_image('');
     }
 
     this.freezeBlackout = function(){
@@ -693,15 +666,10 @@ var FittingRoom = function(data){
     }
 
     // закрываем прелоадер, когда загрузилась главная картинка
-    //$('img' + it.main_image_selector).load(function(){
-        //console.log('loaded');
-        //$(it.preloader_selector).hide();
-    //});
-
-    $('img').load(function(){
-        console.log('loaded');
-        $(it.preloader_selector).hide();
+    $('img' + it.main_image_selector).load(function(){
+        $(global.preloader_selector).hide();
     });
+
      
     ko.applyBindings(this, $('#result_image').get(0))
 }

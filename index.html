@@ -173,7 +173,9 @@
                 blur_amount: 0.1, // сила размытия
 
                 preloader_selector: "#preloader",
-                ajax_path: 'http://176.9.30.143/fitting_room/looks/imposition',
+                SITE_PATH: 'http://176.9.30.143',
+                AJAX_PATH: 'http://176.9.30.143/fitting_room/looks/imposition',
+
 
 
 
@@ -578,8 +580,6 @@
                                     {{/each}}
                                 </script> 
                             </map>
-
-                            <div id='content_blocker' data-bind="visible: content_blocker" ></div> 
 
                             <div data-bind="template:{name:'variants_img', foreach:maps}" id="variants_img_parent">
                                 <script id="variants_img" type="text/x-jquery-tmpl">
