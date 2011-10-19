@@ -159,7 +159,8 @@
                 background_selector: 'ul li.background ul li div', // селектор для фонов
                 effects_selector: 'ul li.effects ul li div', // селектор для эффектов
 
-                image_height: '538', // высота основного изображения
+                imposition_height: 1000, // реальная высота изображения, которая приходит с сервера
+                image_height: '538', // высота основного изображения, в дизайне страницы
                 main_image_selector: '#main_image', // селектор основного изображения
 
                 default_json: default_json, // дефолтный json который будет послан на сервер, при первом заходе на страницу
@@ -170,6 +171,11 @@
 
                 use_blur: true, // использовать размытие
                 blur_amount: 0.1, // сила размытия
+
+                preloader_selector: "#preloader",
+                ajax_path: 'http://176.9.30.143/fitting_room/looks/imposition',
+
+
 
             });
         });
@@ -184,31 +190,10 @@
         <img src="img/preloader.png" alt="" />
     </div>
 
-    <!-- информация об объекте, а так же варианты объектов-->
-    <div class="item_info" data-bind="style: {
-        display: show_info() == true ? 'block': 'none'}" style="display: none">
-        <div class="holder" data-bind="style: {left: info_left, top: info_top}">
-            <div class="title" >
-                <span data-bind="text: title"></span> 
-                <b data-bind="text: price"></b> 
-            </div>
-            <div class="close" data-bind="click: closeInfo">X</div> 
-            <div style="clear:both"></div>
-            <div class="variants" data-bind="template:{name: 'variants', foreach: variants}">
-                <script id="variantss" type="text/x-jquery-tmpl"> 
-                    <img data-bind="attr:{src: mini_thumb}, click: sendInfo "/>
-                </script> 
-            </div>
-            <div data-bind="visible: index_under, click: itemUp">Поднять над: <span data-bind="text: index_under.title"></span></div> 
-            <div data-bind="visible: index_below, click: itemDown">Опустить под: <span data-bind="text: index_below.title"></span></div> 
-            <div data-bind="click: removeMap, visible: can_remove">Удалить</div>
-        </div>
-    </div> 
-
     <!--информация об объекте, а так же варианты объектов-->
     <section class="dressed-popup" id="item_info" 
         data-bind="style: {display: show_info() == true ? 'block': 'none',
-                    left: info_left, top: info_top }" >
+            left: info_left, top: info_top}, event: {mouseleave: mouseLeave}" >
         <header data-bind="text: title"></header>
         <aside>
             <a data-bind="visible: price">Цена: <span data-bind="text: price"></span> руб. </a>
@@ -216,7 +201,7 @@
 
             <div class="variants" data-bind="template:{name: 'variants', foreach: variants}">
                 <script id="variants" type="text/x-jquery-tmpl"> 
-                    <img data-bind="attr:{src: mini_thumb}, click: sendInfo "/>
+                    <img data-bind="attr:{src: mini_thumb}, click: sendInfo, css: {active: active} "/>
                 </script> 
             </div>
             <div data-bind="visible: index_under, click: itemUp">Поднять над: <span data-bind="text: index_under.title"></span></div> 

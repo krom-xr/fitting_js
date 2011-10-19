@@ -1,11 +1,10 @@
-var SITE_PATH = "http://176.9.30.143/"
-var AJAX_PATH = 'http://176.9.30.143/fitting_room/looks/imposition'
+var SITE_PATH = "http://176.9.30.143"
+var ajax_path = 'http://176.9.30.143/fitting_room/looks/imposition',
 
-//посылвает данные к серверу
-var DataSender = function(json){
-    $('#preloader').show();
+dataSender = function(json){
+    //$('#preloader').show();
     $.ajax({
-        url: AJAX_PATH + '?jsoncallback=?',
+        url: ajax_path + '?jsoncallback=?',
         dataType: 'json',
         data: {
             method: 'get_data',
@@ -16,20 +15,47 @@ var DataSender = function(json){
         success: function(data){
             $(window).trigger('newDataAdded', data);
         },
-        complete: function(){
-            $('#preloader').hide();
-        },
         error: function(xhr, ajaxOptions, throwStatus){
             alert('произошла неизвестная ошибка');
         }, 
     });    
 }
 
+//Добавляет функциональность отправки данных на сервер
+//перед использование должны быть объявлены переменные ajax_path, preloader_selector
+var DataSenderMixin = function(){
+    this.dataSender = function(json){
+        $(this.preloader_selector).show();
+        $.ajax({
+            url: this.ajax_path + '?jsoncallback=?',
+            dataType: 'json',
+            data: {
+                method: 'get_data',
+                format: 'json',
+                v : '2',
+                json: ko.toJSON(json) ,
+            },
+            success: function(data){
+                $(window).trigger('newDataAdded', data);
+            },
+            error: function(xhr, ajaxOptions, throwStatus){
+                alert('произошла неизвестная ошибка');
+            }, 
+        });    
+    }
+}
+
 // урпавляет состоянием хэша
 var HashManager = function(data){
     var it = this;
 
+    this.ajax_path = data.ajax_path;
+    this.preloader_selector = data.preloader_selector;
+
+    DataSenderMixin.call(this);
+
     $(window).bind('newDataAdded', function(e, data){
+        console.log('newDataAdd in hash');
         it.jsonToHash(data);
     });
 
@@ -107,9 +133,9 @@ var HashManager = function(data){
             this.hashChangeIam = false;
         } else {
             if (!window.location.hash){
-                DataSender(data.default_json);
+                dataSender(data.default_json);
             } else {
-                DataSender(it.hashToJson());
+                dataSender(it.hashToJson());
             }
         }
     }
@@ -173,7 +199,7 @@ var HashManager = function(data){
 
     // если хэш есть, то парсим его и отсылваем данные на сервер
     if (window.location.hash != '') {
-        DataSender(this.hashToJson());
+        dataSender(this.hashToJson());
     }
 }
 
@@ -185,6 +211,8 @@ var Variant = function(data){
     this.current_photo_id = data.photo_id;
     
     this.mini_thumb  = SITE_PATH +  data.mini_thumb;
+
+    this.active = ko.observable(this.id == this.current_photo_id);
 
     this.sendInfo = function(){
         //if (this.current_photo_id == this.id) { return false }
@@ -238,8 +266,8 @@ var Map = function(data) {
     this.photo_left = false;
     this.photo_top = false;
     if (typeof data.top_left != 'undefined'){
-        this.photo_left = data.top_left[0] + 'px';
-        this.photo_top  = data.top_left[1] + 'px';
+        this.photo_left = data.top_left[0] * this.coef + 'px';
+        this.photo_tp  = data.top_left[1] * this.coef + 'px';
     }
 
     // ширина высота основной фотографии
@@ -315,11 +343,15 @@ var Map = function(data) {
         $('#item_info').find('.variants img').remove();
         ko.applyBindings(this, $('#item_info').get(0));
 
-        this.info_left(e.pageX + 'px');
-        this.info_top(e.pageY + 'px');
+        this.info_left(e.pageX - 5 + 'px');
+        this.info_top(e.pageY - 5 + 'px');
         this.show_info(!this.show_info());
         $(window).trigger('blackout', {state: this.show_info(), hold: this.show_info()});
         $(window).trigger('displayItemInfo', true);
+    }
+
+    this.mouseLeave = function(e){
+        it.closeInfo();
     }
 
     // закрывает выплывающее информационно окно
@@ -338,7 +370,7 @@ var Map = function(data) {
         this.freeze_info(false);
         this.show_photo(false);
         this.show_info(false);
-        $(window).trigger('blackout', {state: this.show_info(), hold: this.show_info()});
+        $(window).trigger('blackout', {state: !this.show_info(), hold: this.show_info()});
         $(window).trigger('displayItemInfo', false);
     }
 
@@ -362,11 +394,15 @@ var FittingRoom = function(data){
     new HashManager(data);
     var it = this;
 
+    //this.ajax_path = data.ajax_path;
+    this.preloader_selector = data.preloader_selector;
+    //DataSenderMixin.call(this);
+
     // путь до главной картинки
     this.main_image    = ko.observable();
 
 
-    this.coef = data.image_height/1000; 
+    this.coef = data.image_height/data.imposition_height; 
 
     //this.main_image_width = ko.observable(data.image_width);
     this.main_image_height= ko.observable(data.image_height);
@@ -382,8 +418,10 @@ var FittingRoom = function(data){
 
     this.item_list_selector = data.item_list_selector;
 
+    this.main_image_selector = data.main_image_selector;
 
     this.content_blocker = ko.observable(false);
+
     $(window).bind('displayItemInfo', function(e, state){
         it.content_blocker(state);
     });
@@ -440,9 +478,10 @@ var FittingRoom = function(data){
 
         if(data.use_blur){
             if(it.blackout()){
-                Pixastic.process($(data.main_image_selector).get(0), "blurfast", {amount: data.blur_amount});
+                Pixastic.revert($(it.main_image_selector).get(0));
+                Pixastic.process($(it.main_image_selector).get(0), "blurfast", {amount: data.blur_amount});
             } else {
-                Pixastic.revert($(data.main_image_selector).get(0));
+                Pixastic.revert($(it.main_image_selector).get(0));
             }
         }
     });
@@ -503,6 +542,7 @@ var FittingRoom = function(data){
 
     // отрисовываем полученные данные
     $(window).bind('newDataAdded', function(e, data){
+        console.log('newDataAdded');
         if (typeof data.error != 'undefined') { 
             alert(data.error);
             return false;
@@ -598,17 +638,20 @@ var FittingRoom = function(data){
         json['view'] = it.view();
 
 
-        DataSender(json);
+        dataSender(json);
     });
 
     if (!window.location.hash) {
-        DataSender(data.default_json);
+        dataSender(data.default_json);
     }
 
     this.setData = function(data){
+        //console.log(data.imposition_url);
+        //this.main_image('');
         this.main_image(data.imposition_url);
         this.view(data.view || "front");
         this.addMaps(data.objects);
+        //this.main_image('');
     }
 
     this.freezeBlackout = function(){
@@ -649,7 +692,16 @@ var FittingRoom = function(data){
         $(window).trigger('sendToServer', {action: 'remove_all_items'})
     }
 
+    // закрываем прелоадер, когда загрузилась главная картинка
+    //$('img' + it.main_image_selector).load(function(){
+        //console.log('loaded');
+        //$(it.preloader_selector).hide();
+    //});
 
+    $('img').load(function(){
+        console.log('loaded');
+        $(it.preloader_selector).hide();
+    });
      
     ko.applyBindings(this, $('#result_image').get(0))
 }
