@@ -6,6 +6,9 @@
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery.tmpl.js"></script>
+    <script type="text/javascript" src="js/jquery.tmpl.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.dragndrop.js"></script>
+
     <script type="text/javascript" src="js/knockout.js"></script>
     <script type="text/javascript" src="js/utils.js"></script>
 
@@ -154,6 +157,9 @@
             };
 
             new FittingRoom({
+
+                fitting_room_binding: '#result_image',
+
                 item_selector: 'ul.product-list li', // селектор для вещей
                 face_selector: 'ul li.model ul li div', // селектор для лиц
                 background_selector: 'ul li.background ul li div', // селектор для фонов
@@ -176,8 +182,9 @@
                 SITE_PATH: 'http://176.9.30.143',
                 AJAX_PATH: 'http://176.9.30.143/fitting_room/looks/imposition',
 
+                additional_data: {test: 'test'},
 
-
+                save_form_selector: '#save_form', 
 
             });
         });
@@ -572,20 +579,21 @@
                                 usemap="#map" id="main_transparent_shell" />
 
                             <!--здесь image map - ы-->
-                            <map name="map" data-bind="template: {name: 'map_list', foreach:maps}">
+                            <map  name="map" data-bind="template: {name: 'map_list', foreach:maps}">
                                 <script id="map_list" type="text/x-jquery-tmpl">
                                     {{each $item.data.image_maps }}
                                         <area shape="poly" coords="${$value}" 
-                                        data-bind="click: itemInfo, event: {mouseover: togglePhoto , mouseout: togglePhoto, mousemove: showTitle }" />
+                                            data-bind="click: itemInfo, event: {mouseover: togglePhoto , mouseout: togglePhoto, mousemove: showTitle}"/>
                                     {{/each}}
                                 </script> 
                             </map>
 
                             <div data-bind="template:{name:'variants_img', foreach:maps}" id="variants_img_parent">
                                 <script id="variants_img" type="text/x-jquery-tmpl">
-                                    <img data-bind="attr: {src: photo, width: photo_width, height: photo_height}, 
-                                            visible: show_photo,
-                                            style: {left: photo_left, top: photo_top}"/ >
+                                    <img 
+                                        data-bind="attr: {src: photo, width: photo_width, height: photo_height}, 
+                                        visible: show_photo,
+                                        style: {left: photo_left, top: photo_top}"/ >
                                     <div data-bind="visible: show_title, text:title, style: { left: titleX, top: titleY }"></div> 
                                 </script> 
                             </div>
@@ -623,6 +631,8 @@
                         <a href="#" class="circle">Кружок</a>
                         <a href="#" class="send">Отправить другу</a>
                         <a href="#" class="print">Отпечатать</a>					
+                        <span data-bind="click: setRandom">рандом</span>
+
                     </aside>	
 			</div>
 		</div>
@@ -846,6 +856,25 @@
 			</nav>
 		</div>
 	</footer>
-{% endblock %}
+
+    <!--эта форма здесь временно, путь к этой форме прописан в конструкторе
+    обязательные параметры - все имеющиеся здесь инпуты кроме submit
+    можно навешивасть любые свои данные помимо этих
+    -->
+    <form id='save_form' action="" method="get" accept-charset="utf-8">
+        <input type="hidden" name="face_id" data-bind="value: face_id">
+        <input type="hidden" name="face_photo_id" data-bind="value: face_photo_id">
+        <input type="hidden" name="body_id" data-bind="value: body_id">
+        <input type="hidden" name="body_photo_id" data-bind="value: body_photo_id">
+        <input type="hidden" name="background_id" data-bind="value: background_id">
+        <input type="hidden" name="effect_id" data-bind="value: effect_id">
+        <div data-bind="template: {name: 'items_values', foreach: items}">
+            <script id="items_values" type="text/x-jquery-tmpl" >
+                <input type="hidden" name="item_id[]" data-bind="value: id">
+                <input type="hidden" name="item_photo_id[]" data-bind="value: photo_id">
+            </script>
+        </div>
+        <p><input type="submit" value="Continue &rarr;"></p>
+    </form>
 </body> 
 </html> 

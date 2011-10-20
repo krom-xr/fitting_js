@@ -1,20 +1,26 @@
-//здесь находятся глобальные переменные
+// объект заполнятеся при инициализации объекта FittingRoom
 var global = {
     SITE_PATH: '', 
     AJAX_PATH: '',
     preloader_selector: '',
+    additional_data: false, 
 }
 
 //Добавляет функциональность отправки данных на сервер
 //перед использование должны быть объявлены переменные ajax_path, preloader_selector
 var DataSenderMixin = function(){
-    this.dataSender = function(json){
+    this.dataSender = function(json, method){
         $(global.preloader_selector).show();
+        var method = method || 'get_data';
+
+        if (global['additional_data']) {
+            json['additional_data'] = global.additional_data;
+        };
         $.ajax({
             url: global.AJAX_PATH + '?jsoncallback=?',
             dataType: 'json',
             data: {
-                method: 'get_data',
+                method: method,
                 format: 'json',
                 v : '2',
                 json: ko.toJSON(json) ,
@@ -243,12 +249,19 @@ var Map = function(data) {
     this.photo_id = data.photo_id;
 
     // координаты фото
-    this.photo_left = false;
-    this.photo_top = false;
-    if (typeof data.top_left != 'undefined'){
-        this.photo_left = data.top_left[0] * this.coef + 'px';
-        this.photo_tp  = data.top_left[1] * this.coef + 'px';
-    }
+    this.photo_left = ko.observable(false);
+    this.photo_top = ko.observable(false);
+
+    //TODO вернуть потом
+    //if (typeof data.top_left != 'undefined'){
+        //this.photo_left(data.top_left[0] * this.coef + 'px');
+        //this.photo_top(data.top_left[1] * this.coef + 'px');
+    //}
+      
+    //TODO убрать потом
+    this.photo_left(0 + 'px');
+    this.photo_top(0 + 'px');
+
 
     // ширина высота основной фотографии
     this.photo_width = '';
@@ -363,28 +376,87 @@ var Map = function(data) {
         $(window).trigger('closeInfo');
         $(window).trigger('sendToServer', {action: 'item_up', object: this})
     }
+
     this.itemDown = function(){
         $(window).trigger('closeInfo');
         $(window).trigger('sendToServer', {action: 'item_down', object: this})
     }
+
+}
+
+var SaveForm = function(data) {
+    var it = this;
+    this.imposition_url = ko.observable();
+    this.view = ko.observable();
+
+    this.body_id = ko.observable();
+    this.body_photo_id = ko.observable();
+
+    this.face_id = ko.observable();
+    this.face_photo_id = ko.observable();
+
+    this.background_id = ko.observable();
+
+    this.effect_id = ko.observable();
+
+    this.items = ko.observableArray();
+
+    $(window).bind('newDataAdded', function(e, data){
+        it.imposition_url(data.imposition_url)
+        it.view(data.view);
+        $.each(data.objects, function(i, object) {
+            switch(object.type){
+                case 'Face':
+                    it.face_id(object.id);
+                    it.face_photo_id(object.photo_id);
+                    break;
+                case 'Body':
+                    it.body_id(object.id);
+                    break;
+                case 'Background':
+                    it.background_id(object.id);
+                    break;
+                case 'Effect':
+                    it.effect_id(object.id);
+                    break;
+                case 'Item':
+                    it.items.push(object);
+                    break;
+            }
+        });
+    });
+
+
+
+
+    this.save_form_selector = data.save_form_selector;
+    ko.applyBindings(this, $(this.save_form_selector).get(0));
 }
 
 // главный объект. отвечает за общение с сервером и отрисовку себя и своих дочерних элементов
 var FittingRoom = function(data){
-    var setGlobal = function(){
+    // задает глобальные данные
+    var setGlobal = function(data){
         global['SITE_PATH'] = data.SITE_PATH;
         global['AJAX_PATH'] = data.AJAX_PATH;
         global['preloader_selector'] = data.preloader_selector;
-    }()
+        global['additional_data'] = data.additional_data;
+    }(data);
     new HashManager(data);
     var it = this;
+        
+    if(typeof data.save_form_selector !='undefined') {
+        new SaveForm(data);
+    }
 
     DataSenderMixin.call(this);
+
+    this.fitting_room_binding = data.fitting_room_binding;
 
     // путь до главной картинки
     this.main_image    = ko.observable();
 
-
+    //коэффициэнт
     this.coef = data.image_height/data.imposition_height; 
 
     //this.main_image_width = ko.observable(data.image_width);
@@ -435,6 +507,17 @@ var FittingRoom = function(data){
         it.newObjectHandler(this, 'replace_object');
         return false;
     });
+
+    $(this.item_selector).draggable();
+
+    $('.draggable').draggable({
+        //helper: function(event){
+                    //return $("<div state='position: absolute'>снять вещь</div>");
+                //},
+                
+        //helper: 'clone',
+    });
+
 
     this.blackout_color = data.blackout_color || gray;
 
@@ -564,6 +647,7 @@ var FittingRoom = function(data){
 
         // здесь будет храниться весь json
         var json = {}
+        json['additional_data'] = it.additional_data;
         json['objects'] = Array();
 
         // пришел новый объект
@@ -613,6 +697,7 @@ var FittingRoom = function(data){
 
         json['view'] = it.view();
 
+        //console.log(json);
 
         it.dataSender(json);
     });
@@ -670,6 +755,13 @@ var FittingRoom = function(data){
         $(global.preloader_selector).hide();
     });
 
+
+    this.setRandom = function(){
+        this.dataSender({}, 'get_random');
+    }
      
-    ko.applyBindings(this, $('#result_image').get(0))
+
+    console.log(this.fitting_room_binding);
+    ko.applyBindings(this, $(this.fitting_room_binding).get(0))
+    //ko.applyBindings(this, $('#result_image').get(0))
 }
