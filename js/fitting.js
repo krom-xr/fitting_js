@@ -1,4 +1,4 @@
-// объект заполнятеся при инициализации объекта FittingRoom
+// объект заполнятеся при инициализации объекта FittingRoom test test
 var global = {
     SITE_PATH: '', 
     AJAX_PATH: '',
