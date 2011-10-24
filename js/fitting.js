@@ -1,4 +1,4 @@
-// объект заполнятеся при инициализации объекта FittingRoom test test
+// объект заполнятеся при инициализации объекта FittingRoom 
 var global = {
     SITE_PATH: '', 
     AJAX_PATH: '',
@@ -350,8 +350,8 @@ var Map = function(data) {
     // показавает всплывающее информационное окно под курсором
     this.itemInfo = function(e) {
         this.freeze_info(true);
-        ko.cleanNode($('#item_info').get(0));
-        $('#item_info').find('.variants img').remove();
+        ko.cleanNode($(data.item_info_selector).get(0));
+        $(data.item_info_selector).find('.variants img').remove();
         ko.applyBindings(this, $('#item_info').get(0));
 
         this.info_left(e.pageX - 5 + 'px');
@@ -527,9 +527,29 @@ var FittingRoom = function(data){
         return false;
     });
 
-    var b = false;
-    var offsetX = 0;
-    var offsetY = 0;
+    // реализация драгндроп
+    var drag = function(selector) {
+        $(selector).draggable({
+            helper: function(event){
+                var element = $(this).find('img').clone();
+                $(element).css('z-index', '102')
+                return element; 
+            },
+        });
+    };
+    drag(this.item_selector);
+    drag(this.face_selector);
+    drag(this.background_selector);
+    drag(this.effects_selector);
+
+    $(data.droppabe_area_selector).droppable();
+
+    // при дропе инициализируем события click и дальше все обрабатыватся как click
+    $(data.droppabe_area_selector).live('drop', function(e, data){
+        $(data.draggable.get(0)).trigger('click');
+    });
+
+
 
     this.blackout_color = data.blackout_color || gray;
 
@@ -574,6 +594,7 @@ var FittingRoom = function(data){
     
     this.addMap = function(map){
         map['coef'] = this.coef;
+        map['item_info_selector'] = data.item_info_selector;
         this.maps.push(new Map(map));
     }
 
@@ -694,7 +715,7 @@ var FittingRoom = function(data){
 
         if (data.action == 'remove_all_items') {
             it.maps.remove(function(map) {
-                return map.type == "Item";
+                return map.type == "Item" || map.type == 'Effect' || map.type == 'Background';
             });
         }
 
@@ -708,8 +729,6 @@ var FittingRoom = function(data){
         })
 
         json['view'] = it.view();
-
-        //console.log(json);
 
         it.dataSender(json);
     });
