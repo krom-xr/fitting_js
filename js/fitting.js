@@ -2,15 +2,15 @@
 var global = {
     SITE_PATH: '', 
     AJAX_PATH: '',
-    preloader_selector: '',
     additional_data: false, 
 }
 
 //Добавляет функциональность отправки данных на сервер
-//перед использование должны быть объявлены переменные ajax_path, preloader_selector
+//перед использование должны быть объявлены переменные ajax_path
 var DataSenderMixin = function(){
     this.dataSender = function(json, method){
-        $(global.preloader_selector).show();
+        // посылаем сигнал о начале загрузки
+        $(window).trigger('fitting:loading');
         var method = method || 'get_data';
 
         if (global['additional_data']) {
@@ -38,6 +38,11 @@ var DataSenderMixin = function(){
 // урпавляет состоянием хэша
 var HashManager = function(data){
     var it = this;
+    
+    if(!data.hash_navigation) {
+        return false;
+    }
+
 
     DataSenderMixin.call(this);
 
@@ -298,6 +303,7 @@ var Map = function(data) {
 
     // показываем заголовок
     this.showTitle = function(e){
+        //if (this.type == 'Body' || this.type == 'Face') { return false };
         if(!this.show_title()){ return false };
         var x = e.layerX || e.offsetX;
         var y = e.layerY || e.offsetY;
@@ -322,7 +328,9 @@ var Map = function(data) {
 
     // показать контур, убрать контур
     this.togglePhoto = function(e){
-        this.show_title(!this.show_title());
+        if (this.type != 'Body' && this.type != "Face" ) {
+            this.show_title(!this.show_title());
+        }
         if(!this.photo){return false}
         if (this.freeze_info()) { return false };
         this.show_photo(!this.show_photo());
@@ -404,6 +412,7 @@ var SaveForm = function(data) {
     $(window).bind('newDataAdded', function(e, data){
         it.imposition_url(data.imposition_url)
         it.view(data.view);
+        it.items([]);
         $.each(data.objects, function(i, object) {
             switch(object.type){
                 case 'Face':
@@ -508,15 +517,56 @@ var FittingRoom = function(data){
         return false;
     });
 
-    $(this.item_selector).draggable();
+    //$(this.item_selector).draggable();
 
-    $('.draggable').draggable({
-        //helper: function(event){
-                    //return $("<div state='position: absolute'>снять вещь</div>");
-                //},
-                
-        //helper: 'clone',
-    });
+    //$('.draggable').draggable();
+
+    //$('.draggable').live('dragstart', function(e, data){
+        //console.log(e);
+        //console.log(this);
+        ////$(e.currentTarget).replaceWith("<div class='draggable' style='position: absolute; z-index: 500'>test</div>");
+
+    //})
+
+    //$('.draggable').live('drag', function(e, data){
+        //console.log(e);
+    //});
+
+    var b = false;
+    var offsetX = 0;
+    var offsetY = 0;
+
+    $('#main_transparent_shell').draggable();
+    $('.draggable').draggable();
+
+
+    $('.draggable').live('mousedown', function(e, data){
+        b = true;
+        offsetX = e.layerX;
+        offsetY = e.layerY;
+        return false;
+    })
+    $('.draggable').live('mouseup', function(e, data){
+        b = false;
+        console.log('mouseup');
+        return false;
+    })
+    $('.draggable').live('mousemove', function(e, data){
+        if(b) {
+            $('.contour').css('z-index', '150');
+        }
+        return false;
+    })
+
+    $('.contour').draggable();
+    $('.contour').live('mousemove', function(e, data) {
+        $(this).css('display', 'block');
+        $(this).css('left', e.layerX - offsetX +5);
+        $(this).css('top', e.layerY - offsetY +5);
+        console.log('mousermover', e);
+    })
+
+
 
 
     this.blackout_color = data.blackout_color || gray;
@@ -752,16 +802,12 @@ var FittingRoom = function(data){
 
     // закрываем прелоадер, когда загрузилась главная картинка
     $('img' + it.main_image_selector).load(function(){
-        $(global.preloader_selector).hide();
+        $(window).trigger('fitting:loaded');
     });
-
 
     this.setRandom = function(){
         this.dataSender({}, 'get_random');
     }
      
-
-    console.log(this.fitting_room_binding);
     ko.applyBindings(this, $(this.fitting_room_binding).get(0))
-    //ko.applyBindings(this, $('#result_image').get(0))
 }
