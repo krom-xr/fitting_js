@@ -532,7 +532,7 @@ var FittingRoom = function(data){
         $(selector).draggable({
             helper: function(event){
                 var element = $(this).find('img').clone();
-                $(element).css('z-index', '102')
+                $(element).css('z-index', '1000');
                 return element; 
             },
         });
