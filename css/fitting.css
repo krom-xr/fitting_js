@@ -12,6 +12,10 @@
     top: 50%;
 }
 
+#main_image {
+    position: absolute;
+}
+
 .result_image{
     background-color: #eee; 
     float: left;

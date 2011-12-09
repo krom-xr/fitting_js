@@ -168,6 +168,8 @@
                 imposition_height: 1100, // реальная высота изображения, которая приходит с сервера
                 image_width: 392,
                 image_height: 538, // высота основного изображения, в дизайне страницы
+                zoom_width: 1091,
+                zoom_height: 1500,
                 main_image_selector: '#main_image', // селектор основного изображения
 
                 default_json: default_json, // дефолтный json который будет послан на сервер, при первом заходе на страницу
@@ -580,13 +582,13 @@
                             "
                             >
 
-                            <a href="#" class="zoom" title="Масштабирование" data-bind="click: zoomToggle"></a>
+                            <a href="#" class="zoom" title="Масштабирование" data-bind="click: zoomToggle, css: {active: zoom()}"></a>
                             <a href="#" class="rotate" title="Вращать" data-bind="click: toggleView"></a>
                             <a href="#" class="delete" title="Удалить" data-bind="click: removeAllItems"></a>
 
                             <img src="img/transparent.png" width="100%" height="100%" 
-                            usemap="#map" id="main_transparent_shell"
-                            data-bind="event: {mousemove: moveZoom}"
+                                usemap="#map" id="main_transparent_shell"
+                                data-bind="event: {mousemove: moveZoom, mouseover: zoomPlus, mouseleave: zoomMinus}"
                             />
 
                             <!--здесь image map - ы-->
@@ -615,7 +617,7 @@
                             <div id="blackout" data-bind="visible: blackOut(), style: {background: blackout_color}"></div>
 
                             <!-- это самое основное изображение -->
-                            <img id="main_image" data-bind="attr: {src: main_image, height: main_image_height }" style="position: absolute; border: 1px solid green" />
+                            <img id="main_image" data-bind="attr: {src: main_image, height: main_image_height }" style="position: absolute;"/>
                         </div> 
 
                     </section>	

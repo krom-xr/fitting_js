@@ -36,3 +36,11 @@ sm.detect = function(iter_object, fn) {
   return result;
 };
 
+sm.image_wh = function(img_path) {
+    //console.log($("<img src='" + img_path + "' />").width());
+    var img = $("<img src='" + img_path + "' />");
+    console.log(img.width());
+
+    //console.log($("<img src='" + img_path + "' />"));
+
+}
