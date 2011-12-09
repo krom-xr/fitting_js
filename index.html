@@ -166,6 +166,7 @@
                 effects_selector: 'ul li.effects ul li div', // селектор для эффектов
 
                 imposition_height: 1100, // реальная высота изображения, которая приходит с сервера
+                image_width: 392,
                 image_height: 538, // высота основного изображения, в дизайне страницы
                 main_image_selector: '#main_image', // селектор основного изображения
 
@@ -429,9 +430,7 @@
 					</article>
 			</div>
 
-			<div class="dressed-viewer w420"  id="result_image">
-
-
+			<div id="result_image" class="dressed-viewer w420">
                     <header>
                         <ul>
                             <li class='model'>
@@ -576,23 +575,30 @@
 
                     <section id="Viewer">
                         <!--основной объект с данными-->
-                        <div class="result_image">
+                        <div class="result_image" data-bind="
+                            style: {width: data.image_width + 'px', height: data.image_height + 'px'},
+                            "
+                            >
 
                             <a href="#" class="zoom" title="Масштабирование" data-bind="click: zoomToggle"></a>
                             <a href="#" class="rotate" title="Вращать" data-bind="click: toggleView"></a>
                             <a href="#" class="delete" title="Удалить" data-bind="click: removeAllItems"></a>
 
                             <img src="img/transparent.png" width="100%" height="100%" 
-                                usemap="#map" id="main_transparent_shell" />
+                            usemap="#map" id="main_transparent_shell"
+                            data-bind="event: {mousemove: moveZoom}"
+                            />
 
                             <!--здесь image map - ы-->
                             <map  name="map" data-bind="template: {name: 'map_list', foreach:maps}">
                                 <script id="map_list" type="text/x-jquery-tmpl">
-                                    {{each $item.data.image_maps }}
-                                        <area shape="poly" coords="${$value}"
-                                            data-bind="click: itemInfo, 
-                                            event: {mouseover: togglePhoto , mouseout: togglePhoto, mousemove: showTitle}"/>
-                                    {{/each}}
+                                    {{if zoom()!=true}}
+                                        {{each $item.data.image_maps }}
+                                            <area shape="poly" coords="${$value}"
+                                                data-bind="click: itemInfo, 
+                                                event: {mouseover: togglePhoto , mouseout: togglePhoto, mousemove: showTitle}"/>
+                                        {{/each}}
+                                    {{/if}}
                                 </script> 
                             </map>
 
@@ -609,7 +615,7 @@
                             <div id="blackout" data-bind="visible: blackOut(), style: {background: blackout_color}"></div>
 
                             <!-- это самое основное изображение -->
-                            <img data-bind="attr: {src: main_image, height: main_image_height }" id="main_image" />
+                            <img id="main_image" data-bind="attr: {src: main_image, height: main_image_height }" style="position: absolute; border: 1px solid green" />
                         </div> 
 
                     </section>	
@@ -644,6 +650,7 @@
 
                     </aside>	
 			</div>
+            <!--end result_image-->
 		</div>
 	</section>
 	<section id="BlockLookAtThis">	

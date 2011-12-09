@@ -3,6 +3,8 @@ var global = {
     SITE_PATH: '', 
     AJAX_PATH: '',
     additional_data: false, 
+    zoom: false,
+    image: {w:'', h:''},
 }
 
 //Добавляет функциональность отправки данных на сервер
@@ -74,6 +76,8 @@ var HashManager = function(data){
             })
             return result.join('&');
         }
+
+        console.log(data);
 
         var viewhash    = data.view || 'front';
         var face        = false;
@@ -229,6 +233,10 @@ var Map = function(data) {
     } else {
         this.top_offset =  0;
         this.left_offset = 0;
+    }
+
+    this.zoom = function() {
+        return global.zoom;
     }
 
 
@@ -460,9 +468,12 @@ var FittingRoom = function(data){
         global['AJAX_PATH'] = data.AJAX_PATH;
         global['preloader_selector'] = data.preloader_selector;
         global['additional_data'] = data.additional_data;
+        global.image.w = data.image_width;
+        global.image.h = data.image_height;
     }(data);
     new HashManager(data);
     var it = this;
+    this.data = data;
         
     if(typeof data.save_form_selector !='undefined') {
         new SaveForm(data);
@@ -478,8 +489,9 @@ var FittingRoom = function(data){
     //коэффициэнт
     this.coef = data.image_height/data.imposition_height; 
 
-    //this.main_image_width = ko.observable(data.image_width);
-    this.main_image_height= ko.observable(data.image_height);
+    this.main_image_width  = ko.observable(global.image.w);
+    this.main_image_height = ko.observable(global.image.h);
+    console.log(this.main_image_width());
 
     this.view = ko.observable();// front, back or other
 
@@ -608,6 +620,18 @@ var FittingRoom = function(data){
     $(window).bind('itemsUpdate', function(){
         it.setActiveClasses();
     })
+    this.moveZoom = function(e, data) {
+        if (!this.zoom) { return false };
+        //TODO доделать тут
+        var w_koef = (1091 - 392)/392;
+        var h_koef = (1500 - 538)/538;
+
+        $(this.main_image_selector).css('left', (- e.layerX)*w_koef + 'px');
+        $(this.main_image_selector).css('top',  (- e.layerY)*h_koef + 'px');
+
+        //console.log('test');
+        console.log(e);
+    }
 
     // устанавливает класс active, для всех текущих вещей
     this.setActiveClasses = function() {
@@ -642,6 +666,22 @@ var FittingRoom = function(data){
         it.maps([]);
         it.setData(data);
     });
+
+    this.setData = function(data){
+        this.main_image(data.imposition_url);
+        this.view(data.view || "front");
+        this.addMaps(data.objects);
+        this.zoom = global.zoom;
+
+        if (global.zoom) { 
+            this.main_image_height(1500) 
+        } else {
+            this.main_image_height(global.image.h)
+            $(this.main_image_selector).css('left', '0px');
+            $(this.main_image_selector).css('top', '0px');
+        }
+    }
+
 
     // посылаем данные на сервер
     $(window).bind('sendToServer', function(e, data){
@@ -709,8 +749,11 @@ var FittingRoom = function(data){
             })
         };
 
-        if (it.zoom) {
+        if (it.zoom) { 
             json['zoom'] = true;
+            global.zoom = true;
+        } else {
+            global.zoom = false;
         }
 
         if (data.action == 'remove_all_items') {
@@ -735,12 +778,6 @@ var FittingRoom = function(data){
 
     if (!window.location.hash) {
         this.dataSender(data.default_json);
-    }
-
-    this.setData = function(data){
-        this.main_image(data.imposition_url);
-        this.view(data.view || "front");
-        this.addMaps(data.objects);
     }
 
     this.freezeBlackout = function(){
