@@ -5,6 +5,7 @@ var global = {
     additional_data: false, 
     zoom: false,
     image: {w:'', h:''},
+    blocking: false,
 }
 
 //Добавляет функциональность отправки данных на сервер
@@ -45,7 +46,6 @@ var HashManager = function(data){
         return false;
     }
 
-
     DataSenderMixin.call(this);
 
     $(window).bind('newDataAdded', function(e, data){
@@ -77,7 +77,6 @@ var HashManager = function(data){
             return result.join('&');
         }
 
-        console.log(data);
 
         var viewhash    = data.view || 'front';
         var face        = false;
@@ -236,7 +235,7 @@ var Map = function(data) {
     }
 
     this.zoom = function() {
-        return global.zoom;
+        return Boolean(global.zoom);
     }
 
 
@@ -491,7 +490,6 @@ var FittingRoom = function(data){
 
     this.main_image_width  = ko.observable(global.image.w);
     this.main_image_height = ko.observable(global.image.h);
-    console.log(this.main_image_width());
 
     this.view = ko.observable();// front, back or other
 
@@ -625,8 +623,9 @@ var FittingRoom = function(data){
         if (!this.zoom()) { return false };
         var w_koef = (data.zoom_width - data.image_width)/data.image_width;
         var h_koef = (data.zoom_height - data.image_height)/data.image_height;
-        $(this.main_image_selector).css('left', (- e.layerX)*w_koef + 'px');
-        $(this.main_image_selector).css('top',  (- e.layerY)*h_koef + 'px');
+
+        $(this.main_image_selector).css('left', -(e.layerX||e.offsetX)*w_koef + 'px');
+        $(this.main_image_selector).css('top',  -(e.layerY||e.offsetY)*h_koef + 'px');
     }
 
     this.zoomPlus = function(e) {
@@ -676,10 +675,11 @@ var FittingRoom = function(data){
     });
 
     this.setData = function(data){
+        this.zoom(data.zoom);
+        global.zoom = Boolean(this.zoom());
         this.main_image(data.imposition_url);
         this.view(data.view || "front");
         this.addMaps(data.objects);
-        this.zoom(global.zoom);
 
         //if (global.zoom) { 
             //this.main_image_height(data.zoom_height) 
@@ -809,6 +809,7 @@ var FittingRoom = function(data){
     this.zoom = ko.observable(data.zoom || false);
 
     this.zoomToggle = function(){
+        if (global.blocking) { return false };
         this.zoom(!this.zoom());
         $(window).trigger('sendToServer', {action: 'zoom_toggle'});
     }
@@ -835,6 +836,9 @@ var FittingRoom = function(data){
     this.setRandom = function(){
         this.dataSender({}, 'get_random');
     }
+
+    $(window).bind('fitting:loading', function() { global.blocking = true; });
+    $(window).bind('fitting:loaded',  function() { global.blocking = false })
      
     ko.applyBindings(this, $(this.fitting_room_binding).get(0))
 }
