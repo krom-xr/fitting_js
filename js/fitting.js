@@ -5,7 +5,6 @@ var global = {
     additional_data: false, 
     zoom: false,
     image: {w:'', h:''},
-    blocking: false,
 }
 
 //Добавляет функциональность отправки данных на сервер
@@ -32,7 +31,7 @@ var DataSenderMixin = function(){
                 $(window).trigger('newDataAdded', data);
             },
             error: function(xhr, ajaxOptions, throwStatus){
-                alert('произошла неизвестная ошибка');
+                $(window).trigger('fittin:error', {type: 'load_error', text: 'произошла неизвестная ошибка'});
             }, 
         });    
     }
@@ -460,9 +459,9 @@ var SaveForm = function(data) {
 }
 
 // главный объект. отвечает за общение с сервером и отрисовку себя и своих дочерних элементов
-var FittingRoom = function(data){
+var FittingRoom = function(data) {
     // задает глобальные данные
-    var setGlobal = function(data){
+    var setGlobal = function(data) {
         global['SITE_PATH'] = data.SITE_PATH;
         global['AJAX_PATH'] = data.AJAX_PATH;
         global['preloader_selector'] = data.preloader_selector;
@@ -667,7 +666,7 @@ var FittingRoom = function(data){
     // отрисовываем полученные данные
     $(window).bind('newDataAdded', function(e, data){
         if (typeof data.error != 'undefined') { 
-            alert(data.error);
+            $(window).trigger('fitting:error', {type: 'data_error', text: data.error});
             return false;
         }
         it.maps([]);
@@ -771,7 +770,7 @@ var FittingRoom = function(data){
         }
 
         // список объектов который мы будем отдавать серверу
-        $.each(it.maps.reverse(), function(i, map) {
+        $.each(ko.observableArray(it.maps()).reverse(), function(i, map) {
             json['objects'].push({
                 id: map.id,
                 type: map.type,
@@ -809,7 +808,6 @@ var FittingRoom = function(data){
     this.zoom = ko.observable(data.zoom || false);
 
     this.zoomToggle = function(){
-        if (global.blocking) { return false };
         this.zoom(!this.zoom());
         $(window).trigger('sendToServer', {action: 'zoom_toggle'});
     }
@@ -837,8 +835,13 @@ var FittingRoom = function(data){
         this.dataSender({}, 'get_random');
     }
 
-    $(window).bind('fitting:loading', function() { global.blocking = true; });
-    $(window).bind('fitting:loaded',  function() { global.blocking = false })
+    $(window).bind('fitting:loading', function() {
+        $(it.data.preloader_selector).show();
+    });
+
+    $(window).bind('fitting:loaded', function() {
+        $(it.data.preloader_selector).hide();
+    });
      
     ko.applyBindings(this, $(this.fitting_room_binding).get(0))
 }

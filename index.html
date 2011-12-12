@@ -178,7 +178,7 @@
                 blackout_selector: '#blackout',
                 blackout_color: 'green', // цвет затемнения
 
-                use_blur: true, // использовать размытие
+                use_blur: false, // использовать размытие
                 blur_amount: 0.1, // сила размытия
 
                 preloader_selector: "#preloader",
@@ -201,11 +201,6 @@
 
 </head> 
 <body>
-
-    <!--прелоадер-->
-    <div id="preloader">
-        <img src="img/preloader.png" alt="" />
-    </div>
 
     <!--информация об объекте, а так же варианты объектов-->
     <section class="dressed-popup" id="item_info" 
@@ -578,9 +573,13 @@
                     <section id="Viewer">
                         <!--основной объект с данными-->
                         <div class="result_image" data-bind="
-                            style: {width: data.image_width + 'px', height: data.image_height + 'px'},
-                            "
-                            >
+                            style: {width: data.image_width + 'px', height: data.image_height + 'px'},">
+
+                            <!--прелоадер-->
+                            <div id="preloader">
+                                <img src="img/preloader.png" alt="" />
+                            </div>
+
 
                             <a href="#" class="zoom" title="Масштабирование" data-bind="click: zoomToggle, css: {active: zoom()}"></a>
                             <a href="#" class="rotate" title="Вращать" data-bind="click: toggleView"></a>
