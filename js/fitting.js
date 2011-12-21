@@ -31,7 +31,7 @@ var DataSenderMixin = function(){
                 $(window).trigger('newDataAdded', data);
             },
             error: function(xhr, ajaxOptions, throwStatus){
-                $(window).trigger('fittin:error', {type: 'load_error', text: 'произошла неизвестная ошибка'});
+                $(window).trigger('fitting:error', {type: 'load_error', text: 'произошла неизвестная ошибка'});
             }, 
         });    
     }
@@ -321,8 +321,8 @@ var Map = function(data) {
     this.showTitle = function(e){
         //if (this.type == 'Body' || this.type == 'Face') { return false };
         if(!this.show_title()){ return false };
-        var x = e.layerX || e.offsetX;
-        var y = e.layerY || e.offsetY;
+        var x =  e.offsetX || e.originalEvent.layerX;
+        var y =  e.offsetY || e.originalEvent.layerY;
         this.titleX(x + 5 + 'px');
         this.titleY(y + 5 + 'px');
     }
@@ -623,8 +623,10 @@ var FittingRoom = function(data) {
         var w_koef = (data.zoom_width - data.image_width)/data.image_width;
         var h_koef = (data.zoom_height - data.image_height)/data.image_height;
 
-        $(this.main_image_selector).css('left', -(e.layerX||e.offsetX)*w_koef + 'px');
-        $(this.main_image_selector).css('top',  -(e.layerY||e.offsetY)*h_koef + 'px');
+        var left = (e.offsetX || e.originalEvent.layerX)*w_koef;
+        var top =  (e.offsetY || e.originalEvent.layerY)*h_koef;
+        $(this.main_image_selector).css('left', - left + 'px');
+        $(this.main_image_selector).css('top',  - top  + 'px');
     }
 
     this.zoomPlus = function(e) {
