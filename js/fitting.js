@@ -344,6 +344,7 @@ var Map = function(data) {
 
     // показать контур, убрать контур
     this.togglePhoto = function(e){
+        if (global.zoom) { return false };
         if (this.type != 'Body' && this.type != "Face" ) {
             this.show_title(!this.show_title());
         }

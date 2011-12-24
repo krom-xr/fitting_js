@@ -573,7 +573,9 @@
                     <section id="Viewer">
                         <!--основной объект с данными-->
                         <div class="result_image" data-bind="
-                            style: {width: data.image_width + 'px', height: data.image_height + 'px'},">
+                            style: {width: data.image_width + 'px', height: data.image_height + 'px'},
+                            event: {mousemove: moveZoom, mouseover: zoomPlus, mouseleave: zoomMinus}
+                            ">
 
                             <!--прелоадер-->
                             <div id="preloader">
@@ -587,19 +589,17 @@
 
                             <img src="img/transparent.png" width="100%" height="100%" 
                                 usemap="#map" id="main_transparent_shell"
-                                data-bind="event: {mousemove: moveZoom, mouseover: zoomPlus, mouseleave: zoomMinus}"
+                                data-bind=""
                             />
 
                             <!--здесь image map - ы-->
                             <map  name="map" data-bind="template: {name: 'map_list', foreach:maps}">
                                 <script id="map_list" type="text/x-jquery-tmpl">
-                                    {{if zoom()!=true}}
                                         {{each $item.data.image_maps }}
                                             <area shape="poly" coords="${$value}"
                                                 data-bind="click: itemInfo, 
                                                 event: {mouseover: togglePhoto , mouseout: togglePhoto, mousemove: showTitle}"/>
                                         {{/each}}
-                                    {{/if}}
                                 </script> 
                             </map>
 
