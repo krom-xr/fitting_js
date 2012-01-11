@@ -624,10 +624,16 @@ var FittingRoom = function(data) {
         var w_koef = (data.zoom_width - data.image_width)/data.image_width;
         var h_koef = (data.zoom_height - data.image_height)/data.image_height;
 
-        var left = (e.offsetX || e.originalEvent.layerX)*w_koef;
-        var top =  (e.offsetY || e.originalEvent.layerY)*h_koef;
+        var left = Math.abs(($(e.currentTarget).offset().left - e.pageX)*w_koef);
+        var top = Math.abs(($(e.currentTarget).offset().top - e.pageY)*w_koef);
+        //var left = (e.originalEvent.layerX || e.offsetX)*w_koef;
+        //var top =  (e.originalEvent.layerY || e.offsetY)*h_koef;
+
         $(this.main_image_selector).css('left', - left + 'px');
         $(this.main_image_selector).css('top',  - top  + 'px');
+        console.log($(e.currentTarget).offset().left);
+        console.log(e.screenX);
+        console.log(e.offsetX);
     }
 
     this.zoomPlus = function(e) {
