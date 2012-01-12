@@ -596,7 +596,7 @@
                             <map  name="map" data-bind="template: {name: 'map_list', foreach:maps}">
                                 <script id="map_list" type="text/x-jquery-tmpl">
                                         {{each $item.data.image_maps }}
-                                            <area shape="poly" coords="${$value}"
+                                            <area shape="poly" coords="${$value}" href=" "
                                                 data-bind="click: itemInfo, 
                                                 event: {mouseover: togglePhoto , mouseout: togglePhoto, mousemove: showTitle}"/>
                                         {{/each}}
