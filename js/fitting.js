@@ -631,9 +631,6 @@ var FittingRoom = function(data) {
 
         $(this.main_image_selector).css('left', - left + 'px');
         $(this.main_image_selector).css('top',  - top  + 'px');
-        console.log($(e.currentTarget).offset().left);
-        console.log(e.screenX);
-        console.log(e.offsetX);
     }
 
     this.zoomPlus = function(e) {
